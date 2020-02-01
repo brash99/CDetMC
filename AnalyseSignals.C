@@ -4,6 +4,11 @@
 #include "TStyle.h"
 #include "TMath.h"
 #include "TRandom3.h"
+#include "TTree.h"
+#include "TFile.h"
+#include "TCanvas.h"
+#include "TH2.h"
+#include "TProfile.h"
 
 #include <iostream>
 
