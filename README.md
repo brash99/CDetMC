@@ -21,9 +21,9 @@ AnaBarMC macros/batch.mac
 
 -To Run Simulation-
 
->Go into /CDetOptical/batch directory and type: "root generate_80.C" to create the primary particle rootfiles that are then store in /CDetOptical/batch/data
+>Go into ~/CDetOptical/batch directory and type: "root generate_80.C" to create the primary particle rootfiles that are then store in ~/CDetOptical/batch/data
                                                                                   
->Type: "./sendjobs.sh runlist80" to send the primary particle rootfiles that are   listed in the according runlist file that is sent as an argumant. The output data will be stored in /CDetOptical/data
+>Type: "./sendjobs.sh runlist80" to send the primary particle rootfiles that are   listed in the according runlist file that is sent as an argumant. The output data will be stored in ~/CDetOptical/data
                                                                                   
 -Changing the Primary Particle-
 
@@ -33,7 +33,7 @@ AnaBarMC macros/batch.mac
 
 -Detector Position and Coordinate Allignment-
 
->X: Length of detector (~40cm for bar(y= to y=) and ~10cm for trigger paddle(y=-5cm to y=5cm)) 
+>X: Length of detector (~50cm for bar(y= to y=) and ~10cm for trigger paddle(y=-5cm to y=5cm)) 
 
 >Y: Height/Thickness of detector (particles are generated @y=5cm, the Trigger Paddle exitsts from y=4cm to y=3cm, and the bar exists from y=2cm to y=-2cm) 
 
