@@ -494,7 +494,7 @@ TCanvas *plotC5 (){
   // canvas c5
   TH1F *hAnaBarX = new TH1F("AnaBarX","AnaBar X Position", 100, -120, 120);
   TH1F *hAnaBarY = new TH1F("AnaBarY","AnaBar Y Position", 100, -30, 30);
-  TH1F *hAnaBarZ = new TH1F("AnaBarZ","AnaBar Z Position", 100, -30, 30);
+  TH1F *hAnaBarZ = new TH1F("AnaBarZ","AnaBar Z Position", 100, -100, 30);
   TH1F *hAnaBarT = new TH1F("AnaBarT","AnaBar Time", 100, 0, .4);
 
   //-------------------------------------------------------------------
@@ -552,7 +552,7 @@ TCanvas *plotC5 (){
 	if (trigger) {
 		
 		counter++; // unused
-		if (Detector_id[j] == 1 + Detector_Offset && Detector_pdg[j] == PrimaryParticleID) {
+		if ((Detector_id[j] >= 1 + Detector_Offset) && (Detector_id[j] <= 14 + Detector_Offset) && Detector_pdg[j] == PrimaryParticleID) {
         		hAnaBarX->Fill(Detector_x[j]);
         		hAnaBarY->Fill(Detector_y[j]);
         		hAnaBarZ->Fill(Detector_z[j]);
