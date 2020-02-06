@@ -39,7 +39,7 @@ Detector Position and Coordinate Allignment
 
 >Z: Width of detector (depends on #bars, 14 paddles per bar @ 0.5cm per bar) Goes from z=0 to z=-8cm for one bar (14 paddles @ 0.5cm per paddle plus some extra for the thicckness of mylar sheets between each paddle) 
 
-Looking at Data
+Looking at Data via ROOT
 
 >Open TBrowser and look at TTree sets
 
