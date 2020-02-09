@@ -49,7 +49,7 @@
 using namespace CLHEP;
 
 //---------------------------------------------------------------------------
-DetectorConstruction::BarConstruction(){
+G4VPhysicalVolume* DetectorConstruction::BarConstruction(G4Material* Pscint, G4LogicalVolume* expHall_log, G4Material* Glass ){
   
   //------------------------------------------------------------
   // Taken from DetectorConstruction()
@@ -159,7 +159,7 @@ DetectorConstruction::BarConstruction(){
 
 }
 
-DetectorConstruction::FingerConstruction(){
+G4VPhysicalVolume* DetectorConstruction::FingerConstruction(G4Material* Pscint, G4LogicalVolume* expHall_log, G4Material* Glass){
   //------------------------------------------------------------
   //   Taken from DetectorConstruction()
   //------------------------------------------------------------
@@ -177,6 +177,18 @@ DetectorConstruction::FingerConstruction(){
   //  Taken from Construct() 
   //------------------------------------------------------------
   //----------------- Create Mylar surrounding Finger PMT  ----------------------
+
+  G4OpticalSurface* mylarSurface = new G4OpticalSurface("MylarSurface",glisur, ground, dielectric_metal, 1.0);
+  G4MaterialPropertiesTable* mylarSurfaceProperty = new G4MaterialPropertiesTable();
+  G4double p_mylar[] = {2.00*eV, 3.47*eV};
+  const G4int nybins = sizeof(p_mylar)/sizeof(G4double);
+  G4double refl_mylar[] = {0.9, 0.9};
+  assert (sizeof(refl_mylar) == sizeof(p_mylar));
+  G4double effi_mylar[] = {0, 0};
+  assert (sizeof(effi_mylar) == sizeof(p_mylar));
+  mylarSurfaceProperty->AddProperty("REFLECTIVITY",p_mylar,refl_mylar,nybins);
+  mylarSurfaceProperty->AddProperty("EFFICIENCY",p_mylar,effi_mylar,nybins);
+  mylarSurface -> SetMaterialPropertiesTable(mylarSurfaceProperty);
 
   G4VSolid* solidMylarFinger = new G4Box("MylarFinger",fFingerLength/2.0*cm,fMylarThickness/2.0*cm,fFingerWidth/2.0*cm);
   G4LogicalVolume* logicMylarFinger = new G4LogicalVolume(solidMylarFinger,FindMaterial("G4_Al"), "MylarFinger");
@@ -259,13 +271,6 @@ DetectorConstruction::~DetectorConstruction()
 
 //---------------------------------------------------------------------------
 
-//---------------------------------------------------------------------------
-// Creats a Bar Object that will allow for multiple bars to be placed
-//---------------------------------------------------------------------------
-DetectorConstruction::CreateAnaBarWithPMTAndMylar(){
-	
-	
-}
 
 G4VPhysicalVolume* DetectorConstruction::Construct()
 { 
@@ -389,12 +394,12 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //---------------------------------------------------------------------------
   // Create Bars
   //---------------------------------------------------------------------------
-  BarConstruction();
+  G4VPhysicalVolume bar = new BarConstruction(*Pscint, *expHall_log, *Glass);
   
   //---------------------------------------------------------------------------
   // Create Finger Paddles
   //---------------------------------------------------------------------------
-  FingerConstruction()
+  G4VPhysicalVolume finger = new FingerConstruction(*Pscint, *expHall_log, *Glass)
 
   //---------------------------------------------------------------------------
   // Create Optical Surface
