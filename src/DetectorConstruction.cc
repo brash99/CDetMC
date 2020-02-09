@@ -49,7 +49,7 @@
 using namespace CLHEP;
 
 //---------------------------------------------------------------------------
-DetectorConstruction::BarConstruction(BarNumber, BarXOffset, BarYOffset, BarZOffset){
+DetectorConstruction::BarConstruction(){
   
   //------------------------------------------------------------
   // Taken from DetectorConstruction()
@@ -159,7 +159,7 @@ DetectorConstruction::BarConstruction(BarNumber, BarXOffset, BarYOffset, BarZOff
 
 }
 
-DetectorConstruction::FingerConstruction(FingerNumber, FingerXOffset, FingerYOffset, FingerZOffset){
+DetectorConstruction::FingerConstruction(){
   //------------------------------------------------------------
   //   Taken from DetectorConstruction()
   //------------------------------------------------------------

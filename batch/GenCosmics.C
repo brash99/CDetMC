@@ -179,9 +179,12 @@ void GenerateOneElectron()
   fPDGCode = 11;
 
   // Generate vertex position in cm 
-  fVx = fRand->Uniform(-4.5 , 4.5 );
+  //fVx = fRand->Uniform(-4.5 , 4.5 );
+  //fVy = 5.0;
+  //fVz = fRand->Uniform( -9.5 , 2.5 );
+  fVx = fRand->Uniform(-10.0 , 10.0 );
   fVy = 5.0;
-  fVz = fRand->Uniform( -9.5 , 2.5 );
+  fVz = fRand->Uniform( -12 , 2.5 );
 
   // Sample Momentum Distribution (flat top from min to max)
   fP = 1000. * fMomFlatDist->GetRandom();
