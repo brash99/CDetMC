@@ -394,8 +394,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //---------------------------------------------------------------------------
   // Create Bars
   //---------------------------------------------------------------------------
-  G4VPhysicalVolume bar = new BarConstruction(*Pscint, *expHall_log, *Glass);
-  
+  nBars = 1;
+  for(G4int iBar = 0; iBar < nBars; iBar++){
+	  G4VPhysicalVolume bar = new BarConstruction(*Pscint, *expHall_log, *Glass);
+  }
   //---------------------------------------------------------------------------
   // Create Finger Paddles
   //---------------------------------------------------------------------------
