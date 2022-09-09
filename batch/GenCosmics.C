@@ -171,3 +171,30 @@ void GenerateOneMuon()
 }
 
 // ------------------------------------------------------------------------------------------------
+void GenerateOneElectron()
+{
+  fPDGCode = 11;
+
+  // Generate vertex position in cm 
+  //fVx = fRand->Uniform(-4.5 , 4.5 );
+  //fVy = 5.0;
+  //fVz = fRand->Uniform( -9.5 , 2.5 );
+  fVx = fRand->Uniform(-10.0 , 10.0 );
+  fVy = 5.0;
+  fVz = fRand->Uniform( -12 , 2.5 );
+
+  // Sample Momentum Distribution (flat top from min to max)
+  fP = 1000. * fMomFlatDist->GetRandom();
+
+  // Sample Angular Distributions (cos^2(theta) and flat phi)
+  Float_t th = fThetaDist->GetRandom();
+  Float_t ph = fPhiDist->GetRandom();
+  
+  // Setting fPx and fPz to be 0 to cause a perpendicular entrance angle
+  fPx        = 0; //fP * TMath::Sin(th) * TMath::Cos(ph);
+  fPz        = 0; //fP * TMath::Sin(th) * TMath::Sin(ph);
+  fPy        = fP * TMath::Cos(th);
+  fM         = fPDG->GetParticle( fPDGCode )->Mass() * 1000;
+  // multiplied by 2 because want between 1 and 7 GeV but flat top is set for .5 to 3.5 Mev
+  fE         = 2*TMath::Sqrt( (fP*fP + fM*fM) );
+}
