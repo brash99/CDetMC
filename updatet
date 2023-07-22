@@ -1,4 +1,0 @@
-#!/bin/sh
-echo "Branch: cdet_batch_timing"
-git commit -am "Updates"
-git push origin cdet_batch_timing
