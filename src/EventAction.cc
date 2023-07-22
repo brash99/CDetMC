@@ -112,6 +112,8 @@ void EventAction::EndOfEventAction(const G4Event* evt)
 	//fAnaManager->SetPMTKE( hit2 );
         //std::cout << "Point 3" << std::endl;
 	fAnaManager->SetPhotonCount( (G4int) hit2->GetPMTNumber(), (G4int) hit2->GetPhotonCount() );
+	fAnaManager->SetPhotonTime( (G4int) hit2->GetPMTNumber(), (G4double) hit2->GetPMTTime() );
+        //std::cout << j << " " << hit2->GetPMTNumber() << " "  << hit2->GetPhotonCount() << " "  << hit2->GetPMTTime() << std::endl; 
         //std::cout << "Point 4" << std::endl;
 	fAnaManager->SetPMTNumber( (G4int) hit2->GetPMTNumber() );
         //std::cout << "Point 5" << std::endl;
@@ -131,6 +133,9 @@ void EventAction::EndOfEventAction(const G4Event* evt)
   if( det_hits != 0 ) {
     fAnaManager->SetPrimaryDirection ( (G4ThreeVector)fPGA->GetDirection() );
     fAnaManager->SetPrimaryEnergy    ( (G4double)fPGA->GetEnergy() );
+    fAnaManager->SetPrimaryX    ( (G4double)fPGA->GetX() );
+    fAnaManager->SetPrimaryY    ( (G4double)fPGA->GetY() );
+    fAnaManager->SetPrimaryZ    ( (G4double)fPGA->GetZ() );
     fAnaManager->SetPrimaryTime      ( (G4double)fPGA->GetTime() );
     fAnaManager->SetPrimaryPDef      ( (G4ParticleDefinition*)fPGA->GetPrimPDef() );
     

@@ -58,9 +58,14 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
   if(aStep->GetTrack()->GetDefinition() 
      != G4OpticalPhoton::OpticalPhotonDefinition()) return false;
  
-  //std::cout << "Getting PMT number .... " << std::endl;
+  //std::cout << "Getting PMT number and time .... " << std::endl;
   G4int pmtNumber= aStep->GetPostStepPoint()->GetTouchable()
     ->GetVolume()->GetCopyNo();
+  //std::cout << pmtNumber << std::endl;
+
+  G4double pmtTime= aStep->GetPostStepPoint()->GetGlobalTime();
+  //std::cout << pmtTime << std::endl;
+
   
   // Try to get kinetic energy
   G4Track* theTrack = aStep->GetTrack();
@@ -78,6 +83,7 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
     //std::cout << "First PMT hit ... pmtNumber = " << pmtNumber << " energy = " << energy << std::endl; 
     PMTHit* OpHit = new PMTHit;
     OpHit->SetPMTNumber(pmtNumber);
+    OpHit->SetPMTTime(pmtTime);
     //OpHit->SetPMTKineticEnergy(0,energy);
     OpHit->IncPhotonCount();
 
@@ -88,7 +94,12 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
   // this is not a new hit
     (*fCollection)[fhitID[pmtNumber]]->IncPhotonCount();
     G4int current_hit_number = (*fCollection)[fhitID[pmtNumber]]->GetPhotonCount();
-    //std::cout << "Not a new hit ... pmtNumber = " << pmtNumber << " hitNumber = " << current_hit_number << " energy = " << energy << std::endl; 
+
+    G4double current_time = (*fCollection)[fhitID[pmtNumber]]->GetPMTTime();
+    G4double new_time = (current_time*(current_hit_number-1)+pmtTime)/current_hit_number;
+    (*fCollection)[fhitID[pmtNumber]]->SetPMTTime(new_time);
+
+    //std::cout << "Not a new hit ... pmtNumber = " << pmtNumber << " hitNumber = " << current_hit_number << " old_time = " << current_time << " new_time " << new_time << std::endl; 
     //(*fCollection)[fhitID[pmtNumber]]->SetPMTKineticEnergy(current_hit_number-1,energy);
     //std::cout << "Returning from PMTSD::ProcessHits_constStep" << std::endl; 
   return true;

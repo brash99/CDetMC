@@ -46,6 +46,9 @@ void AnalysisManager::InitOutput()
 //std::cout<<"Tree has been created"<<std::endl;
   // Set Primary Branches
   fROOTtree->Branch("Prim_E",      &fPEne,   "Prim_E/F"      );
+  fROOTtree->Branch("Prim_X",      &fXvtx,   "Prim_X/F"      );
+  fROOTtree->Branch("Prim_Y",      &fYvtx,   "Prim_Y/F"      );
+  fROOTtree->Branch("Prim_Z",      &fZvtx,   "Prim_Z/F"      );
   fROOTtree->Branch("Prim_Th",     &fPth,    "Prim_Th/F"     );
   fROOTtree->Branch("Prim_Ph",     &fPph,    "Prim_Ph/F"     );
   fROOTtree->Branch("Prim_pdg",    &fPpdg,   "Prim_pdg/I"    );
@@ -53,6 +56,7 @@ void AnalysisManager::InitOutput()
   // Set PMT Hit Branches
   fROOTtree->Branch("PMT_id",     &fPMTNo,     "PMT_id/I" );  
   fROOTtree->Branch("PMT_Nphotons",  fNphotons,  "PMT_Nphotons[50000]/I" );  
+  fROOTtree->Branch("PMT_Time",  fPMTTime,  "PMT_Time[50000]/F" );  
   //fROOTtree->Branch("PMT_KineticEnergy",  fPMTKineticEnergy,  "PMT_KineticEnergy[50000][1000]/F" );  
 
   // Set Raw Detector Step Hit Branches
@@ -75,6 +79,9 @@ void AnalysisManager::ZeroArray()
   // Primary
   G4ThreeVector zero(0.,0.,0.);
   fPEne   = 9999;
+  fXvtx   = 9999;
+  fYvtx   = 9999;
+  fZvtx   = 9999;
   fPdir   = (zero);
   fPth    = 9999;
   fPph    = 9999;
@@ -86,6 +93,7 @@ void AnalysisManager::ZeroArray()
   fPMTNo    = -1;
   for ( Int_t i = 0; i < fMaxPMTNo; i++) {
 	fNphotons[i]=0;
+	fPMTTime[i]=0;
  	//for (Int_t j = 0; j < fMaxPMTHits; j++) {
 	//	fPMTKineticEnergy[i][j] = 0;
 	//}	
@@ -162,6 +170,9 @@ void AnalysisManager::FillTree()
   fPth    = (Float_t)fPdir.getTheta();                         
   fPph    = (Float_t)fPdir.getPhi();                                                      
   fPEne   = (Float_t)fPEne;                         
+  fXvtx   = (Float_t)fXvtx;                         
+  fYvtx   = (Float_t)fYvtx;                         
+  fZvtx   = (Float_t)fZvtx;                         
   fPpdg   = (Int_t)  fPPDef->GetPDGEncoding();
 
   fROOTtree->Fill();

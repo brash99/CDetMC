@@ -83,9 +83,11 @@ void GenParticles( int fPDGCode = 13, int nevents = 100,
 
   // Initialize input
   TString inname;
-  inname.Form("~/CDetOptical/macros/gep_12Gev1000.root");
+  inname.Form("~/CDetOptical/macros/gep_12Gev1mil.root");
   fInFileName = inname;
-  InitInput();
+  if (fPDGCode == -1) {
+	InitInput();
+  }
   
   // Initialise output
   TString fname;
@@ -120,6 +122,7 @@ void GenParticles( int fPDGCode = 13, int nevents = 100,
       nTotal++;
       
       if (fPDGCode == -1 ) {
+	std::cout << "SBS" << std::endl;
         GenerateOneSBSParticle(i,run_number,nevents);
       } else {
               if (fPDGCode == -2) {
@@ -193,14 +196,17 @@ void InitInput()
 void GenerateOneSBSParticle(int iEvent, int runNumber, int nEvents)
 {
 	int eventOffset = runNumber%100*nEvents;
+	std::cout << eventOffset << " "  << iEvent << std::endl;
 
         tree1->GetEntry(eventOffset+iEvent);
 
-        double angle = 27.0/180.0*3.14159265;
+        double angle = 29.0/180.0*3.14159265;
+        double bbdist = 4.50;
+        double cdetdist = 4.0735;
 
         if (cdet_hit>0) {
                 fVx =        -(-(*zpos)[(*sdtrack_idx)[0]] * sin(angle) + (*xpos)[(*sdtrack_idx)[0]] * cos(angle))*100;
-                fVy =        -((*zpos)[(*sdtrack_idx)[0]] *cos(angle) + (*xpos)[(*sdtrack_idx)[0]] * sin(angle) - 4.0735)*100;
+                fVy =        -((*zpos)[(*sdtrack_idx)[0]] *cos(angle) + (*xpos)[(*sdtrack_idx)[0]] * sin(angle) - cdetdist)*100;
                 fVz =         -(*ypos)[(*sdtrack_idx)[0]]*100;
                 fPx =   -(-(*zmomentum)[(*sdtrack_idx)[0]] * sin(angle) + (*xmomentum)[(*sdtrack_idx)[0]] * cos(angle))*1000;
                 fPy =   -((*zmomentum)[(*sdtrack_idx)[0]] * cos(angle) + (*xmomentum)[(*sdtrack_idx)[0]] * sin(angle))*1000;
@@ -229,19 +235,31 @@ void GenerateOneToyParticle()
   double angle = 29.0*3.14159265/180.0;
 
   int module = int(fRand->Uniform(0.0,3.0))+1;
+  int topbottom = int(fRand->Uniform(0.0,2.0))+1;
+
   fVz = bbdist*100.0;
 
   if (module == 1) {
-	  fVx = -xsize/2.0+xsize*fRand->Uniform(0.0,1.0)-20.0;
-	  fVy = -ysize/2.0+ysize*fRand->Uniform(0.0,1.0)-ysize;
+	  if (topbottom == 1) {
+	  	fVx = -xsize/2.0+xsize*fRand->Uniform(0.0,1.0)-12.5;
+	  	fVy = -ysize/4.0+ysize/2.0*fRand->Uniform(0.0,1.0)-3.0*ysize/4.0;
+	  } else {
+	  	fVx = -xsize/2.0+xsize*fRand->Uniform(0.0,1.0)-19.5;
+	  	fVy = -ysize/4.0+ysize/2.0*fRand->Uniform(0.0,1.0)-5.0*ysize/4.0;
+	  }
   }
   if (module == 2) {
-	  fVx = -xsize/2.0+xsize*fRand->Uniform(0.0,1.0);
+	  fVx = -xsize/2.0+xsize*fRand->Uniform(0.0,1.0)-5.0;
 	  fVy = -ysize/2.0+ysize*fRand->Uniform(0.0,1.0);
   }
   if (module == 3) {
-	  fVx = -xsize/2.0+xsize*fRand->Uniform(0.0,1.0)-20.0;
-	  fVy = -ysize/2.0+ysize*fRand->Uniform(0.0,1.0)+ysize;
+	  if (topbottom == 1) {
+	  	fVx = -xsize/2.0+xsize*fRand->Uniform(0.0,1.0)-19.5;
+	  	fVy = -ysize/4.0+ysize/2.0*fRand->Uniform(0.0,1.0)+5.0*ysize/4.0;
+	  } else {
+	  	fVx = -xsize/2.0+xsize*fRand->Uniform(0.0,1.0)-12.5;
+	  	fVy = -ysize/4.0+ysize/2.0*fRand->Uniform(0.0,1.0)+3.0*ysize/4.0;
+	  }
   }
 
   // Vertex positions of Event 1 in 1000 event g4sbs sample (Angelo), for testing!

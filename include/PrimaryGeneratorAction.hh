@@ -40,6 +40,9 @@ public:
   G4ThreeVector GetVertex()           { return G4ThreeVector(fVx,  fVy,  fVz);  }
   G4ThreeVector GetDirection()        { return G4ThreeVector(fPxp, fPyp, fPzp); }
   G4double      GetEnergy()           { return fEp; }
+  G4double      GetX()           { return fVx; }
+  G4double      GetY()           { return fVy; }
+  G4double      GetZ()           { return fVz; }
   G4double      GetTime()             { return fTp; }
   G4ParticleDefinition* GetPrimPDef() { return fPDefinition; }
 

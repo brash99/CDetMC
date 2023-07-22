@@ -11,7 +11,7 @@ echo "/control/macroPath $MACRO_PATH"	 	                         >   $MCMACRO
 echo "/AnaBarMC/physics/addPhysics standard_opt3"                        >>   $MCMACRO
 echo "/AnaBarMC/physics/optical 1"	                                 >>  $MCMACRO
 echo "/AnaBarMC/physics/hadronic 1"	                                 >>  $MCMACRO
-echo "/AnaBarMC/detector/AnaBarXpos 25.00"	                         >>  $MCMACRO
+echo "/AnaBarMC/detector/AnaBarXpos 37.50"	                         >>  $MCMACRO
 echo "/AnaBarMC/detector/AnaBarYpos 0.00"	                         >>  $MCMACRO
 echo "/AnaBarMC/detector/AnaBarZpos 150.00"	                         >>  $MCMACRO
 echo "/AnaBarMC/detector/NumberOfLayers 14"	                         >>  $MCMACRO
