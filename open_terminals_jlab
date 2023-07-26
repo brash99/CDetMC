@@ -1,0 +1,5 @@
+#!/bin/bash
+xterm -geometry 70x23+30+30 -fg white -bg black -fa "Monospace" -fs 11 -e "ssh ifarm" &
+xterm -geometry 70x23+670+30 -fg white -bg black -fa "Monospace" -fs 11 -e "ssh ifarm" &
+xterm -geometry 70x23+30+490 -fg white -bg black -fa "Monospace" -fs 11 -e "ssh ifarm" &
+xterm -geometry 70x23+670+490 -fg white -bg black -fa "Monospace" -fs 11 -e "ssh ifarm" &
