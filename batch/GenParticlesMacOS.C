@@ -83,7 +83,7 @@ void GenParticlesMacOS( int fPDGCode = 13, int nevents = 100,
 
   // Initialize input
   TString inname;
-  inname.Form("~/CDetMC/macros/gep_12Gev1mil.root");
+  inname.Form("~/CDetMC/macros/gep_12Gev1000.root");
   fInFileName = inname;
   if (fPDGCode == -1) {
 	InitInput();
