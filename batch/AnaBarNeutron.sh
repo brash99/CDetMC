@@ -34,6 +34,7 @@ cd $tempdir
 source ~/.bashrc
 
 export PATH=$ROOTSYS/bin:$PATH
+hostname
 AnaBarMC $MCMACRO #>& /dev/null
 echo "****************** AnaBarMC Finished"
 
