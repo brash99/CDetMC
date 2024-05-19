@@ -34,8 +34,11 @@ cd $tempdir
 source ~/.bashrc
 
 export PATH=$ROOTSYS/bin:$PATH
+echo "****************** Executtion Host = "
+hostname
+echo "****************** AnaBarMC Starting ..."
 AnaBarMC $MCMACRO #>& /dev/null
-echo "****************** AnaBarMC Finished"
+echo "****************** AnaBarMC Finished!"
 
 cp    ${tempdir}/rootfiles/"AnaBarMC_$RUN_NUMBER.root"   ${OUTPUT_DIR}/
 rm -f ${tempdir}/rootfiles/"AnaBarMC_$RUN_NUMBER.root"
