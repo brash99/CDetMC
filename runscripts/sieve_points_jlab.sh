@@ -1,7 +1,7 @@
 #!/bin/bash
 ./AutomateJLab.sh 13 9001 9002 1000 -20.0 120.0
 ./AutomateJLab.sh 13 9003 9004 1000   0.0 120.0
-./AutomateJLab.sh 13 9004 9006 1000  20.0 120.0
+./AutomateJLab.sh 13 9005 9006 1000  20.0 120.0
 ./AutomateJLab.sh 13 9007 9008 1000  40.0 120.0
 ./AutomateJLab.sh 13 9009 9010 1000  60.0 120.0
 ./AutomateJLab.sh 13 9011 9012 1000 -30.0 80.0

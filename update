@@ -1,4 +1,4 @@
 #!/bin/sh
-echo "Branch: cdet_batch_timing"
+echo "Branch: cdet_batch_timing_jlab"
 git commit -am "Updates"
-git push origin cdet_batch_timing
+git push origin cdet_batch_timing_jlab
