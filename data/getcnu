@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export RUN_NUM=$1
+export command="scp brash@jlabdaq:~/CDetMC/data/AnaBarMC_"$RUN_NUM".root ."
+
+$command
