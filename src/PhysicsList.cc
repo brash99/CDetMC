@@ -27,7 +27,7 @@
 #include "G4ProcessManager.hh"
 #include "G4IonFluctuations.hh"
 #include "G4IonParametrisedLossModel.hh"
-#include "G4EmProcessOptions.hh"
+//#include "G4EmProcessOptions.hh"
 #include "G4OpticalPhysics.hh"
 #include "G4Threading.hh"
 #include "G4BosonConstructor.hh"
@@ -49,7 +49,7 @@
 #include "G4LossTableManager.hh"
 #include "G4EmSaturation.hh"
 
-#include "G4PhotoNuclearProcess.hh"
+//#include "G4PhotoNuclearProcess.hh"
 #include "G4CascadeInterface.hh"
 
 //---------------------------------------------------------------------------
@@ -232,11 +232,16 @@ void PhysicsList::SetCutForPositron(G4double cut)
 void PhysicsList::ConstructPhotoNuclear()
 {
   G4ProcessManager* pManager = G4Gamma::Gamma()->GetProcessManager();
-  G4PhotoNuclearProcess* process = new G4PhotoNuclearProcess();
-  G4CascadeInterface* bertini = new G4CascadeInterface();
-  bertini->SetMaxEnergy(10*GeV);
-  process->RegisterMe(bertini);
-  pManager->AddDiscreteProcess(process);
+  
+  //G4PhotoNuclearProcess* process = new G4PhotoNuclearProcess();
+  //G4CascadeInterface* bertini = new G4CascadeInterface();
+  //bertini->SetMaxEnergy(10*GeV);
+  //process->RegisterMe(bertini);
+
+  //G4HadronInelasticProcess* process = new G4HadronInelasticProcess("photonNuclear", G4Gamma::Definition());
+  //process->AddDataSet(new G4PhotoNuclearCrossSection());
+
+  //pManager->AddDiscreteProcess(process);
 }
 
 //---------------------------------------------------------------------------
@@ -248,7 +253,7 @@ void PhysicsList::ConstructOptical()
   cerenkovProcess->SetMaxBetaChangePerStep(10.0);
   cerenkovProcess->SetTrackSecondariesFirst(true);
   G4Scintillation* scintillationProcess = new G4Scintillation("Scintillation");
-  scintillationProcess->SetScintillationYieldFactor(1.);
+  //scintillationProcess->SetScintillationYieldFactor(1.);
   scintillationProcess->SetTrackSecondariesFirst(true);
   G4OpAbsorption* absorptionProcess = new G4OpAbsorption();
   G4OpRayleigh* rayleighScatteringProcess = new G4OpRayleigh();
@@ -266,7 +271,7 @@ void PhysicsList::ConstructOptical()
   }
 
   // geant 10.4.7
-  //auto theParticleIterator=GetParticleIterator();
+  auto theParticleIterator=GetParticleIterator();
   
   theParticleIterator->reset();
 
