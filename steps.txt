@@ -1,0 +1,37 @@
+    5  sudo yum update
+   12  sudo yum install epel-release
+   13  sudo dnf install root
+   18  sudo yum install root-genvector
+   63  export ROOTSYS=/usr
+   22  sudo yum install git
+   
+   24  git clone https://github.com/brash99/CDetMC.git
+   
+   27  tar -xvzf ~/Downloads/geant4-v11.2.1.tar.gz 
+   28  mkdir g4build
+   29  mkdir g4install
+   30  cd g4build/
+   32  sudo yum install cmake
+   37  cmake -DCMAKE_INSTALL_PREFIX=~/g4install ~/geant4-v11.2.1
+   38  cmake -DGEANT4_INSTALL_DATA=ON .
+   39  cmake -DCMAKE_INSTALL_PREFIX=~/g4install ~/geant4-v11.2.1
+   40  make
+   41  make install
+   44  vi .bashrc
+   45  source .bashrc 
+   46  env | grep G4
+   47  cd
+   48  cd CDetMC/
+   53  git checkout cdet_batch_timing_jlabfarm
+   56  cp src/DetectorConstruction.cc.11 src/DetectorConstruction.cc
+   57  cp src/WLSMaterials.cc.11 src/WLSMaterials.cc
+   58  cp src/PhysicsList.cc.11 src/PhysicsList.cc
+   60  make
+   69  cd runscripts/
+   72  ./AutomateUbuntu.sh 13 9061 9061 100 0.0 0.0
+   92  sudo dnf install root python3-root root-notebook
+   23  sudo yum -y install root\* python3 python3-pip python3-root python3-devel python3-jupyroot --skip-broken
+   93  cd ../analysis/
+   94  root --notebook or jupyter notebook
+  128  cp ~/Downloads/AnalyseSignalsRDataFrameNoKE.py .
+  136  python3 AnalyseSignalsRDataFrameNoKE.py
