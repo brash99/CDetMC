@@ -67,7 +67,7 @@ int main(int argc, char** argv)
 	G4String commandr = "/run/beamOn ";
 	G4int nev = pga->GetNEvents();
 	char snev[50];
-	sprintf( snev, "%d",nev );
+	snprintf(snev, 50, "%d", nev);
 	UI->ApplyCommand(commandr+snev);
       }
     }
