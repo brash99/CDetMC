@@ -70,7 +70,7 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
 
   
   // Try to get kinetic energy
-  G4Track* theTrack = aStep->GetTrack();
+  //G4Track* theTrack = aStep->GetTrack();
   //G4double energy=theTrack->GetKineticEnergy()*1.0E6;
   //std::cout << "PMT No. = " << pmtNumber << ", Photon kinetic energy = " << energy << std::endl;
 
@@ -95,7 +95,7 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
   //std::cout << "Accessing fhitID through fCollection... " << std::endl; 
   // this is not a new hit
     (*fCollection)[fhitID[pmtNumber]]->IncPhotonCount();
-    G4int current_hit_number = (*fCollection)[fhitID[pmtNumber]]->GetPhotonCount();
+    //G4int current_hit_number = (*fCollection)[fhitID[pmtNumber]]->GetPhotonCount();
 
     G4double current_time = (*fCollection)[fhitID[pmtNumber]]->GetPMTTime();
     //G4double new_time = (current_time*(current_hit_number-1)+pmtTime)/current_hit_number;

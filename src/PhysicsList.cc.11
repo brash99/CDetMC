@@ -231,7 +231,7 @@ void PhysicsList::SetCutForPositron(G4double cut)
 
 void PhysicsList::ConstructPhotoNuclear()
 {
-  G4ProcessManager* pManager = G4Gamma::Gamma()->GetProcessManager();
+  //G4ProcessManager* pManager = G4Gamma::Gamma()->GetProcessManager();
   
   //G4PhotoNuclearProcess* process = new G4PhotoNuclearProcess();
   //G4CascadeInterface* bertini = new G4CascadeInterface();

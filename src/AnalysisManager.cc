@@ -58,9 +58,9 @@ AnalysisManager::~AnalysisManager()
 
 
   std::vector<TVectorD> x;
-  for (int i =0; i<geometryData.size(); i++) {
+  for (long unsigned int i=0; i<geometryData.size(); i++) {
       TVectorD y(geometryData[0].size());
-      for (int j=0; j<geometryData[0].size(); j++) {
+      for (long unsigned int j=0; j<geometryData[0].size(); j++) {
               //std::cout << geometryData[i][j] << " ";
               y[j]=geometryData[i][j];
       }
@@ -69,7 +69,7 @@ AnalysisManager::~AnalysisManager()
       x.push_back(y);
   }
 
-  for (int i =0; i<geometryData.size(); i++) {
+  for (long unsigned int i =0; i<geometryData.size(); i++) {
       myGeometryData->Add(&x[i]);
   }
 

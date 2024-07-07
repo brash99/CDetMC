@@ -444,7 +444,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
           temp.push_back(AnaBar_pos[1]);
           temp.push_back(AnaBar_pos[2]);
           geometry.push_back(temp);
-          for (int iii = 0; iii < temp.size(); iii++) {
+          for (long unsigned int iii = 0; iii < temp.size(); iii++) {
               std::cout << temp[iii] << " ";
           }
           std::cout << std::endl;
