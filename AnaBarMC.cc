@@ -5,6 +5,7 @@
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
 #include "G4UIterminal.hh"
+#include "G4UIExecutive.hh"
 #include "G4UItcsh.hh"
 
 #include "DetectorConstruction.hh"
@@ -15,14 +16,19 @@
 #include "AnalysisManager.hh"
 #include "G4TrajectoryDrawByParticleID.hh"
 
-#ifdef G4VIS_USE
+//#ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
-#endif
+//#endif
 
 //---------------------------------------------------------------------------
 
 int main(int argc, char** argv)
 {
+
+  G4UIExecutive* ui = nullptr;
+  if (argc == 1) {
+    ui = new G4UIExecutive(argc, argv);
+  }
 
   G4RunManager* runManager = new G4RunManager;
   PhysicsList*  phys       = new PhysicsList();
@@ -39,44 +45,26 @@ int main(int argc, char** argv)
   EventAction*            event      = new EventAction( anaManager, pga );
   runManager->SetUserAction(event);
 
-  G4UImanager * UI         = G4UImanager::GetUIpointer();
-  G4VisManager* visManager = 0;
+  G4VisManager* visManager = new G4VisExecutive;
+  visManager->Initialize();
 
-  if (argc==1)   // Define UI session for interactive mode.
-    {
-#ifdef G4VIS_USE
-      visManager = new G4VisExecutive;
-      visManager->Initialize();
+  G4UImanager* UIManager = G4UImanager::GetUIpointer();
 
-#endif
-      G4UIsession * session = 0;
-#ifdef G4UI_USE_TCSH
-      session = new G4UIterminal(new G4UItcsh);
-#else
-      session = new G4UIterminal();
-#endif
-      session->SessionStart();
-      delete session;
-    }
-  else           // Batch mode
-    {
-      G4String command = "/control/execute ";
-      G4String fileName = argv[1];
-      UI->ApplyCommand(command+fileName);
-      if( pga->GetMode()==EPGA_ROOT ) {
-	G4String commandr = "/run/beamOn ";
-	G4int nev = pga->GetNEvents();
-	char snev[50];
-	snprintf(snev, 50, "%d", nev);
-	UI->ApplyCommand(commandr+snev);
-      }
-    }
+  if (ui) {
+    UIManager->ApplyCommand("/control/execute vis.mac");
+    ui->SessionStart();
+    delete ui;
+  } else {
+    G4String command = "/control/execute ";
+    G4String fileName = argv[1];
+    UIManager->ApplyCommand(command+fileName);
+  }
 
-  if(visManager) delete visManager;
+  delete visManager;
   delete anaManager;
   delete runManager;
-
   return 0;
+
 }
 
 //---------------------------------------------------------------------------

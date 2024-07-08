@@ -20,7 +20,7 @@
 ##################################################################
 
 /vis/scene/create
-/vis/open VRML2FILE
+#/vis/open VRML2FILE
 /vis/scene/add/trajectories
 /vis/scene/endOfEventAction accumulate
 /vis/viewer/select viewer-0

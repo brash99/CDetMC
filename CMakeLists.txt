@@ -1,25 +1,58 @@
-cmake_minimum_required(VERSION 3.10)
+#----------------------------------------------------------------------------
+# Setup the project
+cmake_minimum_required(VERSION 3.16...3.21)
 project(AnaBarMC)
 
-# Set G4TARGET and G4EXLIB
-set(G4TARGET AnaBarMC)
-set(G4EXLIB true)
-
-# Check for G4INSTALL and set default value
-if(NOT DEFINED G4INSTALL)
-    set(G4INSTALL ../../..)
+#----------------------------------------------------------------------------
+# Find Geant4 package, activating all available UI and Vis drivers by default
+# You can set WITH_GEANT4_UIVIS to OFF via the command line or ccmake/cmake-gui
+# to build a batch mode only executable
+#
+option(WITH_GEANT4_UIVIS "Build example with Geant4 UI and Vis drivers" ON)
+if(WITH_GEANT4_UIVIS)
+  find_package(Geant4 REQUIRED ui_all vis_all)
+else()
+  find_package(Geant4 REQUIRED)
 endif()
 
-# Set C++ standard and compiler flags
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+#----------------------------------------------------------------------------
+# Setup Geant4 include directories and compile definitions
+#
+include(${Geant4_USE_FILE})
 
-# Define custom target for cleanup
-add_custom_target(cleanup
-        COMMAND rm -f g4*.prim g4*.eps g4*.wrl
-        COMMAND rm -f .DAWN_* *~ src/*~ include/*~ macros/*~
-        COMMAND rm -f *.so *.d
-        )
+#----------------------------------------------------------------------------
+# Locate sources and headers for this project
+#
+include_directories(${PROJECT_SOURCE_DIR}/include
+                    ${Geant4_INCLUDE_DIR})
+file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
+file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
+
+#----------------------------------------------------------------------------
+# Add the executable, and link it to the Geant4 libraries
+#
+add_executable(AnaBarMC AnaBarMC.cc ${sources} ${headers})
+target_link_libraries(AnaBarMC ${Geant4_LIBRARIES} )
+
+#----------------------------------------------------------------------------
+# Copy all scripts to the build directory, i.e. the directory in which we
+# build AnaBarMC. This is so that we can run the executable directly because it
+# relies on these scripts being in the current working directory.
+#
+set(AnaBarMC_SCRIPTS
+    macros/vis.mac
+    macros/DetectorSetup.mac
+    macros/batch.mac
+    macros/vis_single.mac
+  )
+
+foreach(_script ${AnaBarMC_SCRIPTS})
+  configure_file(
+    ${PROJECT_SOURCE_DIR}/${_script}
+    ${PROJECT_BINARY_DIR}/${_script}
+    COPYONLY
+    )
+endforeach()
 
 ########################### ROOT #################################
 
@@ -43,6 +76,15 @@ if(DEFINED ENV{ROOTSYS})
     endif()
 endif()
 
-# Add subdirectories for 'lib' and 'bin' (assumed in the original Makefile)
-add_subdirectory(lib)
-add_subdirectory(bin)
+# Define custom target for cleanup
+add_custom_target(cleanup
+        COMMAND rm -f g4*.prim g4*.eps g4*.wrl
+        COMMAND rm -f .DAWN_* *~ src/*~ include/*~ macros/*~
+        COMMAND rm -f *.so *.d
+        )
+
+#----------------------------------------------------------------------------
+# Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
+#
+install(TARGETS AnaBarMC DESTINATION bin)
+
