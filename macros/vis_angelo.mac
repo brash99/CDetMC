@@ -1,0 +1,47 @@
+#
+# Macro file for the initialization phase of "OpNovice2.cc"
+
+/opnovice2/bendAngle 0.001
+/opnovice2/bendRadius 97.49
+
+/opnovice2/boxProperty RINDEX 0.000002 1.52 0.000008 1.52
+/opnovice2/worldProperty RINDEX 0.000002 1.0 0.000008 1.0
+
+/run/initialize
+
+/vis/drawVolume
+/vis/viewer/zoom 1.5
+
+/gun/particle opticalphoton
+/gun/energy 2.6 eV
+/gun/position 0 0 6 cm
+
+/opnovice2/gun/randomDirection true
+/opnovice2/gun/optPhotonPolar
+
+/vis/scene/add/trajectories rich
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+# Draw hits at end of event:
+/vis/scene/add/hits
+
+#
+/vis/geometry/set/visibility World 0 False
+/vis/filtering/trajectories/create/encounteredVolumeFilter
+/vis/filtering/trajectories/encounteredVolumeFilter-0/add rect_mid
+
+# To superimpose all of the events from a given run:
+/vis/scene/endOfEventAction accumulate
+
+# Re-establish auto refreshing and verbosity:
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+
+/analysis/setFileName ./with_tuple.root
+/analysis/h1/set 26 100 1 10
+/analysis/h1/set 27 100 1 10
+
+/run/beamOn 5 
+/vis/scene/add/trajectories rich

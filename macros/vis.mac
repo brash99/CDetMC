@@ -19,14 +19,41 @@
 # Set visualisation options
 ##################################################################
 
-/vis/scene/create
-/vis/open VRML2FILE
-/vis/scene/add/trajectories
+#/vis/scene/create
+#/vis/open VRML2FILE
+#/vis/scene/add/trajectories
+#/vis/scene/endOfEventAction accumulate
+#/vis/viewer/select viewer-0
+#/vis/viewer/rebuild
+
+#/vis/open
+/vis/drawVolume
+/vis/viewer/zoom 20
+/vis/viewer/set/viewpointThetaPhi 70 20
+
+/vis/scene/add/trajectories rich
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+# Draw hits at end of event:
+/vis/scene/add/hits
+
+#
+/vis/geometry/set/visibility World 0 False
+#/vis/filtering/trajectories/create/encounteredVolumeFilter
+#/vis/filtering/trajectories/encounteredVolumeFilter-0/add rect_mid
+
+# To superimpose all of the events from a given run:
 /vis/scene/endOfEventAction accumulate
-/vis/viewer/select viewer-0
-/vis/viewer/rebuild
+
+# Re-establish auto refreshing and verbosity:
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
 
 ##################################################################
 
 /run/beamOn 1
+/vis/scene/add/trajectories rich
+/vis/viewer/refresh
 
