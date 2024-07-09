@@ -782,7 +782,6 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/new
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/optional
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/ostream
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/queue
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/ratio
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/regex
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/set
@@ -1114,8 +1113,6 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4LogicalVolume.icc
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4LorentzVector.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MCCIndexConversionTable.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MTBarrier.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MTRunManager.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Material.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MaterialCutsCouple.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MaterialPropertiesIndex.hh
@@ -1199,7 +1196,6 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Profiler.icc
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PseudoScene.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Qt3D.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RNGHelper.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RayTracer.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ReferenceCountedHandle.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Region.hh
@@ -1209,7 +1205,6 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ReplicaNavigation.icc
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RotationMatrix.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RunManager.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RunManagerFactory.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RunManagerKernel.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SandiaTable.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Scene.hh
@@ -1240,15 +1235,10 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SubEvent.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SubEventTrackStack.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SurfBits.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TBBTaskGroup.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4THitsCollection.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4THitsMap.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TaskGroup.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TaskManager.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TaskRunManager.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TessellatedSolid.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ThreadLocalSingleton.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ThreadPool.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Threading.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ThreeVector.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ToolsSGOffscreen.hh
@@ -1281,7 +1271,6 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TwoVector.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TypeKey.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Types.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIExecutive.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIbatch.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIcommand.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIcommandStatus.hh
@@ -1344,7 +1333,6 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserEventInformation.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserPhysicsList.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserPrimaryGeneratorAction.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserTaskQueue.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserTrackInformation.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VViewer.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VViewer.icc
@@ -1370,21 +1358,9 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4coutDestination.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ios.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/HepPolyhedron.h
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/AutoLock.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Config.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Globals.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/JoinFunction.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Task.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/TaskGroup.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/TaskManager.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/TaskRunManager.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/ThreadData.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/ThreadPool.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Threading.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Types.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Utility.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/VTask.hh
- /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/VUserTaskQueue.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/Randomize.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/evtdefs.hh
  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/geomdefs.hh
