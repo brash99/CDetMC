@@ -100,7 +100,7 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/Users/brash/CDetMC/CMakeFiles/pkgRedire
 CMAKE_INSTALL_NAME_TOOL:FILEPATH=/Users/brash/anaconda3/bin/install_name_tool
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=/Users/brash/geant4_workdir/bin/Darwin-clang
+CMAKE_INSTALL_PREFIX:PATH=/Users/brash/geant4_workdir
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld

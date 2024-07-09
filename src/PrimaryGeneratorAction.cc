@@ -17,7 +17,7 @@ using namespace CLHEP;
 //---------------------------------------------------------------------------
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
-
+  : G4VUserPrimaryGeneratorAction()
 {
   fGunMessenger       = new PrimaryGeneratorMessenger(this);
 
