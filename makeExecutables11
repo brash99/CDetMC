@@ -1,11 +1,12 @@
 #!/bin/sh
 
 rm -fr CMakeCache.txt CMakeFiles
-cmake -DCMAKE_INSTALL_PREFIX=/Users/brash/geant4_workdir -DGeant4_DIR=~/Geant4/geant4_install_11.2.1/lib/cmake/Geant4/ .
+cmake -DCMAKE_INSTALL_PREFIX=$G4WORKDIR -DGeant4_DIR=$G4INSTALL/../../../lib/cmake/Geant4/ .
 
 cp src/DetectorConstruction.cc.11 src/DetectorConstruction.cc
 cp src/WLSMaterials.cc.11 src/WLSMaterials.cc
 cp src/PhysicsList.cc.11 src/PhysicsList.cc
-make clean
-make
-make install
+make -f Makefile clean
+make -f Makefile
+make -f Makefile install
+cp $G4WORKDIR/bin/AnaBarMC $G4WORKDIR/bin/$G4SYSTEM/.

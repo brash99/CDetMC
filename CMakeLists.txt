@@ -15,16 +15,24 @@ else()
   find_package(Geant4 REQUIRED)
 endif()
 
+# ROOT
+
+
 #----------------------------------------------------------------------------
 # Setup Geant4 include directories and compile definitions
 #
 include(${Geant4_USE_FILE})
 
+#--------------------------------------------------
+# Find ROOT (required package)
+find_package(ROOT REQUIRED)
+
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
 #
 include_directories(${PROJECT_SOURCE_DIR}/include
-                    ${Geant4_INCLUDE_DIR})
+                    ${Geant4_INCLUDE_DIR}
+	            ${ROOT_INCLUDE_DIRS})
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
@@ -32,7 +40,7 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 # Add the executable, and link it to the Geant4 libraries
 #
 add_executable(AnaBarMC AnaBarMC.cc ${sources} ${headers})
-target_link_libraries(AnaBarMC ${Geant4_LIBRARIES} )
+target_link_libraries(AnaBarMC ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Copy all scripts to the build directory, i.e. the directory in which we
@@ -56,25 +64,26 @@ endforeach()
 
 ########################### ROOT #################################
 
-# Check for ROOTSYS and set necessary configurations
-if(DEFINED ENV{ROOTSYS})
-    if(NOT DEFINED G4UI_USE_ROOT)
-        execute_process(
-                COMMAND $ENV{ROOTSYS}/bin/root-config --cflags
-                OUTPUT_VARIABLE ROOTCPPFLAGS
-                OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DG4ANALYSIS_USE_ROOT ${ROOTCPPFLAGS}")
-        execute_process(
-                COMMAND $ENV{ROOTSYS}/bin/root-config --nonew --glibs
-                OUTPUT_VARIABLE ROOTLIBS
-                OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-        string(REPLACE "-lNew" "" ROOTLIBS ${ROOTLIBS})
-        set(ROOTLIBS "${ROOTLIBS} -lMinuit")
-        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${ROOTLIBS}")
-    endif()
-endif()
+## Check for ROOTSYS and set necessary configurations
+#if(DEFINED ENV{ROOTSYS})
+#    if(NOT DEFINED G4UI_USE_ROOT)
+#        execute_process(
+#                COMMAND $ENV{ROOTSYS}/bin/root-config --cflags
+#                OUTPUT_VARIABLE ROOTCPPFLAGS
+#                OUTPUT_STRIP_TRAILING_WHITESPACE
+#        )
+##        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DG4ANALYSIS_USE_ROOT ${ROOTCPPFLAGS}")
+#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ROOTCPPFLAGS}")
+#        execute_process(
+#                COMMAND $ENV{ROOTSYS}/bin/root-config --nonew --glibs
+#                OUTPUT_VARIABLE ROOTLIBS
+#                OUTPUT_STRIP_TRAILING_WHITESPACE
+#        )
+#        string(REPLACE "-lNew" "" ROOTLIBS ${ROOTLIBS})
+##        set(ROOTLIBS "${ROOTLIBS} -lMinuit")
+#        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${ROOTLIBS}")
+#    endif()
+#endif()
 
 # Define custom target for cleanup
 add_custom_target(cleanup
