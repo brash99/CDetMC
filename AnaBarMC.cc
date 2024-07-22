@@ -1,25 +1,18 @@
 #include <stdexcept>
 #include <iostream>
 #include "globals.hh"
-
-#include "G4RunManagerFactory.hh"
-#include "G4UImanager.hh"
-#include "G4UIterminal.hh"
-#include "G4UItcsh.hh"
-
 #include "ActionInitialization.hh"
 #include "DetectorConstruction.hh"
 #include "PhysicsList.hh"
-#include "PrimaryGeneratorAction.hh"
-#include "EventAction.hh"
-#include "SteppingAction.hh"
 #include "AnalysisManager.hh"
-#include "G4TrajectoryDrawByParticleID.hh"
 
-//#ifdef G4VIS_USE
-#include "G4VisExecutive.hh"
+
+#include "G4RunManagerFactory.hh"
+#include "G4String.hh"
+#include "G4Types.hh"
 #include "G4UIExecutive.hh"
-//#endif
+#include "G4UImanager.hh"
+#include "G4VisExecutive.hh"
 
 //---------------------------------------------------------------------------
 
@@ -30,20 +23,20 @@ int main(int argc, char** argv)
     if(argc == 1)
         ui = new G4UIExecutive(argc, argv);
 
-  auto runManager = new G4RunManagerFactory::CreateRunManager();
+    auto runManager = G4RunManagerFactory::CreateRunManager();
 
-  PhysicsList*  phys       = new PhysicsList();
-  runManager->SetUserInitialization(phys);
+    PhysicsList*  phys       = new PhysicsList();
+    runManager->SetUserInitialization(phys);
   
-  DetectorConstruction*   detCon     = new DetectorConstruction();
-  AnalysisManager*        anaManager = new AnalysisManager(detCon);
-  runManager->SetUserInitialization(detCon);
+    DetectorConstruction*   detCon     = new DetectorConstruction();
+    AnalysisManager*        anaManager = new AnalysisManager(detCon);
+    runManager->SetUserInitialization(detCon);
 
 
-  G4VisManager* visManager = new G4VisExecutive;
-  visManager->Initialize();
+    G4VisManager* visManager = new G4VisExecutive;
+    visManager->Initialize();
 
-  G4UImanager* UImanager = G4UImanager::GetUIpointer();
+    G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
     if(ui)
     {
@@ -60,11 +53,11 @@ int main(int argc, char** argv)
         UImanager->ApplyCommand(command + fileName);
     }
 
-  if (visManager) delete visManager;
-  delete anaManager;
-  delete runManager;
+    if (visManager) delete visManager;
+    delete anaManager;
+    delete runManager;
 
-  return 0;
+    return 0;
 }
 
 //---------------------------------------------------------------------------

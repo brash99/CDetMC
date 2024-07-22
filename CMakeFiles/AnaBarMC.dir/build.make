@@ -83,10 +83,24 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/brash/CDetMC/AnaBarMC.cc -o CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.s
 
+CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
+CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o: src/ActionInitialization.cc
+CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o -MF CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o -c /Users/brash/CDetMC/src/ActionInitialization.cc
+
+CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/brash/CDetMC/src/ActionInitialization.cc > CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.i
+
+CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/brash/CDetMC/src/ActionInitialization.cc -o CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.s
+
 CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o: src/AnalysisManager.cc
 CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o -MF CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o -c /Users/brash/CDetMC/src/AnalysisManager.cc
 
 CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o: src/AnalysisMessenger.cc
 CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o -MF CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o -c /Users/brash/CDetMC/src/AnalysisMessenger.cc
 
 CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o: src/DetectorConstruction.cc
 CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o -MF CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o -c /Users/brash/CDetMC/src/DetectorConstruction.cc
 
 CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.o: src/DetectorHit.cc
 CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.o -MF CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.o -c /Users/brash/CDetMC/src/DetectorHit.cc
 
 CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/AnaBarMC.dir/src/DetectorHit.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.o: src/DetectorMessenger.cc
 CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.o -MF CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.o -c /Users/brash/CDetMC/src/DetectorMessenger.cc
 
 CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/AnaBarMC.dir/src/DetectorMessenger.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.o: src/DetectorSD.cc
 CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.o -MF CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.o -c /Users/brash/CDetMC/src/DetectorSD.cc
 
 CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/AnaBarMC.dir/src/DetectorSD.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/EventAction.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/EventAction.cc.o: src/EventAction.cc
 CMakeFiles/AnaBarMC.dir/src/EventAction.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AnaBarMC.dir/src/EventAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/AnaBarMC.dir/src/EventAction.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/EventAction.cc.o -MF CMakeFiles/AnaBarMC.dir/src/EventAction.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/EventAction.cc.o -c /Users/brash/CDetMC/src/EventAction.cc
 
 CMakeFiles/AnaBarMC.dir/src/EventAction.cc.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/AnaBarMC.dir/src/EventAction.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.o: src/PMTHit.cc
 CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.o -MF CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.o -c /Users/brash/CDetMC/src/PMTHit.cc
 
 CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/AnaBarMC.dir/src/PMTHit.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.o: src/PMTSD.cc
 CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.o -MF CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.o -c /Users/brash/CDetMC/src/PMTSD.cc
 
 CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/AnaBarMC.dir/src/PMTSD.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o: src/PhysicsList.cc
 CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o -MF CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o -c /Users/brash/CDetMC/src/PhysicsList.cc
 
 CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o: src/PhysicsListMessenger.cc
 CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o -MF CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o -c /Users/brash/CDetMC/src/PhysicsListMessenger.cc
 
 CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o: src/PrimaryGeneratorAction.cc
 CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o -c /Users/brash/CDetMC/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o: src/PrimaryGeneratorMessenger.cc
 CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o -MF CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o -c /Users/brash/CDetMC/src/PrimaryGeneratorMessenger.cc
 
 CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.i: cmake_force
@@ -265,10 +279,24 @@ CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/brash/CDetMC/src/PrimaryGeneratorMessenger.cc -o CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.s
 
+CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
+CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o: src/RunAction.cc
+CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o -MF CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o -c /Users/brash/CDetMC/src/RunAction.cc
+
+CMakeFiles/AnaBarMC.dir/src/RunAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/AnaBarMC.dir/src/RunAction.cc.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/brash/CDetMC/src/RunAction.cc > CMakeFiles/AnaBarMC.dir/src/RunAction.cc.i
+
+CMakeFiles/AnaBarMC.dir/src/RunAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/AnaBarMC.dir/src/RunAction.cc.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/brash/CDetMC/src/RunAction.cc -o CMakeFiles/AnaBarMC.dir/src/RunAction.cc.s
+
 CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o: src/SteppingAction.cc
 CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o -MF CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o -c /Users/brash/CDetMC/src/SteppingAction.cc
 
 CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.i: cmake_force
@@ -282,7 +310,7 @@ CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.s: cmake_force
 CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o: CMakeFiles/AnaBarMC.dir/flags.make
 CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o: src/WLSMaterials.cc
 CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o: CMakeFiles/AnaBarMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o -MF CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o.d -o CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o -c /Users/brash/CDetMC/src/WLSMaterials.cc
 
 CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.i: cmake_force
@@ -296,6 +324,7 @@ CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.s: cmake_force
 # Object files for target AnaBarMC
 AnaBarMC_OBJECTS = \
 "CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o" \
+"CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o" \
 "CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o" \
 "CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o" \
 "CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o" \
@@ -309,6 +338,7 @@ AnaBarMC_OBJECTS = \
 "CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o" \
 "CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o" \
 "CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o" \
+"CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o" \
 "CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o" \
 "CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o"
 
@@ -316,6 +346,7 @@ AnaBarMC_OBJECTS = \
 AnaBarMC_EXTERNAL_OBJECTS =
 
 AnaBarMC: CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o
+AnaBarMC: CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/src/AnalysisManager.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/src/AnalysisMessenger.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/src/DetectorConstruction.cc.o
@@ -329,6 +360,7 @@ AnaBarMC: CMakeFiles/AnaBarMC.dir/src/PhysicsList.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/src/PhysicsListMessenger.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorAction.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.o
+AnaBarMC: CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/src/SteppingAction.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/src/WLSMaterials.cc.o
 AnaBarMC: CMakeFiles/AnaBarMC.dir/build.make
@@ -392,7 +424,7 @@ AnaBarMC: /Users/brash/Geant4/geant4_install_11.2.1/lib/libG4global.dylib
 AnaBarMC: /Users/brash/Geant4/geant4_install_11.2.1/lib/libG4clhep.dylib
 AnaBarMC: /Users/brash/Geant4/geant4_install_11.2.1/lib/libG4ptl.2.3.3.dylib
 AnaBarMC: CMakeFiles/AnaBarMC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable AnaBarMC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/brash/CDetMC/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable AnaBarMC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AnaBarMC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -890,127 +890,12 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__functional/unary_negate.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RunManager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Event.hh \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/set \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/evtdefs.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Allocator.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AllocatorPool.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PrimaryVertex.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PrimaryParticle.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ThreeVector.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/ThreeVector.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Utility/defs.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/ThreeVector.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/pwdefs.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4HCofThisEvent.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VHitsCollection.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DCofThisEvent.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VDigiCollection.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrajectoryContainer.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VTrajectory.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserEventInformation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Profiler.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Profiler.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Globals.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Types.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Utility.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4EventManager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StackManager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UserStackingAction.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ClassificationOfNewTrack.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StackedTrack.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackStack.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartTrackStack.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SubEventTrackStack.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SubEvent.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Track.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Units/PhysicalConstants.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Units/SystemOfUnits.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/trkdefs.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4LogicalVolume.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Region.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4GeomSplitter.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/geomwdefs.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AutoLock.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Threading.hh \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/chrono \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/calendar.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/convert_to_tm.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/concepts.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/hh_mm_ss.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/day.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/file_clock.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/month.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/month_weekday.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/weekday.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/monthday.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/statically_widen.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/year.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/year_month.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/year_month_day.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/year_month_weekday.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/literals.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/condition_variable \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/future \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/thread \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__thread/formatter.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__thread/this_thread.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__thread/thread.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Region.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VPhysicalVolume.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/geomdefs.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RotationMatrix.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/Rotation.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationInterfaces.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/LorentzVector.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/LorentzVector.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/AxisAngle.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/AxisAngle.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationInterfaces.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationX.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationX.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationY.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationY.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationZ.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationZ.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/Rotation.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VPhysicalVolume.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4LogicalVolume.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DynamicParticle.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ElectronOccupancy.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Log.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4LorentzVector.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleDefinition.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PDefManager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleDefinition.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleMomentum.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DynamicParticle.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackStatus.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TouchableHandle.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VTouchable.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TouchableHistory.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationHistory.hh \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/assert.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AffineTransform.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Transform3D.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Transform3D.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Transform3D.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Point3D.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/BasicVector3D.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Vector3D.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Normal3D.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AffineTransform.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLevel.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLevelRep.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLevelRep.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLevel.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationHistoryPool.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationHistory.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TouchableHistory.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ReferenceCountedHandle.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserTrackInformation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsModelCatalog.hh \
+  /Users/brash/CDetMC/include/ActionInitialization.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserActionInitialization.hh \
+  /Users/brash/CDetMC/include/DetectorConstruction.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserDetectorConstruction.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NistManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ICRU90StoppingData.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Material.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Element.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ElementTable.hh \
@@ -1033,6 +918,7 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/file_type.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/perms.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/file_clock.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/path.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/operations.h \
@@ -1043,6 +929,7 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__filesystem/u8path.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Log.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsVectorType.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsVector.icc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MaterialTable.hh \
@@ -1050,55 +937,111 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4OrderedTable.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DataVector.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DataVector.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Track.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Step.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StepPoint.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SteppingControl.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StepStatus.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StepPoint.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackVector.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Step.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PrimaryTransformer.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Units/PhysicalConstants.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Units/SystemOfUnits.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/assert.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NistElementBuilder.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NistMaterialBuilder.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Pow.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Exp.hh \
+  /Users/brash/CDetMC/include/PhysicsList.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VModularPhysicsList.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VPhysicsConstructor.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleTable.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleDefinition.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PDefManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AutoLock.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Threading.hh \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/chrono \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/calendar.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/convert_to_tm.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/concepts.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/hh_mm_ss.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/day.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/month.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/month_weekday.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/weekday.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/monthday.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/statically_widen.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/year.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/year_month.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/year_month_day.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/year_month_weekday.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__chrono/literals.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/condition_variable \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/future \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/thread \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__thread/formatter.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__thread/this_thread.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__thread/thread.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/pwdefs.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleDefinition.icc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleTableIterator.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleTable.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackingManager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SteppingManager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Navigator.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NormalNavigation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VNavigation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VSolid.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VSolid.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AuxiliaryNavServices.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AuxiliaryNavServices.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NormalNavigation.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VoxelNavigation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLogger.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4BlockingList.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4BlockingList.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelProxy.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelProxy.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelNode.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelNode.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelHeader.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelHeader.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VoxelNavigation.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParameterisedNavigation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VPVParameterisation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VVolumeMaterialScanner.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParameterisedNavigation.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ReplicaNavigation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ReplicaNavigation.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RegularNavigation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VExternalNavigation.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Navigator.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NoProcess.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VProcess.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsListHelper.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsListOrderingParameter.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ThreadLocalSingleton.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Cache.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4CacheDetails.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Backtrace.hh \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/cxxabi.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__cxxabi_config.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/execinfo.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/os/base.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/os/availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/uuid/uuid.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_types/_uuid_t.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/unistd.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/unistd.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_types/_posix_vdisable.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/select.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_select.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/gethostuuid.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/cfenv \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/fenv.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/fenv.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/csignal \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/signal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/regex \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/deque \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/set \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/list \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUPLSplitter.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/rundefs.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserPhysicsList.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsModelCatalog.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProductionCutsTable.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MaterialCutsCouple.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProductionCuts.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MCCIndexConversionTable.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Region.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4GeomSplitter.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/geomwdefs.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Region.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4EmConfigurator.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VEmModel.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DynamicParticle.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Allocator.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AllocatorPool.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ElectronOccupancy.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4LorentzVector.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/LorentzVector.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/ThreeVector.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Utility/defs.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/ThreeVector.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/LorentzVector.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleMomentum.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ThreeVector.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DynamicParticle.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VEmFluctuationModel.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/RandomEngine.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/RandomEngine.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VEmAngularDistribution.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4EmElementSelector.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsLogVector.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/Randomize.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/Randomize.h \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/DualRand.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/RandomEngine.h \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/RandomEngine.icc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/JamesRandom.h \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/MixMaxRng.h \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/MTwistEngine.h \
@@ -1141,98 +1084,7 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/RandPoissonQ.icc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/RandStudentT.h \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Random/RandStudentT.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsTable.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsTable.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VParticleChange.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VParticleChange.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ForceCondition.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4GPILSelection.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleChange.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleChange.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessType.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessManager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessVector.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessVector.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessManager.icc \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UserSteppingAction.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VSteppingVerbose.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/trkgdefs.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackingMessenger.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UImessenger.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIdirectory.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIcommand.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ApplicationState.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIparameter.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UItokenNum.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UserTrackingAction.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RunManagerKernel.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/rundefs.hh \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/list \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UImanager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIcommandStatus.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VStateDependent.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/icomsdefs.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIterminal.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VBasicShell.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIsession.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4coutDestination.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUIshell.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UItcsh.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIcommandTree.hh \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/termios.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/termios.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_types/_posix_vdisable.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/ttycom.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/ioccom.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/ttydefaults.h \
-  /Users/brash/CDetMC/include/DetectorConstruction.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserDetectorConstruction.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NistManager.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ICRU90StoppingData.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NistElementBuilder.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NistMaterialBuilder.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Pow.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Exp.hh \
-  /Users/brash/CDetMC/include/PhysicsList.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VModularPhysicsList.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VPhysicsConstructor.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsListHelper.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsListOrderingParameter.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ThreadLocalSingleton.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Cache.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4CacheDetails.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Backtrace.hh \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/cxxabi.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__cxxabi_config.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/execinfo.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/os/base.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/os/availability.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/uuid/uuid.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_types/_uuid_t.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/unistd.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/unistd.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/select.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_select.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/gethostuuid.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/cfenv \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/fenv.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/fenv.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/csignal \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/signal.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/regex \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/deque \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUPLSplitter.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserPhysicsList.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProductionCutsTable.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MaterialCutsCouple.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProductionCuts.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MCCIndexConversionTable.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4EmConfigurator.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VEmModel.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VEmFluctuationModel.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VEmAngularDistribution.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4EmElementSelector.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsLogVector.hh \
+  /Users/brash/CDetMC/include/AnalysisManager.hh \
   /Users/brash/CDetMC/include/PrimaryGeneratorAction.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4IonTable.hh \
@@ -1341,11 +1193,13 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /opt/homebrew/Cellar/root/6.32.02/include/root/Math/GenVector/GenVectorIO.h \
   /opt/homebrew/Cellar/root/6.32.02/include/root/Math/GenVector/BitReproducible.h \
   /opt/homebrew/Cellar/root/6.32.02/include/root/Math/GenVector/CoordinateSystemTags.h \
-  /Users/brash/CDetMC/include/EventAction.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UserEventAction.hh \
-  /Users/brash/CDetMC/include/SteppingAction.hh \
-  /Users/brash/CDetMC/include/AnalysisManager.hh \
   /Users/brash/CDetMC/include/AnalysisMessenger.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UImessenger.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIdirectory.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIcommand.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ApplicationState.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIparameter.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UItokenNum.hh \
   /Users/brash/CDetMC/include/DetectorMessenger.hh \
   /opt/homebrew/Cellar/root/6.32.02/include/root/TVector.h \
   /opt/homebrew/Cellar/root/6.32.02/include/root/TVectorT.h \
@@ -1355,10 +1209,164 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /Users/brash/CDetMC/include/PMTHit.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VHit.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4THitsCollection.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrajectoryDrawByParticleID.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VTrajectoryModel.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Colour.hh \
-  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ModelColourMap.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VHitsCollection.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4LogicalVolume.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VPhysicalVolume.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/geomdefs.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RotationMatrix.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/Rotation.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationInterfaces.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/AxisAngle.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/AxisAngle.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationInterfaces.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationX.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationX.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationY.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationY.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationZ.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/RotationZ.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Vector/Rotation.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VPhysicalVolume.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4LogicalVolume.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RunManagerFactory.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MTRunManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4MTBarrier.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Profiler.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Profiler.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Globals.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Types.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Utility.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RNGHelper.hh \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/queue \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RunManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Event.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/evtdefs.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PrimaryVertex.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PrimaryParticle.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4HCofThisEvent.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DCofThisEvent.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VDigiCollection.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrajectoryContainer.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VTrajectory.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserEventInformation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4EventManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StackManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UserStackingAction.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ClassificationOfNewTrack.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StackedTrack.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackStack.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartTrackStack.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SubEventTrackStack.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SubEvent.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Track.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/trkdefs.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackStatus.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TouchableHandle.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VTouchable.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TouchableHistory.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationHistory.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AffineTransform.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Transform3D.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Transform3D.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Transform3D.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Point3D.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/BasicVector3D.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Vector3D.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/CLHEP/Geometry/Normal3D.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AffineTransform.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLevel.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLevelRep.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLevelRep.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLevel.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationHistoryPool.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationHistory.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TouchableHistory.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ReferenceCountedHandle.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserTrackInformation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Track.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Step.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StepPoint.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SteppingControl.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StepStatus.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4StepPoint.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackVector.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Step.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PrimaryTransformer.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackingManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SteppingManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Navigator.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NormalNavigation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VNavigation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VSolid.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VSolid.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AuxiliaryNavServices.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4AuxiliaryNavServices.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NormalNavigation.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VoxelNavigation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NavigationLogger.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4BlockingList.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4BlockingList.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelProxy.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelProxy.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelNode.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelNode.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelHeader.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4SmartVoxelHeader.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VoxelNavigation.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParameterisedNavigation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VPVParameterisation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VVolumeMaterialScanner.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParameterisedNavigation.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ReplicaNavigation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ReplicaNavigation.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RegularNavigation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VExternalNavigation.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Navigator.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4NoProcess.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VProcess.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsTable.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4PhysicsTable.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VParticleChange.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VParticleChange.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ForceCondition.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4GPILSelection.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleChange.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ParticleChange.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessType.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessVector.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessVector.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ProcessManager.icc \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UserSteppingAction.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VSteppingVerbose.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/trkgdefs.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrackingMessenger.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UserTrackingAction.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4RunManagerKernel.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TaskRunManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TBBTaskGroup.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/TaskGroup.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/AutoLock.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Threading.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Config.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/JoinFunction.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/Task.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/VTask.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/ThreadData.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/ThreadPool.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/VUserTaskQueue.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TaskGroup.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TaskManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/TaskManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/PTL/TaskRunManager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ThreadPool.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUserTaskQueue.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIExecutive.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VUIshell.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UImanager.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIcommandStatus.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VStateDependent.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/icomsdefs.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VisExecutive.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VisManager.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VVisManager.hh \
@@ -1369,6 +1377,7 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Point3D.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VisAttributes.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/graphics_reps_defs.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Colour.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4Color.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VisAttributes.icc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ModelingParameters.icc \
@@ -1456,6 +1465,7 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VDigi.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrajectoryFilterFactories.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4TrajectoryModelFactories.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VTrajectoryModel.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4ASCIITree.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4VTree.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4DAWNFILE.hh \
@@ -1490,4 +1500,6 @@ CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.o: /Users/brash/CDetMC/AnaBarMC.cc \
   /opt/homebrew/opt/qt@5/lib/QtCore.framework/Headers/qmutex.h \
   /opt/homebrew/opt/qt@5/lib/QtCore.framework/Headers/qnumeric.h \
   /opt/homebrew/opt/qt@5/lib/QtCore.framework/Headers/qversiontagging.h \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIsession.hh \
+  /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4coutDestination.hh \
   /Users/brash/Geant4/geant4_install_11.2.1/include/Geant4/G4UIbatch.hh

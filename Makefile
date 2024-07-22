@@ -211,6 +211,30 @@ AnaBarMC.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AnaBarMC.dir/build.make CMakeFiles/AnaBarMC.dir/AnaBarMC.cc.s
 .PHONY : AnaBarMC.cc.s
 
+src/ActionInitialization.o: src/ActionInitialization.cc.o
+.PHONY : src/ActionInitialization.o
+
+# target to build an object file
+src/ActionInitialization.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AnaBarMC.dir/build.make CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.o
+.PHONY : src/ActionInitialization.cc.o
+
+src/ActionInitialization.i: src/ActionInitialization.cc.i
+.PHONY : src/ActionInitialization.i
+
+# target to preprocess a source file
+src/ActionInitialization.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AnaBarMC.dir/build.make CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.i
+.PHONY : src/ActionInitialization.cc.i
+
+src/ActionInitialization.s: src/ActionInitialization.cc.s
+.PHONY : src/ActionInitialization.s
+
+# target to generate assembly for a file
+src/ActionInitialization.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AnaBarMC.dir/build.make CMakeFiles/AnaBarMC.dir/src/ActionInitialization.cc.s
+.PHONY : src/ActionInitialization.cc.s
+
 src/AnalysisManager.o: src/AnalysisManager.cc.o
 .PHONY : src/AnalysisManager.o
 
@@ -523,6 +547,30 @@ src/PrimaryGeneratorMessenger.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AnaBarMC.dir/build.make CMakeFiles/AnaBarMC.dir/src/PrimaryGeneratorMessenger.cc.s
 .PHONY : src/PrimaryGeneratorMessenger.cc.s
 
+src/RunAction.o: src/RunAction.cc.o
+.PHONY : src/RunAction.o
+
+# target to build an object file
+src/RunAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AnaBarMC.dir/build.make CMakeFiles/AnaBarMC.dir/src/RunAction.cc.o
+.PHONY : src/RunAction.cc.o
+
+src/RunAction.i: src/RunAction.cc.i
+.PHONY : src/RunAction.i
+
+# target to preprocess a source file
+src/RunAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AnaBarMC.dir/build.make CMakeFiles/AnaBarMC.dir/src/RunAction.cc.i
+.PHONY : src/RunAction.cc.i
+
+src/RunAction.s: src/RunAction.cc.s
+.PHONY : src/RunAction.s
+
+# target to generate assembly for a file
+src/RunAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AnaBarMC.dir/build.make CMakeFiles/AnaBarMC.dir/src/RunAction.cc.s
+.PHONY : src/RunAction.cc.s
+
 src/SteppingAction.o: src/SteppingAction.cc.o
 .PHONY : src/SteppingAction.o
 
@@ -588,6 +636,9 @@ help:
 	@echo "... AnaBarMC.o"
 	@echo "... AnaBarMC.i"
 	@echo "... AnaBarMC.s"
+	@echo "... src/ActionInitialization.o"
+	@echo "... src/ActionInitialization.i"
+	@echo "... src/ActionInitialization.s"
 	@echo "... src/AnalysisManager.o"
 	@echo "... src/AnalysisManager.i"
 	@echo "... src/AnalysisManager.s"
@@ -627,6 +678,9 @@ help:
 	@echo "... src/PrimaryGeneratorMessenger.o"
 	@echo "... src/PrimaryGeneratorMessenger.i"
 	@echo "... src/PrimaryGeneratorMessenger.s"
+	@echo "... src/RunAction.o"
+	@echo "... src/RunAction.i"
+	@echo "... src/RunAction.s"
 	@echo "... src/SteppingAction.o"
 	@echo "... src/SteppingAction.i"
 	@echo "... src/SteppingAction.s"

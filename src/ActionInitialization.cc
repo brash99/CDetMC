@@ -32,6 +32,7 @@
 #include "PrimaryGeneratorAction.hh"
 #include "SteppingAction.hh"
 #include "EventAction.hh"
+#include "RunAction.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
