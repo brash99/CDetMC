@@ -50,7 +50,7 @@ int main(int argc, char** argv)
 
       visManager = new G4VisExecutive;
         visManager->Initialize();
-        
+
       UI->ApplyCommand("/control/execute ../vis.mac");
       ui -> SessionStart();
       delete ui;
