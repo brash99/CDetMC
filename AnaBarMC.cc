@@ -2,11 +2,12 @@
 #include <iostream>
 #include "globals.hh"
 
-#include "G4RunManager.hh"
+#include "G4RunManagerFactory.hh"
 #include "G4UImanager.hh"
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
 
+#include "ActionInitialization.hh"
 #include "DetectorConstruction.hh"
 #include "PhysicsList.hh"
 #include "PrimaryGeneratorAction.hh"
@@ -17,64 +18,49 @@
 
 //#ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
+#include "G4UIExecutive.hh"
 //#endif
 
 //---------------------------------------------------------------------------
 
 int main(int argc, char** argv)
 {
+    // detect interactive mode (if no arguments) and define UI session
+    G4UIExecutive* ui = nullptr;
+    if(argc == 1)
+        ui = new G4UIExecutive(argc, argv);
 
-  G4RunManager* runManager = new G4RunManager;
+  auto runManager = new G4RunManagerFactory::CreateRunManager();
+
   PhysicsList*  phys       = new PhysicsList();
   runManager->SetUserInitialization(phys);
   
   DetectorConstruction*   detCon     = new DetectorConstruction();
   AnalysisManager*        anaManager = new AnalysisManager(detCon);
   runManager->SetUserInitialization(detCon);
-  
-  PrimaryGeneratorAction* pga        = new PrimaryGeneratorAction();
-  runManager->SetUserAction(pga);
-  SteppingAction*         step       = new SteppingAction();
-  runManager->SetUserAction(step);
-  EventAction*            event      = new EventAction( anaManager, pga );
-  runManager->SetUserAction(event);
 
-  G4UImanager * UI         = G4UImanager::GetUIpointer();
-  G4VisManager* visManager = 0;
 
-  if (argc == 1)   // Define UI session for interactive mode.
+  G4VisManager* visManager = new G4VisExecutive;
+  visManager->Initialize();
+
+  G4UImanager* UImanager = G4UImanager::GetUIpointer();
+
+    if(ui)
     {
-      G4cout << "Interactive mode!!!!!!!!!!!!!" << G4endl;
-//#ifdef G4VIS_USE
-      visManager = new G4VisExecutive;
-      visManager->Initialize();
-
-//#endif
-      G4UIsession * session = 0;
-#ifdef G4UI_USE_TCSH
-      session = new G4UIterminal(new G4UItcsh);
-#else
-      session = new G4UIterminal();
-#endif
-      session->SessionStart();
-      delete session;
+        // interactive mode
+        UImanager->ApplyCommand("/control/execute macros/vis.mac");
+        ui->SessionStart();
+        delete ui;
     }
-  else           // Batch mode
+    else
     {
-        G4cout << "Batch mode!!!!!!!!!!!!!" << G4endl;
-      G4String command = "/control/execute ";
-      G4String fileName = argv[1];
-      UI->ApplyCommand(command+fileName);
-      if( pga->GetMode()==EPGA_ROOT ) {
-	G4String commandr = "/run/beamOn ";
-	G4int nev = pga->GetNEvents();
-	char snev[50];
-	snprintf(snev, 50, "%d", nev);
-	UI->ApplyCommand(commandr+snev);
-      }
+        // batch mode
+        G4String command  = "/control/execute ";
+        G4String fileName = argv[1];
+        UImanager->ApplyCommand(command + fileName);
     }
 
-  if(visManager) delete visManager;
+  if (visManager) delete visManager;
   delete anaManager;
   delete runManager;
 
