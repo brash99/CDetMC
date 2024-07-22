@@ -1,1 +1,1 @@
-/home/brash/geant4_workdir/bin/AnaBarMC
+/Users/brash/geant4_workdir/bin/AnaBarMC

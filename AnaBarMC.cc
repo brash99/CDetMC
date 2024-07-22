@@ -17,6 +17,7 @@
 
 //#ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
+#include "G4UIExecutive.hh"
 //#endif
 
 //---------------------------------------------------------------------------
@@ -42,22 +43,35 @@ int main(int argc, char** argv)
   G4UImanager * UI         = G4UImanager::GetUIpointer();
   G4VisManager* visManager = 0;
 
+  auto ui = new G4UIExecutive(argc, argv);
+
   if (argc == 1)   // Define UI session for interactive mode.
     {
-      G4cout << "Interactive mode!!!!!!!!!!!!!" << G4endl;
-//#ifdef G4VIS_USE
-      visManager = new G4VisExecutive;
-      visManager->Initialize();
 
+      visManager = new G4VisExecutive;
+        visManager->Initialize();
+        
+      UI->ApplyCommand("/control/execute ../vis.mac");
+      ui -> SessionStart();
+      delete ui;
+
+
+//      G4cout << "Interactive mode!!!!!!!!!!!!!" << G4endl;
+////#ifdef G4VIS_USE
+//      visManager = new G4VisExecutive;
+//      visManager->Initialize();
+//
 //#endif
-      G4UIsession * session = 0;
-#ifdef G4UI_USE_TCSH
-      session = new G4UIterminal(new G4UItcsh);
-#else
-      session = new G4UIterminal();
-#endif
-      session->SessionStart();
-      delete session;
+//      G4UIsession * session = 0;
+//#ifdef G4UI_USE_TCSH
+//      session = new G4UIterminal(new G4UItcsh);
+//#else
+//      session = new G4UIterminal();
+//#endif
+//      session->SessionStart();
+//      delete session;
+
+
     }
   else           // Batch mode
     {
