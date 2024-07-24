@@ -55,7 +55,7 @@ WLSMaterials::~WLSMaterials()
   delete    fFPethylene;
   delete    fPolystyrene;
   delete    fSilicone;
-  //delete    fMylar;
+  delete    fMylar;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -213,17 +213,17 @@ void WLSMaterials::CreateMaterials()
   // Mylar
   //--------------------------------------------------
 
-  //elements.push_back("C");      natoms.push_back(5);
-  //elements.push_back("H");      natoms.push_back(4);
-  //elements.push_back("O");      natoms.push_back(2);
+  elements.push_back("C");      natoms.push_back(5);
+  elements.push_back("H");      natoms.push_back(4);
+  elements.push_back("O");      natoms.push_back(2);
 
-  //density     = 1.39*g/cm3;
+  density     = 1.39*g/cm3;
 
-  //fMylar = fNistMan->
-  //        ConstructNewMaterial("Mylar", elements, natoms, density);
+  fMylar = fNistMan->
+          ConstructNewMaterial("Mylar", elements, natoms, density);
 
-  //elements.clear();
-  //natoms.clear();
+  elements.clear();
+  natoms.clear();
 
   //--------------------------------------------------
   // Scintillator Coating - 15% TiO2 and 85% polystyrene by weight.
@@ -272,7 +272,6 @@ void WLSMaterials::CreateMaterials()
   mpt->AddProperty("RINDEX", photonEnergy, refractiveIndex, nEntries);
 
   fAir->SetMaterialPropertiesTable(mpt);
-  TiO2->SetMaterialPropertiesTable(mpt);
 
   //--------------------------------------------------
   //  PMMA for WLSfibers
@@ -434,10 +433,10 @@ void WLSMaterials::CreateMaterials()
   mptPolystyrene->AddProperty("RINDEX",photonEnergy,refractiveIndexPS,nEntries);
   mptPolystyrene->AddProperty("ABSLENGTH",photonEnergy,absPS,nEntries);
   mptPolystyrene->
-               AddProperty("SCINTILLATIONCOMPONENT1",photonEnergy, scintilFast,nEntries);
+               AddProperty("FASTCOMPONENT",photonEnergy, scintilFast,nEntries);
   mptPolystyrene->AddConstProperty("SCINTILLATIONYIELD",10./keV);
   mptPolystyrene->AddConstProperty("RESOLUTIONSCALE",1.0);
-  mptPolystyrene->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 10.*ns);
+  mptPolystyrene->AddConstProperty("FASTTIMECONSTANT", 10.*ns);
  
   fPolystyrene->SetMaterialPropertiesTable(mptPolystyrene);
 

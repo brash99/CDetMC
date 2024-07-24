@@ -5,3 +5,4 @@ cp src/WLSMaterials.cc.10 src/WLSMaterials.cc
 cp src/PhysicsList.cc.10 src/PhysicsList.cc
 make clean
 make
+cp $G4WORKDIR/bin/$G4SYSTEM/AnaBarMC $G4WORKDIR/bin/.
