@@ -1,8 +1,0 @@
-/home/brash/CDetMC/CMakeFiles/AnaBarMC.dir
-/home/brash/CDetMC/CMakeFiles/cleanup.dir
-/home/brash/CDetMC/CMakeFiles/edit_cache.dir
-/home/brash/CDetMC/CMakeFiles/rebuild_cache.dir
-/home/brash/CDetMC/CMakeFiles/list_install_components.dir
-/home/brash/CDetMC/CMakeFiles/install.dir
-/home/brash/CDetMC/CMakeFiles/install/local.dir
-/home/brash/CDetMC/CMakeFiles/install/strip.dir

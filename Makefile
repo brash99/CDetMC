@@ -48,10 +48,17 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
+<<<<<<< HEAD
 CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
 RM = /usr/local/bin/cmake -E rm -f
+=======
+CMAKE_COMMAND = /usr/local/Cellar/cmake/3.30.0/bin/cmake
+
+# The command to remove a file.
+RM = /usr/local/Cellar/cmake/3.30.0/bin/cmake -E rm -f
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +75,11 @@ CMAKE_BINARY_DIR = /home/brash/CDetMC
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
+<<<<<<< HEAD
 	/usr/local/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+=======
+	/usr/local/Cellar/cmake/3.30.0/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +89,11 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
+<<<<<<< HEAD
 	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+=======
+	/usr/local/Cellar/cmake/3.30.0/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,37 +112,61 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+<<<<<<< HEAD
 	/usr/local/bin/cmake -P cmake_install.cmake
+=======
+	/usr/local/Cellar/cmake/3.30.0/bin/cmake -P cmake_install.cmake
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+<<<<<<< HEAD
 	/usr/local/bin/cmake -P cmake_install.cmake
+=======
+	/usr/local/Cellar/cmake/3.30.0/bin/cmake -P cmake_install.cmake
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+<<<<<<< HEAD
 	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+=======
+	/usr/local/Cellar/cmake/3.30.0/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+<<<<<<< HEAD
 	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+=======
+	/usr/local/Cellar/cmake/3.30.0/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+<<<<<<< HEAD
 	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+=======
+	/usr/local/Cellar/cmake/3.30.0/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+<<<<<<< HEAD
 	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+=======
+	/usr/local/Cellar/cmake/3.30.0/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+>>>>>>> 4901b8b2fed979c04a21b5f1b05460a5f4e96b8d
 .PHONY : install/strip/fast
 
 # The main all target
