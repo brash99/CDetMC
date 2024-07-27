@@ -29,7 +29,7 @@ cd $tempdir
 export ROOTSYS=/cern/root/pro
 export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
 export PATH=$ROOTSYS/bin:$PATH
-AnaBarMC $MCMACRO #>& /dev/null
+../AnaBarMC $MCMACRO #>& /dev/null
 echo "****************** AnaBarMC Finished"
 
 cp    ${tempdir}/rootfiles/"AnaBarMC_$RUN_NUMBER.root"   ${OUTPUT_DIR}/
