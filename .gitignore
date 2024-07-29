@@ -14,6 +14,7 @@ batch/rootfiles/*.root
 *.pcm
 .ipynb_checkpoints/*
 macros/.ipynb_checkpoints/*
+analysis/.ipynb_checkpoints/*
 __pycache__/
 .idea/
 analysis/plots/*.pdf
