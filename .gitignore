@@ -19,3 +19,5 @@ __pycache__/
 analysis/plots/*.pdf
 batch/slurm*.out
 batch/runlist_test
+CMakeCache.txt
+CMakeFiles/*
