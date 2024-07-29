@@ -21,3 +21,4 @@ batch/slurm*.out
 batch/runlist_test
 CMakeCache.txt
 CMakeFiles/*
+AnaBarMC
