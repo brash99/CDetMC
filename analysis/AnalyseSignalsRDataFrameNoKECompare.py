@@ -1393,7 +1393,7 @@ print(f"Number of entries PMT Time GEANT4 v10: {hAnaBarPMTTime1.GetEntries()}")
 print(f"Number of entries PMT Time GEANT4 v11: {hAnaBarPMTTime2.GetEntries()}")
 
 c33.Draw()
-c33.Print("plots/c33.pdf")
+c33.Print("plots/c33RA.pdf")
 
 
 # In[12]:
@@ -1421,7 +1421,7 @@ hAnaBarXZPMT2.Draw("CONT1")
 plotDetector(hAnaBarXZPMT2)
 #plotSinglePoints(hAnaBarXZPMT);
                   
-c34.Print("plots/c34.pdf");
+c34.Print("plots/c34RA.pdf");
 
 
 # In[13]:
@@ -1887,7 +1887,7 @@ c14.cd(5);
 hPrimXZ2.Draw("COLZ");
 
 c14.Draw();
-c14.Print("plots/c14.pdf");
+c14.Print("plots/c14RA.pdf");
 
 
 # In[27]:
@@ -1930,7 +1930,7 @@ hPrimXZ2.Draw("COLZ");
 plotDetector(hPrimXZ2);
 
 c15.Draw();
-c15.Print("plots/c15.pdf");
+c15.Print("plots/c15RA.pdf");
 
 
 # In[28]:
@@ -1966,7 +1966,7 @@ c16.cd(8);
 hPz_vs_Pz2.Draw("COLZ");
 
 c16.Draw();
-c16.Print("plots/c16.pdf");
+c16.Print("plots/c16RA.pdf");
 
 
 # In[29]:

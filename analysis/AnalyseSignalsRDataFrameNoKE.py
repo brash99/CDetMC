@@ -1027,7 +1027,7 @@ c1.cd(4)
 hFingerT.Draw()
 
 c1.Draw()
-c1.Print("plots/c1RA.pdf");
+c1.Print("plots/c1.pdf");
 
 # In[7]:
 
@@ -1051,7 +1051,7 @@ c2.cd(4)
 hPrimPdg.Draw()
 
 c2.Draw()
-c2.Print("plots/c2RA.pdf")
+c2.Print("plots/c2.pdf")
 
 
 # In[8]:
@@ -1259,7 +1259,7 @@ c3.cd(9)
 hAnaBarPMTTime.Draw()
 
 c3.Draw()
-c3.Print("plots/c3RA.pdf")
+c3.Print("plots/c3.pdf")
 
 
 # In[13]:
@@ -1305,7 +1305,7 @@ hAnaBarPMTNphot.GetXaxis().SetRangeUser(-20,180)
 hAnaBarPMTNphot.Draw()
 
 c4.Draw()
-c4.Print("plots/c4RA.pdf")
+c4.Print("plots/c4.pdf")
 
 
 # In[14]:
@@ -1331,7 +1331,7 @@ c5.cd(4)
 hAnaBarT.Draw()
 
 c5.Draw()
-c5.Print("plots/c5RA.pdf");
+c5.Print("plots/c5.pdf");
 
 
 # In[ ]:
@@ -1352,7 +1352,7 @@ c6.cd(1)
 hE1vsE2.Draw("COLZ")
 
 c6.Draw()
-c6.Print("plots/c6RA.pdf")
+c6.Print("plots/c6.pdf")
 
 
 # In[16]:
@@ -1383,7 +1383,7 @@ prof.Fit("pol1")
 
 
 c7.Draw()
-c7.Print("plots/c7RA.pdf")
+c7.Print("plots/c7.pdf")
 
 
 # In[18]:
@@ -1414,7 +1414,7 @@ prof.Fit("pol1")
 
 
 c8.Draw()
-c8.Print("plots/c8RA.pdf")
+c8.Print("plots/c8.pdf")
 
 
 # In[20]:
@@ -1459,7 +1459,7 @@ c8.Print("plots/c8RA.pdf")
 #    hAnaBarEdAllCut[i].Draw("SAME")
 #    
 #cEd.Draw()
-#cEd.Print("plots/cEdRA.pdf")
+#cEd.Print("plots/cEd.pdf")
 
 
 # In[21]:
@@ -1524,7 +1524,7 @@ c8.Print("plots/c8RA.pdf")
 
 
 #c9.Draw()
-#c9.Print("plots/c9RA.pdf")
+#c9.Print("plots/c9.pdf")
 
 
 # In[ ]:
@@ -1545,7 +1545,7 @@ c11.cd(1)
 hAnaBarMult.Draw()
 
 c11.Draw()
-c11.Print("plots/c11RA.pdf")
+c11.Print("plots/c11.pdf")
 
 
 # In[24]:
@@ -1566,7 +1566,7 @@ c12.cd(3)
 hPrimPz.Draw()
 
 c12.Draw()
-c12.Print("plots/c12RA.pdf")
+c12.Print("plots/c12.pdf")
 
 
 # In[ ]:
@@ -1598,6 +1598,7 @@ hPrimXZ.Draw('COLZ')
 
 
 c13.Draw()
+c13.Print("plots/c13.pdf")
 
 
 # In[26]:
@@ -1622,7 +1623,7 @@ c14.cd(4)
 hPrimXZ.Draw('COLZ')
 
 c14.Draw()
-c14.Print("plots/c14RA.pdf")
+c14.Print("plots/c14.pdf")
 
 
 # In[27]:
