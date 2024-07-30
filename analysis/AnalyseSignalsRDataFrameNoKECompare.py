@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
 
 import ROOT as root
 import numpy as np
@@ -11,37 +15,75 @@ t.start()
 
 # In[2]:
 
-fileName = "data/AnaBarMC_sieve_small_v11.root"
-treeName = "T"
 
-f = root.TFile(fileName)
-myTree = f.Get(treeName)
+print("Environment:")
+print("-----------------")
 
-myTree.Print()
+sys_values = True
+if (sys_values):
+    import sys
+    print("sys.executable: ", sys.executable)
+    print("-----------------")
+    from pprint import pprint as p
+    p(sys.path)
 
-root.EnableImplicitMT()
-d = root.RDataFrame(treeName,fileName)
-
-myGeometryData = myTree.GetUserInfo().FindObject("myGeometryData")
+print("-----------------")
 
 
 # In[3]:
 
-#myGeometryData.Print()
-print(myGeometryData[0])
-print(myGeometryData[0][0])
-print(myGeometryData[0][1])
-print(myGeometryData[0][2])
-print(myGeometryData[0][3])
-print(myGeometryData[1][0])
-print(myGeometryData[1][1])
-print(myGeometryData[1][2])
-print(myGeometryData[1][3])
-print(len(myGeometryData))
-type(myGeometryData)
+
+fileName1 = "data/AnaBarMC_sieve_v10.root"
+fileName2 = "data/AnaBarMC_sieve_v11.root"
+treeName = "T"
+
+f1 = root.TFile(fileName1)
+f2 = root.TFile(fileName2)
+myTree1 = f1.Get(treeName)
+myTree2 = f2.Get(treeName)
+
+myTree1.Print()
+myTree2.Print()
+
+root.EnableImplicitMT()
+d1 = root.RDataFrame(treeName,fileName1)
+d2 = root.RDataFrame(treeName,fileName2)
+
+myGeometryData1 = myTree1.GetUserInfo().FindObject("myGeometryData")
+myGeometryData2 = myTree2.GetUserInfo().FindObject("myGeometryData")
 
 
 # In[4]:
+
+
+#myGeometryData1.Print()
+print(myGeometryData1[0])
+print(myGeometryData1[0][0])
+print(myGeometryData1[0][1])
+print(myGeometryData1[0][2])
+print(myGeometryData1[0][3])
+print(myGeometryData1[1][0])
+print(myGeometryData1[1][1])
+print(myGeometryData1[1][2])
+print(myGeometryData1[1][3])
+print(len(myGeometryData1))
+type(myGeometryData1)
+
+#myGeometryData2.Print()
+print(myGeometryData2[0])
+print(myGeometryData2[0][0])
+print(myGeometryData2[0][1])
+print(myGeometryData2[0][2])
+print(myGeometryData2[0][3])
+print(myGeometryData2[1][0])
+print(myGeometryData2[1][1])
+print(myGeometryData2[1][2])
+print(myGeometryData2[1][3])
+print(len(myGeometryData2))
+type(myGeometryData2)
+
+
+
 
 triggerCode = '''
 int Analyse_Secondaries = 1;
@@ -72,7 +114,7 @@ const int NDET = NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;
 
 int NMaxPMT = 14;
 
-auto fileName = "data/AnaBarMC_sieve_small_v11.root";
+auto fileName = "data/AnaBarMC_9991.root";
 auto treeName = "T";
 
 TFile* f = new TFile((TString)fileName,"READ");
@@ -87,6 +129,7 @@ bool getTrigger(int Detector_Nhits, int* Detector_id) {
     bool fhit = false;
     bool ahit = false;
     bool trigger = false;
+    
     for (int j=0; j<Detector_Nhits; j++) {
         //std::cout << "Detector id = " << Detector_id[j] << std::endl;
         if ((Detector_id[j] == Detector_Offset || Detector_id[j] == Detector_Offset+1) && !tophit) {
@@ -608,7 +651,7 @@ std::vector<float> getAnaBarPXPMT(bool trigger, int* PMT_Nphotons, float* PMT_Ti
                 hitPoint.push_back(ydpos);
                 hitPoint.push_back(zdpos);
                 //std::cout << "detector positions: " <<  xdpos << " " << ydpos << " " << zdpos << std::endl;
-                
+
                 int iPlane = getPlane(icount);
                 if (iPlane == 0) {
                     spacePointsTop.push_back(hitPoint);
@@ -669,7 +712,7 @@ std::vector<float> getAnaBarXPMT(bool trigger, int* PMT_Nphotons, float* PMT_Tim
                 hitPoint.push_back(ydpos);
                 hitPoint.push_back(zdpos);
                 //std::cout << "detector positions: " <<  xdpos << " " << ydpos << " " << zdpos << std::endl;
-                
+
                 int iPlane = getPlane(icount);
                 if (iPlane == 0) {
                     spacePointsTop.push_back(hitPoint);
@@ -725,7 +768,7 @@ std::vector<float> getAnaBarZPMT(bool trigger, int* PMT_Nphotons, float* PMT_Tim
                 hitPoint.push_back(ydpos);
                 hitPoint.push_back(zdpos);
                 //std::cout << "detector positions: " <<  xdpos << " " << ydpos << " " << zdpos << std::endl;
-                
+
                 int iPlane = getPlane(icount);
                 if (iPlane == 0) {
                     spacePointsTop.push_back(hitPoint);
@@ -746,18 +789,18 @@ std::vector<float> getAnaBarZPMT(bool trigger, int* PMT_Nphotons, float* PMT_Tim
 }
 
 std::vector<float> getAnaBarPMTTime(bool trigger, int* PMT_Nphotons, float* PMT_Time) {
-
-    std::vector<float> v;
     
+    std::vector<float> v;
+    TRandom3* fRand = new TRandom3(-1);
     float pmttime[NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS];
-
+    //std::cout << "--------------------" << std::endl;
     if (trigger) {
         for (Int_t icount = AnaBar_PMT_Offset;icount<AnaBar_PMT_Offset+NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;icount++){
             if (PMT_Nphotons[icount]>Photon_min_cut) {
+                //std::cout << "getAnaBarPMTTime: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
                 pmttime[icount] = PMT_Time[icount];
                 v.push_back(pmttime[icount]);
             }
-
         }
     }
     return v;
@@ -796,6 +839,7 @@ std::vector<float> getAnaBarPMTTimeBottom(bool trigger, int* PMT_Nphotons, float
     }
     return v;
 }
+
 
 std::vector<float> getAnaBarPMTNPhotons(bool trigger, int* PMT_Nphotons) {
     
@@ -961,7 +1005,7 @@ root.gInterpreter.Declare(triggerCode)
 # In[5]:
 
 
-fdf = d.Define("trigger", "getTrigger(Detector_Nhits, &Detector_id[0])") \
+fdf1 = d1.Define("trigger", "getTrigger(Detector_Nhits, &Detector_id[0])") \
        .Define("fMass", "getMass(Prim_pdg)") \
        .Define("fMomentum","getMomentum(Prim_E,fMass)") \
        .Define("fPx", "getPx(fMomentum,Prim_Th,Prim_Ph)") \
@@ -1000,61 +1044,136 @@ fdf = d.Define("trigger", "getTrigger(Detector_Nhits, &Detector_id[0])") \
        .Define("anaBarEd","getAnaBarEd(trigger,fNewTheta,Detector_Nhits,Prim_pdg,&Detector_id[0],&Detector_pdg[0],&Detector_Ed[0])") \
        .Define("anaBarEdTotal","getAnaBarEdTotal(trigger,fNewTheta,Detector_Nhits,Prim_pdg,&Detector_id[0],&Detector_pdg[0],&Detector_Ed[0])")
 
-triggers = fdf.Filter("trigger==true").Count()
+triggers = fdf1.Filter("trigger==true").Count()
 print('{} entries passed trigger'.format(triggers.GetValue()))
 
-fdft = fdf.Filter("trigger==true")
+fdft1 = fdf1.Filter("trigger==true")
 
 
 # In[6]:
 
+
+fdf2 = d2.Define("trigger", "getTrigger(Detector_Nhits, &Detector_id[0])") \
+       .Define("fMass", "getMass(Prim_pdg)") \
+       .Define("fMomentum","getMomentum(Prim_E,fMass)") \
+       .Define("fPx", "getPx(fMomentum,Prim_Th,Prim_Ph)") \
+       .Define("fPy", "getPy(fMomentum,Prim_Th,Prim_Ph)") \
+       .Define("fPz", "getPz(fMomentum,Prim_Th,Prim_Ph)") \
+       .Define("fNewTheta", "getNewTheta(fMomentum,fPy)") \
+       .Define("fNewPhi", "getNewPhi(fMomentum,fPx,fPz)") \
+       .Define("trigger2", "getTrigger2(trigger,fNewTheta)") \
+       .Define("trigger3", "getTrigger3(trigger,fNewTheta)") \
+       .Define("fingerXVec","getFingerXVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_x[0],Prim_pdg)") \
+       .Define("fingerYVec","getFingerYVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_y[0],Prim_pdg)") \
+       .Define("fingerZVec","getFingerZVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_z[0],Prim_pdg)") \
+       .Define("fingerTVec","getFingerTVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_t[0],Prim_pdg)") \
+       .Define("anaBarXVec","getAnaBarXVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_x[0],Prim_pdg)") \
+       .Define("anaBarYVec","getAnaBarYVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_y[0],Prim_pdg)") \
+       .Define("anaBarZVec","getAnaBarZVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_z[0],Prim_pdg)") \
+       .Define("anaBarTVec","getAnaBarTVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_t[0],Prim_pdg)") \
+       .Define("fingerID","getFingerID(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0])") \
+       .Define("fingerPDG","getFingerPDG(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0])") \
+       .Define("anaBarID","getAnaBarID(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0])") \
+       .Define("anaBarPDG","getAnaBarPDG(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0])") \
+       .Define("anaBarPMTID","getAnaBarPMTID(trigger,&PMT_Nphotons[0])") \
+       .Define("fingerPMTID","getFingerPMTID(trigger,&PMT_Nphotons[0])") \
+       .Define("fingerPMTNPhotons","getFingerPMTNPhotons(trigger,&PMT_Nphotons[0])") \
+       .Define("anaBarPMTNPhotons","getAnaBarPMTNPhotons(trigger,&PMT_Nphotons[0])") \
+       .Define("anaBarXPMT","getAnaBarXPMT(trigger,&PMT_Nphotons[0],&PMT_Time[0])") \
+       .Define("anaBarZPMT","getAnaBarZPMT(trigger,&PMT_Nphotons[0],&PMT_Time[0])") \
+       .Define("anaBarPXPMT","getAnaBarPXPMT(trigger,&PMT_Nphotons[0],&PMT_Time[0])") \
+       .Define("anaBarPZPMT","getAnaBarPZPMT(trigger,&PMT_Nphotons[0],&PMT_Time[0])") \
+       .Define("anaBarPMTTime","getAnaBarPMTTime(trigger,&PMT_Nphotons[0],&PMT_Time[0])") \
+       .Define("anaBarPMTTimeTop","getAnaBarPMTTimeTop(trigger,&PMT_Nphotons[0],&PMT_Time[0])") \
+       .Define("anaBarPMTTimeBottom","getAnaBarPMTTimeBottom(trigger,&PMT_Nphotons[0],&PMT_Time[0])") \
+       .Define("anaBarNPhotonsTotal","getAnaBarNPhotonsTotal(trigger,&PMT_Nphotons[0])") \
+       .Define("imult","getAnaBarMult(trigger,&PMT_Nphotons[0])") \
+       .Define("fingerEd","getFingerEd(trigger,fNewTheta,Detector_Nhits,Prim_pdg,&Detector_id[0],&Detector_pdg[0],&Detector_Ed[0])") \
+       .Define("anaBarEd","getAnaBarEd(trigger,fNewTheta,Detector_Nhits,Prim_pdg,&Detector_id[0],&Detector_pdg[0],&Detector_Ed[0])") \
+       .Define("anaBarEdTotal","getAnaBarEdTotal(trigger,fNewTheta,Detector_Nhits,Prim_pdg,&Detector_id[0],&Detector_pdg[0],&Detector_Ed[0])")
+
+triggers = fdf2.Filter("trigger==true").Count()
+print('{} entries passed trigger'.format(triggers.GetValue()))
+
+fdft2 = fdf2.Filter("trigger==true")
+
+
+# In[7]:
+
+
 # Canvas 1
-hFingerX = fdft.Histo1D(("h1", "X1", 100, -100.0, 200.0),'fingerXVec')
-hFingerY = fdft.Histo1D(("h2", "Y1", 100, -1000.0, 500.0),'fingerYVec')
-hFingerZ = fdft.Histo1D(("h3", "Z1", 100, -2000.0, 2000.0),'fingerZVec')
-hFingerT = fdft.Histo1D(("h4", "T1", 100, -5.0, 15.0),'fingerTVec')
+
+hFingerX1 = fdft1.Histo1D(("h1", "X1", 100, -500.0, 500.0),'fingerXVec')
+hFingerY1 = fdft1.Histo1D(("h2", "Y1", 100, -1000.0, 500.0),'fingerYVec')
+hFingerZ1 = fdft1.Histo1D(("h3", "Z1", 100, -2000.0, 2000.0),'fingerZVec')
+hFingerT1 = fdft1.Histo1D(("h4", "T1", 100, -5.0, 15.0),'fingerTVec')
+hFingerX2 = fdft2.Histo1D(("h5", "X2", 100, -500.0, 500.0),'fingerXVec')
+hFingerY2 = fdft2.Histo1D(("h6", "Y2", 100, -1000.0, 500.0),'fingerYVec')
+hFingerZ2 = fdft2.Histo1D(("h7", "Z2", 100, -2000.0, 2000.0),'fingerZVec')
+hFingerT2 = fdft2.Histo1D(("h8", "T2", 100, -5.0, 15.0),'fingerTVec')
 
 c1 = root.TCanvas("c1","c1",800,800)
 c1.Divide(2,2,0.01,0.01,0)
 
 c1.cd(1)
-hFingerX.Draw()
+hFingerX1.Draw()
+hFingerX2.Draw("SAME")
 c1.cd(2)
-hFingerY.Draw()
+hFingerY1.Draw()
+hFingerY2.Draw("SAME")
 c1.cd(3)
-hFingerZ.Draw()
+hFingerZ1.Draw()
+hFingerZ2.Draw("SAME")
 c1.cd(4)
-hFingerT.Draw()
+hFingerT1.Draw()
+hFingerT2.Draw("SAME")
+
+print(f"Number of entries GEANT4 v10: {hFingerX1.GetEntries()}")
+print(f"Number of entries GEANT4 v11: {hFingerX2.GetEntries()}")
 
 c1.Draw()
 c1.Print("plots/c1RA.pdf");
 
-# In[7]:
+
+# In[8]:
+
 
 # Canvas 2
 
-hPrimE = fdft.Histo1D(("h1", "E", 100, 0.0, 7000.0),'Prim_E')
-hPrimTh = fdft.Histo1D(("h1", "TH", 100, -0.1, 3.2),'fNewTheta')
-hPrimPh = fdft.Histo1D(("h1", "PH", 100, -0.1, 6.4),'fNewPhi')
-hPrimPdg = fdft.Histo1D(("h1", "PDG", 100, 0.0, 20.0),'Prim_pdg')
+hPrimE1 = fdft1.Histo1D(("h1", "E", 100, 0.0, 7000.0),'Prim_E')
+hPrimTh1 = fdft1.Histo1D(("h1", "TH", 100, -0.1, 3.2),'fNewTheta')
+hPrimPh1 = fdft1.Histo1D(("h1", "PH", 100, -0.1, 6.4),'fNewPhi')
+hPrimPdg1 = fdft1.Histo1D(("h1", "PDG", 100, 0.0, 20.0),'Prim_pdg')
+hPrimE2 = fdft2.Histo1D(("h1", "E", 100, 0.0, 7000.0),'Prim_E')
+hPrimTh2 = fdft2.Histo1D(("h1", "TH", 100, -0.1, 3.2),'fNewTheta')
+hPrimPh2 = fdft2.Histo1D(("h1", "PH", 100, -0.1, 6.4),'fNewPhi')
+hPrimPdg2 = fdft2.Histo1D(("h1", "PDG", 100, 0.0, 20.0),'Prim_pdg')
 
 c2 = root.TCanvas("c2","c2",800,800)
 c2.Divide(2,2,0.01,0.01,0)
 
 c2.cd(1)
-hPrimE.Draw()
+hPrimE2.Draw()
+hPrimE1.Draw("SAME")
 c2.cd(2)
-hPrimTh.Draw()
+hPrimTh2.Draw()
+hPrimTh1.Draw("SAME")
 c2.cd(3)
-hPrimPh.Draw()
+hPrimPh2.Draw()
+hPrimPh1.Draw("SAME")
 c2.cd(4)
-hPrimPdg.Draw()
+hPrimPdg2.Draw()
+hPrimPdg1.Draw("SAME")
+
+print(f"Number of entries GEANT4 v10: {hPrimE1.GetEntries()}")
+print(f"Number of entries GEANT4 v11: {hPrimE2.GetEntries()}")
 
 c2.Draw()
 c2.Print("plots/c2RA.pdf")
 
 
-# In[8]:
+# In[9]:
+
 
 def plotSinglePoints(hist):
 
@@ -1115,9 +1234,6 @@ def plotSinglePoints(hist):
     rect13.SetFillColorAlpha(3, opacity);
     hist.GetListOfFunctions().Add(rect13);
 
-
-# In[9]:
-
 def plotDetector(hist):
     
     opacity=0.2
@@ -1164,102 +1280,148 @@ def plotDetector(hist):
     rect6.SetFillColorAlpha(2, opacity)
     hist.GetListOfFunctions().Add(rect6)
 
-
-# In[10]:
-
-# Canvas 33
-hAnaBarPMTTime_vs_ID = fdft.Histo2D(("h1", "AnaBar Time vs ID", 100, 0.0, 2500.0,100,0.0,20.0),'anaBarPMTID','anaBarPMTTime')
-hAnaBarPMTTime = fdft.Histo1D(("h1", "AnaBar Time", 100, 0.0, 13.0),'anaBarPMTTime')
-hAnaBarPMTTimeTop = fdft.Histo1D(("h1", "AnaBar Time Top", 100, 0.0, 13.0),'anaBarPMTTimeTop')
-hAnaBarPMTTimeBottom = fdft.Histo1D(("h1", "AnaBar Time Bottom", 100, 0.0, 13.0),'anaBarPMTTimeBottom')
-hAnaBarPMTTime_vs_Nphoton = fdft.Histo2D(("h1", "AnaBar Time vs Nphotons", 100, 0.0, 300.0,100,0.0,20.0),'anaBarPMTNPhotons','anaBarPMTTime')
-hAnaBarXZPMT = fdft.Histo2D(("h1","AnaBar XvsZPMT",100,-100.0,100.0,100,-200,200),"anaBarXPMT","anaBarZPMT");
-
-c33 = root.TCanvas("c33","c33",800,800)
-c33.Divide(3,2,0.01,0.01,0)
-
-c33.cd(1)
-hAnaBarPMTTime_vs_ID.Draw("COLZ")
-c33.cd(2)
-hAnaBarPMTTime_vs_Nphoton.Draw("COLZ")
-c33.cd(3)
-hAnaBarPMTTime.Draw()
-hAnaBarPMTTimeTop.Draw("SAME")
-hAnaBarPMTTimeBottom.Draw("SAME")
-c33.cd(4)
-hAnaBarPMTTimeTop.Draw()
-c33.cd(5)
-hAnaBarPMTTimeBottom.Draw()
-c33.cd(6)
-hAnaBarXZPMT.Draw("COLZ")
-plotDetector(hAnaBarXZPMT)
-plotSinglePoints(hAnaBarXZPMT)
-
-c33.Draw()
-c33.Print("plots/c33.pdf")
-
-
-# In[11]:
-
-
-hAnaBarXZPMT = fdft.Histo2D(("h1","AnaBar XvsZPMT",100,-100.0,100.0,100,-200,200),"anaBarXPMT","anaBarZPMT")
-
-c34 = root.TCanvas("c34","c34",800,1600)
-c34.Divide(1,2,0.01,0.01,0)
-
-c34.cd(1)
-hAnaBarXZPMT.Draw("SURF1")
-
-c34.cd(2)
-hAnaBarXZPMT.Draw("CONT1")
-plotDetector(hAnaBarXZPMT)
-#plotSinglePoints(hAnaBarXZPMT);
-
-
-                  
-c34.Print("plots/c34.pdf");
-
-
-# In[12]:
-
-
 # Canvas 3
 
-hDetectorNhits = fdft.Histo1D('Detector_Nhits')
-hDetectorPdg = fdft.Histo1D('anaBarPDG')
-hDetectorID = fdft.Histo1D('anaBarID')
-hFingerPdg = fdft.Histo1D('fingerPDG')
-hFingerID = fdft.Histo1D('fingerID')
-hPMTID = fdft.Histo1D('PMT_id')
-hAnaBarPMTID = fdft.Histo1D('anaBarPMTID')
-hFingerPMTID = fdft.Histo1D('fingerPMTID')
-hAnaBarPMTTime = fdft.Histo1D('anaBarPMTTime')
+hDetectorNhits1 = fdft1.Histo1D(("h1", "Nhits", 50, 0.0, 500.0),'Detector_Nhits')
+hDetectorPdg1 = fdft1.Histo1D('anaBarPDG')
+hDetectorID1 = fdft1.Histo1D('anaBarID')
+hFingerPdg1 = fdft1.Histo1D('fingerPDG')
+hFingerID1 = fdft1.Histo1D('fingerID')
+hPMTID1 = fdft1.Histo1D('PMT_id')
+hAnaBarPMTID1 = fdft1.Histo1D('anaBarPMTID')
+hFingerPMTID1 = fdft1.Histo1D('fingerPMTID')
+
+hDetectorNhits2 = fdft2.Histo1D(("h1", "Nhits", 50, 0.0, 500.0),'Detector_Nhits')
+hDetectorPdg2 = fdft2.Histo1D('anaBarPDG')
+hDetectorID2 = fdft2.Histo1D('anaBarID')
+hFingerPdg2 = fdft2.Histo1D('fingerPDG')
+hFingerID2 = fdft2.Histo1D('fingerID')
+hPMTID2 = fdft2.Histo1D('PMT_id')
+hAnaBarPMTID2 = fdft2.Histo1D('anaBarPMTID')
+hFingerPMTID2 = fdft2.Histo1D('fingerPMTID')
 
 c3 = root.TCanvas("c3","c3",800,800)
 c3.Divide(3,3,0.01,0.01,0)
 
 c3.cd(1)
-hDetectorNhits.Draw()
+hDetectorNhits1.Draw()
+hDetectorNhits2.Draw("SAME")
 c3.cd(2)
-hFingerPdg.Draw()
+hFingerPdg1.Draw()
+hFingerPdg2.Draw("SAME")
 c3.cd(3)
-hDetectorPdg.Draw()
+hDetectorPdg1.Draw()
+hDetectorPdg2.Draw("SAME")
 c3.cd(4)
-hFingerID.Draw()
+hFingerID1.Draw()
+hFingerID2.Draw("SAME")
 c3.cd(5)
-hDetectorID.Draw()
+hDetectorID1.Draw()
+hDetectorID2.Draw("SAME")
 c3.cd(6)
-##hPMTID.GetXaxis().SetRangeUser(0,14)
-hPMTID.Draw()
+hPMTID1.Draw()
+hPMTID2.Draw("SAME")
 c3.cd(7)
-hFingerPMTID.Draw()
+hFingerPMTID1.Draw()
+hFingerPMTID2.Draw("SAME")
 c3.cd(8)
-hAnaBarPMTID.Draw()
-c3.cd(9)
-hAnaBarPMTTime.Draw()
+hAnaBarPMTID1.Draw()
+hAnaBarPMTID2.Draw("SAME")
 
+print(f"Number of entries Detector_Nhits GEANT4 v10: {hDetectorNhits1.GetEntries()}")
+print(f"Number of entries Detector_Nhits GEANT4 v11: {hDetectorNhits2.GetEntries()}")
+print(f"Number of entries PMT_ID GEANT4 v10: {hPMTID1.GetEntries()}")
+print(f"Number of entries PMT_ID GEANT4 v11: {hPMTID2.GetEntries()}")
 c3.Draw()
 c3.Print("plots/c3RA.pdf")
+
+
+# In[10]:
+
+
+# Canvas 33
+hAnaBarPMTTime_vs_ID1 = fdft1.Histo2D(("h1", "AnaBar Time vs ID", 100, 0.0, 2500.0,100,0.0,20.0),'anaBarPMTID','anaBarPMTTime')
+hAnaBarPMTTime1 = fdft1.Histo1D(("h1", "AnaBar Time", 100, 1.0, 7.0),'anaBarPMTTime')
+hAnaBarPMTTimeTop1 = fdft1.Histo1D(("h1", "AnaBar Time Top", 100, 0.0, 13.0),'anaBarPMTTimeTop')
+hAnaBarPMTTimeBottom1 = fdft1.Histo1D(("h1", "AnaBar Time Bottom", 100, 0.0, 13.0),'anaBarPMTTimeBottom')
+hAnaBarPMTTime_vs_Nphoton1 = fdft1.Histo2D(("h1", "AnaBar Time vs Nphotons", 100, 0.0, 300.0,100,0.0,20.0),'anaBarPMTNPhotons','anaBarPMTTime')
+hAnaBarXZPMT1 = fdft1.Histo2D(("h1","AnaBar XvsZPMT",100,-100.0,100.0,100,-200,200),"anaBarXPMT","anaBarZPMT");
+
+hAnaBarPMTTime_vs_ID2 = fdft2.Histo2D(("h1", "AnaBar Time vs ID", 100, 0.0, 2500.0,100,0.0,20.0),'anaBarPMTID','anaBarPMTTime')
+hAnaBarPMTTime2 = fdft2.Histo1D(("h1", "AnaBar Time", 100, 1.0, 7.0),'anaBarPMTTime')
+hAnaBarPMTTimeTop2 = fdft2.Histo1D(("h1", "AnaBar Time Top", 100, 0.0, 13.0),'anaBarPMTTimeTop')
+hAnaBarPMTTimeBottom2 = fdft2.Histo1D(("h1", "AnaBar Time Bottom", 100, 0.0, 13.0),'anaBarPMTTimeBottom')
+hAnaBarPMTTime_vs_Nphoton2 = fdft2.Histo2D(("h1", "AnaBar Time vs Nphotons", 100, 0.0, 300.0,100,0.0,20.0),'anaBarPMTNPhotons','anaBarPMTTime')
+hAnaBarXZPMT2 = fdft2.Histo2D(("h1","AnaBar XvsZPMT",100,-100.0,100.0,100,-200,200),"anaBarXPMT","anaBarZPMT");
+
+c33 = root.TCanvas("c33","c33",800,1200)
+c33.Divide(3,4,0.01,0.01,0)
+
+c33.cd(1)
+hAnaBarPMTTime_vs_ID1.Draw("COLZ")
+c33.cd(2)
+hAnaBarPMTTime_vs_Nphoton1.Draw("COLZ")
+c33.cd(3)
+hAnaBarPMTTime1.Draw()
+
+c33.cd(4)
+hAnaBarPMTTime_vs_ID2.Draw("COLZ")
+c33.cd(5)
+hAnaBarPMTTime_vs_Nphoton2.Draw("COLZ")
+c33.cd(6)
+hAnaBarPMTTime2.Draw()
+
+c33.cd(7)
+hAnaBarPMTTimeTop1.Draw()
+c33.cd(8)
+hAnaBarPMTTimeBottom1.Draw()
+c33.cd(9)
+hAnaBarXZPMT1.Draw("COLZ")
+plotDetector(hAnaBarXZPMT1)
+plotSinglePoints(hAnaBarXZPMT1)
+
+c33.cd(10)
+hAnaBarPMTTimeTop2.Draw()
+c33.cd(11)
+hAnaBarPMTTimeBottom2.Draw()
+c33.cd(12)
+hAnaBarXZPMT2.Draw("COLZ")
+plotDetector(hAnaBarXZPMT2)
+plotSinglePoints(hAnaBarXZPMT2)
+
+print(f"Number of entries PMT Time GEANT4 v10: {hAnaBarPMTTime1.GetEntries()}")
+print(f"Number of entries PMT Time GEANT4 v11: {hAnaBarPMTTime2.GetEntries()}")
+
+c33.Draw()
+c33.Print("plots/c33.pdf")
+
+
+# In[12]:
+
+
+hAnaBarXZPMT1 = fdft1.Histo2D(("h1","AnaBar XvsZPMT",100,-100.0,100.0,100,-200,200),"anaBarXPMT","anaBarZPMT")
+hAnaBarXZPMT2 = fdft2.Histo2D(("h1","AnaBar XvsZPMT",100,-100.0,100.0,100,-200,200),"anaBarXPMT","anaBarZPMT")
+
+c34 = root.TCanvas("c34","c34",800,1600)
+c34.Divide(2,2,0.01,0.01,0)
+
+c34.cd(1)
+hAnaBarXZPMT1.Draw("SURF1")
+
+c34.cd(2)
+hAnaBarXZPMT1.Draw("CONT1")
+plotDetector(hAnaBarXZPMT1)
+#plotSinglePoints(hAnaBarXZPMT);
+
+c34.cd(3)
+hAnaBarXZPMT2.Draw("SURF1")
+
+c34.cd(4)
+hAnaBarXZPMT2.Draw("CONT1")
+plotDetector(hAnaBarXZPMT2)
+#plotSinglePoints(hAnaBarXZPMT);
+                  
+c34.Print("plots/c34.pdf");
 
 
 # In[13]:
@@ -1267,10 +1429,15 @@ c3.Print("plots/c3RA.pdf")
 
 # Canvas 4
 
-hFingerEd = fdft.Histo1D(("h1", "Finger EDep", 100, 0.0, 10.0),'fingerEd')
-hFingerPMTNphot = fdft.Histo1D(("h1", "Finger Npe", 100, 0.1, 100.0),'fingerPMTNPhotons')
-hAnaBarPMTNphot = fdft.Histo1D(("h1", "AnaBar Npe", 100, 0.1, 200.0),'anaBarPMTNPhotons')
-hAnaBarEd = fdft.Histo1D(("h1", "AnaBar Edep", 100, 0.0, 10.0),'anaBarEd')
+hFingerEd1 = fdft1.Histo1D(("h1", "Finger EDep", 100, 0.0, 10.0),'fingerEd')
+hFingerPMTNphot1 = fdft1.Histo1D(("h1", "Finger Npe", 100, 0.0, 20.0),'fingerPMTNPhotons')
+hAnaBarPMTNphot1 = fdft1.Histo1D(("h1", "AnaBar Npe", 100, 0.0, 200.0),'anaBarPMTNPhotons')
+hAnaBarEd1 = fdft1.Histo1D(("h1", "AnaBar Edep", 100, 0.0, 10.0),'anaBarEd')
+
+hFingerEd2 = fdft2.Histo1D(("h1", "Finger EDep", 100, 0.0, 10.0),'fingerEd')
+hFingerPMTNphot2 = fdft2.Histo1D(("h1", "Finger Npe", 100, 0.0, 20.0),'fingerPMTNPhotons')
+hAnaBarPMTNphot2 = fdft2.Histo1D(("h1", "AnaBar Npe", 100, 0.0, 200.0),'anaBarPMTNPhotons')
+hAnaBarEd2 = fdft2.Histo1D(("h1", "AnaBar Edep", 100, 0.0, 10.0),'anaBarEd')
 
 c4 = root.TCanvas("c4","c4",800,800)
 
@@ -1278,31 +1445,42 @@ c4.cd()
 pad = root.TPad("pad","pad",0.01,0.51,0.50,0.99)
 pad.Draw()
 pad.cd()
-hFingerEd.GetXaxis().SetRangeUser(1.0,10)
-hFingerEd.Draw();
+hFingerEd2.GetXaxis().SetRangeUser(1.0,10)
+hFingerEd2.Draw();
+hFingerEd1.GetXaxis().SetRangeUser(1.0,10)
+hFingerEd1.Draw("SAME");
 
 c4.cd()
 pad = root.TPad("pad","pad",0.51,0.51,0.99,0.99)
 pad.Draw()
 pad.cd()
-hFingerPMTNphot.GetXaxis().SetRangeUser(-10,250)
-hFingerPMTNphot.Draw()
+hFingerPMTNphot2.GetXaxis().SetRangeUser(-10,250)
+hFingerPMTNphot2.Draw()
+hFingerPMTNphot1.GetXaxis().SetRangeUser(-10,250)
+hFingerPMTNphot1.Draw("SAME")
 
 c4.cd()
 pad = root.TPad("pad","pad",0.01,0.01,0.50,0.50)
 #pad.SetLogy()
 pad.Draw()
 pad.cd()
-hAnaBarEd.GetXaxis().SetRangeUser(1.0,10)
-hAnaBarEd.Draw();
+hAnaBarEd2.GetXaxis().SetRangeUser(1.0,10)
+hAnaBarEd2.Draw();
+hAnaBarEd1.GetXaxis().SetRangeUser(1.0,10)
+hAnaBarEd1.Draw("SAME");
 
 c4.cd()
 pad = root.TPad("pad","pad",0.51,0.01,0.99,0.50)
 #pad.SetLogy()
 pad.Draw()
 pad.cd()
-hAnaBarPMTNphot.GetXaxis().SetRangeUser(-20,180)
-hAnaBarPMTNphot.Draw()
+hAnaBarPMTNphot2.GetXaxis().SetRangeUser(-20,180)
+hAnaBarPMTNphot2.Draw()
+hAnaBarPMTNphot1.GetXaxis().SetRangeUser(-20,180)
+hAnaBarPMTNphot1.Draw("SAME")
+
+print(f"Number of entries AnaBar PMT Number of Photons GEANT4 v10: {hAnaBarPMTNphot1.GetEntries()}")
+print(f"Number of entries AnaBar PMT Number of Photons GEANT4 v11: {hAnaBarPMTNphot2.GetEntries()}")
 
 c4.Draw()
 c4.Print("plots/c4RA.pdf")
@@ -1313,22 +1491,44 @@ c4.Print("plots/c4RA.pdf")
 
 # Canvas 5
 
-hAnaBarX = fdft.Histo1D(("h1", "AnaBar X", 100, -800.0, 800.0),'anaBarXVec')
-hAnaBarY = fdft.Histo1D(("h1", "AnaBar Y", 100, -400.0, 100.0),'anaBarYVec')
-hAnaBarZ = fdft.Histo1D(("h1", "AnaBar Z", 100, -2000.0, 2000.0),'anaBarZVec')
-hAnaBarT = fdft.Histo1D(("h1", "AnaBar T", 100, 0.0, 10.0),'anaBarTVec')
+hAnaBarX1 = fdft1.Histo1D(("h1", "AnaBar X", 1000, -800.0, 800.0),'anaBarXVec')
+hAnaBarY1 = fdft1.Histo1D(("h1", "AnaBar Y", 1000, -400.0, 100.0),'anaBarYVec')
+hAnaBarZ1 = fdft1.Histo1D(("h1", "AnaBar Z", 1000, -2000.0, 2000.0),'anaBarZVec')
+hAnaBarT1 = fdft1.Histo1D(("h1", "AnaBar T", 1000, 0.0, 10.0),'anaBarTVec')
+hAnaBarX2 = fdft2.Histo1D(("h1", "AnaBar X", 1000, -800.0, 800.0),'anaBarXVec')
+hAnaBarY2 = fdft2.Histo1D(("h1", "AnaBar Y", 1000, -400.0, 100.0),'anaBarYVec')
+hAnaBarZ2 = fdft2.Histo1D(("h1", "AnaBar Z", 1000, -2000.0, 2000.0),'anaBarZVec')
+hAnaBarT2 = fdft2.Histo1D(("h1", "AnaBar T", 1000, 0.0, 10.0),'anaBarTVec')
 
 c5 = root.TCanvas("c5","c5",800,800)
 c5.Divide(2,2,0.01,0.01,0)
 
 c5.cd(1)
-hAnaBarX.Draw()
+hAnaBarX2.Draw()
 c5.cd(2)
-hAnaBarY.Draw()
+hAnaBarY2.Draw()
 c5.cd(3)
-hAnaBarZ.Draw()
+hAnaBarZ2.Draw()
 c5.cd(4)
-hAnaBarT.Draw()
+hAnaBarT2.Draw()
+c5.cd(1)
+hAnaBarX1.Draw("SAME")
+c5.cd(2)
+hAnaBarY1.Draw("SAME")
+c5.cd(3)
+hAnaBarZ1.Draw("SAME")
+c5.cd(4)
+hAnaBarT1.Draw("SAME")
+
+
+print(f"Number of entries AnaBarX1 GEANT4 v10: {hAnaBarX1.GetEntries()}")
+print(f"Number of entries AnaBarX2 GEANT4 v11: {hAnaBarX2.GetEntries()}")
+print(f"Number of entries AnaBarY1 GEANT4 v10: {hAnaBarY1.GetEntries()}")
+print(f"Number of entries AnaBarY2 GEANT4 v11: {hAnaBarY2.GetEntries()}")
+print(f"Number of entries AnaBarZ1 GEANT4 v10: {hAnaBarZ1.GetEntries()}")
+print(f"Number of entries AnaBarZ2 GEANT4 v11: {hAnaBarZ2.GetEntries()}")
+print(f"Number of entries AnaBarT1 GEANT4 v10: {hAnaBarT1.GetEntries()}")
+print(f"Number of entries AnaBarT2 GEANT4 v11: {hAnaBarT2.GetEntries()}")
 
 c5.Draw()
 c5.Print("plots/c5RA.pdf");
@@ -1343,13 +1543,16 @@ c5.Print("plots/c5RA.pdf");
 # In[15]:
 
 
-hE1vsE2 = fdft.Histo2D(("h2", "E1 vs E2", 100, 0.01, 3.0, 100, 0.01, 30.0),"fingerEd","anaBarEdTotal")
+hE1vsE21 = fdft1.Histo2D(("h2", "E1 vs E2", 100, 0.01, 3.0, 100, 0.01, 30.0),"fingerEd","anaBarEdTotal")
+hE1vsE22 = fdft2.Histo2D(("h2", "E1 vs E2", 100, 0.01, 3.0, 100, 0.01, 30.0),"fingerEd","anaBarEdTotal")
 
 c6 = root.TCanvas("c6", "c6", 800, 800)
-c6.Divide(1,1, 0.01, 0.01, 0)
+c6.Divide(2,1, 0.01, 0.01, 0)
 
 c6.cd(1)
-hE1vsE2.Draw("COLZ")
+hE1vsE21.Draw("COLZ")
+c6.cd(2)
+hE1vsE22.Draw("COLZ")
 
 c6.Draw()
 c6.Print("plots/c6RA.pdf")
@@ -1358,24 +1561,36 @@ c6.Print("plots/c6RA.pdf")
 # In[16]:
 
 
-hFinger_Edep_vs_Nphot = fdft.Filter("trigger2").Histo2D(("h3", "Finger Edep vs Nphot", 100, 0.01, 200.0, 100, 0.01, 3.0),"fingerPMTNPhotons","fingerEd")
-hAnaBar_Edep_vs_Nphot = fdft.Filter("trigger2").Histo2D(("h4", "AnaBar Edep vs NphotTotal", 100, 0.01, 30.0, 100, 0.01, 500.0),"anaBarEdTotal","anaBarNPhotonsTotal")
-hNphot0_vs_Nphot = fdft.Filter("trigger2").Histo2D(("h5", "AnaBar NphotTotal vs Finger Nphot", 100, 0.01, 500.0, 100, 0.01, 200.0),"anaBarNPhotonsTotal","fingerPMTNPhotons")
+hFinger_Edep_vs_Nphot1 = fdft1.Filter("trigger2").Histo2D(("h3", "Finger Edep vs Nphot", 100, 0.01, 200.0, 100, 0.01, 3.0),"fingerPMTNPhotons","fingerEd")
+hAnaBar_Edep_vs_Nphot1 = fdft1.Filter("trigger2").Histo2D(("h4", "AnaBar Edep vs NphotTotal", 100, 0.01, 30.0, 100, 0.01, 500.0),"anaBarEdTotal","anaBarNPhotonsTotal")
+hNphot0_vs_Nphot1 = fdft1.Filter("trigger2").Histo2D(("h5", "AnaBar NphotTotal vs Finger Nphot", 100, 0.01, 500.0, 100, 0.01, 200.0),"anaBarNPhotonsTotal","fingerPMTNPhotons")
+hFinger_Edep_vs_Nphot2 = fdft2.Filter("trigger2").Histo2D(("h3", "Finger Edep vs Nphot", 100, 0.01, 200.0, 100, 0.01, 3.0),"fingerPMTNPhotons","fingerEd")
+hAnaBar_Edep_vs_Nphot2 = fdft2.Filter("trigger2").Histo2D(("h4", "AnaBar Edep vs NphotTotal", 100, 0.01, 30.0, 100, 0.01, 500.0),"anaBarEdTotal","anaBarNPhotonsTotal")
+hNphot0_vs_Nphot2 = fdft2.Filter("trigger2").Histo2D(("h5", "AnaBar NphotTotal vs Finger Nphot", 100, 0.01, 500.0, 100, 0.01, 200.0),"anaBarNPhotonsTotal","fingerPMTNPhotons")
 
 c7 = root.TCanvas("c7", "c7", 800, 800)
-c7.Divide(2,2, 0.01, 0.01, 0)
+c7.Divide(4,2, 0.01, 0.01, 0)
 
 #c7PE_MeV = root.TCanvas("c7PE_MeV", "c7PE_MeV", 800,800)
 #c7Profile = root.TCanvas("c7Profile", "c7Profile", 800,800)
 
 c7.cd(1)
-hFinger_Edep_vs_Nphot.Draw("COLZ")
+hFinger_Edep_vs_Nphot1.Draw("COLZ")
 c7.cd(2)
-hAnaBar_Edep_vs_Nphot.Draw("COLZ")
+hAnaBar_Edep_vs_Nphot1.Draw("COLZ")
 c7.cd(3)
-hNphot0_vs_Nphot.Draw("COLZ")
+hNphot0_vs_Nphot1.Draw("COLZ")
 c7.cd(4)
-prof = hAnaBar_Edep_vs_Nphot.ProfileX()
+prof = hAnaBar_Edep_vs_Nphot1.ProfileX()
+prof.Fit("pol1")
+c7.cd(5)
+hFinger_Edep_vs_Nphot2.Draw("COLZ")
+c7.cd(6)
+hAnaBar_Edep_vs_Nphot2.Draw("COLZ")
+c7.cd(7)
+hNphot0_vs_Nphot2.Draw("COLZ")
+c7.cd(8)
+prof = hAnaBar_Edep_vs_Nphot2.ProfileX()
 prof.Fit("pol1")
 
 
@@ -1389,24 +1604,36 @@ c7.Print("plots/c7RA.pdf")
 # In[18]:
 
 
-hFinger_Edep_vs_NphotCut = fdft.Filter("trigger3").Histo2D(("h3", "Finger Edep vs Nphot", 100, 0.01, 200.0, 100, 0.01, 3.0),"fingerPMTNPhotons","fingerEd")
-hAnaBar_Edep_vs_NphotCut = fdft.Filter("trigger3").Histo2D(("h4", "AnaBar Edep vs Nphot", 100, 0.01, 30.0, 100, 0.01, 500.0),"anaBarEdTotal","anaBarNPhotonsTotal")
-hNphot0_vs_Nphot1Cut = fdft.Filter("trigger3").Histo2D(("h5", "AnaBar Nphot vs Finger Nphot", 100, 0.01, 500.0, 100, 0.01, 200.0),"anaBarNPhotonsTotal","fingerPMTNPhotons")
+hFinger_Edep_vs_Nphot1b = fdft1.Filter("trigger3").Histo2D(("h3", "Finger Edep vs Nphot", 100, 0.01, 200.0, 100, 0.01, 3.0),"fingerPMTNPhotons","fingerEd")
+hAnaBar_Edep_vs_Nphot1b = fdft1.Filter("trigger3").Histo2D(("h4", "AnaBar Edep vs NphotTotal", 100, 0.01, 30.0, 100, 0.01, 500.0),"anaBarEdTotal","anaBarNPhotonsTotal")
+hNphot0_vs_Nphot1b = fdft1.Filter("trigger3").Histo2D(("h5", "AnaBar NphotTotal vs Finger Nphot", 100, 0.01, 500.0, 100, 0.01, 200.0),"anaBarNPhotonsTotal","fingerPMTNPhotons")
+hFinger_Edep_vs_Nphot2b = fdft2.Filter("trigger3").Histo2D(("h3", "Finger Edep vs Nphot", 100, 0.01, 200.0, 100, 0.01, 3.0),"fingerPMTNPhotons","fingerEd")
+hAnaBar_Edep_vs_Nphot2b = fdft2.Filter("trigger3").Histo2D(("h4", "AnaBar Edep vs NphotTotal", 100, 0.01, 30.0, 100, 0.01, 500.0),"anaBarEdTotal","anaBarNPhotonsTotal")
+hNphot0_vs_Nphot2b = fdft2.Filter("trigger3").Histo2D(("h5", "AnaBar NphotTotal vs Finger Nphot", 100, 0.01, 500.0, 100, 0.01, 200.0),"anaBarNPhotonsTotal","fingerPMTNPhotons")
 
 c8 = root.TCanvas("c8", "c8", 800, 800)
-c8.Divide(2,2, 0.01, 0.01, 0)
+c8.Divide(4,2, 0.01, 0.01, 0)
 
 #c7PE_MeV = root.TCanvas("c7PE_MeV", "c7PE_MeV", 800,800)
 #c7Profile = root.TCanvas("c7Profile", "c7Profile", 800,800)
 
 c8.cd(1)
-hFinger_Edep_vs_NphotCut.Draw("COLZ")
+hFinger_Edep_vs_Nphot1b.Draw("COLZ")
 c8.cd(2)
-hAnaBar_Edep_vs_NphotCut.Draw("COLZ")
+hAnaBar_Edep_vs_Nphot1b.Draw("COLZ")
 c8.cd(3)
-hNphot0_vs_Nphot1Cut.Draw("COLZ")
+hNphot0_vs_Nphot1b.Draw("COLZ")
 c8.cd(4)
-prof = hAnaBar_Edep_vs_NphotCut.ProfileX()
+prof = hAnaBar_Edep_vs_Nphot1b.ProfileX()
+prof.Fit("pol1")
+c8.cd(5)
+hFinger_Edep_vs_Nphot2b.Draw("COLZ")
+c8.cd(6)
+hAnaBar_Edep_vs_Nphot2b.Draw("COLZ")
+c8.cd(7)
+hNphot0_vs_Nphot2b.Draw("COLZ")
+c8.cd(8)
+prof = hAnaBar_Edep_vs_Nphot2b.ProfileX()
 prof.Fit("pol1")
 
 
@@ -1536,13 +1763,15 @@ c8.Print("plots/c8RA.pdf")
 # In[23]:
 
 
-hAnaBarMult = fdft.Histo1D(("h1", "CDet Multiplicity", 20, 0, 20),"imult")
+hAnaBarMult1 = fdft1.Histo1D(("h1", "CDet Multiplicity", 20, 0, 20),"imult")
+hAnaBarMult2 = fdft2.Histo1D(("h1", "CDet Multiplicity", 20, 0, 20),"imult")
 
 c11 = root.TCanvas("c11", "c11", 800,800)
 c11.Divide(1,1, 0.01, 0.01, 0)
 
 c11.cd(1)
-hAnaBarMult.Draw()
+hAnaBarMult1.Draw()
+hAnaBarMult2.Draw("SAME")
 
 c11.Draw()
 c11.Print("plots/c11RA.pdf")
@@ -1551,19 +1780,28 @@ c11.Print("plots/c11RA.pdf")
 # In[24]:
 
 
-hPrimPx = fdft.Histo1D(("h1", "Px", 100, -1000, 1000),"fPx")
-hPrimPy = fdft.Histo1D(("h1", "Px", 100, -8000, 1000),"fPy")
-hPrimPz = fdft.Histo1D(("h1", "Px", 100, -2000, 2000),"fPz")
+hPrimPx1 = fdft1.Histo1D(("h1", "Px", 100, -1000, 1000),"fPx")
+hPrimPy1 = fdft1.Histo1D(("h1", "Px", 100, -8000, 1000),"fPy")
+hPrimPz1 = fdft1.Histo1D(("h1", "Px", 100, -2000, 2000),"fPz")
+hPrimPx2 = fdft2.Histo1D(("h1", "Px", 100, -1000, 1000),"fPx")
+hPrimPy2 = fdft2.Histo1D(("h1", "Px", 100, -8000, 1000),"fPy")
+hPrimPz2 = fdft2.Histo1D(("h1", "Px", 100, -2000, 2000),"fPz")
 
 c12 = root.TCanvas("c12", "c12", 800,800)
 c12.Divide(2,2, 0.01, 0.01, 0)
 
 c12.cd(1)
-hPrimPx.Draw()
+hPrimPx2.Draw()
 c12.cd(2)
-hPrimPy.Draw()
+hPrimPy2.Draw()
 c12.cd(3)
-hPrimPz.Draw()
+hPrimPz2.Draw()
+c12.cd(1)
+hPrimPx1.Draw("SAME")
+c12.cd(2)
+hPrimPy1.Draw("SAME")
+c12.cd(3)
+hPrimPz1.Draw("SAME")
 
 c12.Draw()
 c12.Print("plots/c12RA.pdf")
@@ -1578,76 +1816,118 @@ c12.Print("plots/c12RA.pdf")
 # In[25]:
 
 
-hPx_vs_x = fdft.Filter("trigger2").Histo2D(("h33", "G4SBS Px vs x", 100, -800.0, 800.0, 100, -800.0, 800.0),"anaBarXVec","fPx");
-hPz_vs_z = fdft.Filter("trigger2").Histo2D(("h34", "G4SBS Pz vs z", 100, -2400.0, 2400.0, 100, -2400.0, 2400.0),"anaBarZVec","fPz");
-hz_vs_x = fdft.Filter("trigger2").Histo2D(("h35", "CDet z vs x", 100, -800.0, 800.0, 100, -2400.0, 2400.0),"anaBarXVec","anaBarZVec");
-hPrimXZ = fdft.Histo2D(("h99", "G4SBS z vs x", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z");
-    
+hPx_vs_x1 = fdft1.Filter("trigger2").Histo2D(("h33", "Px vs x", 100, -800.0, 800.0, 100, -800.0, 800.0),"anaBarXVec","fPx")
+hPz_vs_z1 = fdft1.Filter("trigger2").Histo2D(("h34", "Pz vs z", 100, -2400.0, 2400.0, 100, -2400.0, 2400.0),"anaBarZVec","fPz")
+hz_vs_x1 = fdft1.Filter("trigger2").Histo2D(("h35", "z vs x", 100, -800.0, 800.0, 100, -2400.0, 2400.0),"anaBarXVec","anaBarZVec")
+hPx_vs_x2 = fdft2.Filter("trigger2").Histo2D(("h33", "Px vs x", 100, -800.0, 800.0, 100, -800.0, 800.0),"anaBarXVec","fPx")
+hPz_vs_z2 = fdft2.Filter("trigger2").Histo2D(("h34", "Pz vs z", 100, -2400.0, 2400.0, 100, -2400.0, 2400.0),"anaBarZVec","fPz")
+hz_vs_x2 = fdft2.Filter("trigger2").Histo2D(("h35", "z vs x", 100, -800.0, 800.0, 100, -2400.0, 2400.0),"anaBarXVec","anaBarZVec")
+
+hPrimXZ1 = fdft1.Histo2D(("h99", "z vs z", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z")
+hPrimXZ2 = fdft2.Histo2D(("h99", "z vs z", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z")
+
 c13 = root.TCanvas("c13", "c13", 800, 800)
-c13.Divide(2,2, 0.01, 0.01, 0)
+c13.Divide(4,2, 0.01, 0.01, 0)
 
 c13.cd(1)
-hPx_vs_x.Draw("COLZ")
+hPx_vs_x1.Draw("COLZ")
 c13.cd(2)
-hPz_vs_z.Draw("COLZ")
+hPz_vs_z1.Draw("COLZ")
 c13.cd(3)
-hz_vs_x.Draw("COLZ")
+hz_vs_x1.Draw("COLZ")
 c13.cd(4)
-plotDetector(hPrimXZ);
-hPrimXZ.Draw('COLZ')
+plotDetector(hPrimXZ1);
+hPrimXZ1.Draw('COLZ')
+
+c13.cd(5)
+hPx_vs_x2.Draw("COLZ")
+c13.cd(6)
+hPz_vs_z2.Draw("COLZ")
+c13.cd(7)
+hz_vs_x2.Draw("COLZ")
+c13.cd(8)
+plotDetector(hPrimXZ2);
+hPrimXZ2.Draw('COLZ')
 
 
 c13.Draw()
+c13.Print("plots/c13RA.pdf")
 
 
 # In[26]:
 
 
-# Canvas 14
-hPrimX = fdft.Histo1D(("h99","X_vtx", 100, -80,80),"Prim_X")
-hPrimY = fdft.Histo1D(("h99","Y_vtx", 100, 0,40),"Prim_Y")
-hPrimZ = fdft.Histo1D(("h99","Z_vtx", 100, -200,200),"Prim_Z")
-hPrimXZ = fdft.Histo2D(("h99", "z vs z", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z")
+hPrimX1 = fdft1.Histo1D(("h99","X_vtx", 100, -80,80),"Prim_X")
+hPrimY1 = fdft1.Histo1D(("h99","Y_vtx", 100, 0,40),"Prim_Y")
+hPrimZ1 = fdft1.Histo1D(("h99","Z_vtx", 100, -200,200),"Prim_Z")
+hPrimXZ1 = fdft1.Histo2D(("h99", "z vs z", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z")
+hPrimX2 = fdft2.Histo1D(("h99","X_vtx", 100, -80,80),"Prim_X")
+hPrimY2 = fdft2.Histo1D(("h99","Y_vtx", 100, 0,40),"Prim_Y")
+hPrimZ2 = fdft2.Histo1D(("h99","Z_vtx", 100, -200,200),"Prim_Z")
+hPrimXZ2 = fdft2.Histo2D(("h99", "z vs z", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z")
 
 c14 = root.TCanvas("c14","c14",800,800)
-c14.Divide(2,2,0.01,0.01,0)
+c14.Divide(3,2,0.01,0.01,0)
 
-c14.cd(1)
-hPrimX.Draw()
-c14.cd(2)
-hPrimY.Draw()
-c14.cd(3)
-hPrimZ.Draw()
-c14.cd(4)
-hPrimXZ.Draw('COLZ')
+c14.cd(1);
+hPrimX1.Draw();
+c14.cd(2); 
+hPrimY1.Draw();
+c14.cd(3);
+hPrimZ1.Draw();
+c14.cd(4);
+hPrimXZ1.Draw("COLZ");
+c14.cd(1);
+hPrimX2.Draw("SAME");
+c14.cd(2);
+hPrimY2.Draw("SAME");
+c14.cd(3);
+hPrimZ2.Draw("SAME");
+c14.cd(5);
+hPrimXZ2.Draw("COLZ");
 
-c14.Draw()
-c14.Print("plots/c14RA.pdf")
+c14.Draw();
+c14.Print("plots/c14.pdf");
 
 
 # In[27]:
 
 
-hPx_vs_x = fdft.Filter("trigger2").Histo2D(("h33", "Px vs x", 100, -80.0, 80.0, 100, -1.0, 1.0),"anaBarXPMT","anaBarPXPMT");
-hPz_vs_z = fdft.Filter("trigger2").Histo2D(("h34", "Pz vs z", 100, -240.0, 240.0, 100, -1.0, 1.0),"anaBarZPMT","anaBarPZPMT");
-hz_vs_x = fdft.Filter("trigger2").Histo2D(("h35", "z vs x", 100, -80.0, 80.0, 100, -240.0, 240.0),"anaBarXPMT","anaBarZPMT");
-hPrimXZ = fdft.Histo2D(("h99", "z vs z", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z");
+hPx_vs_x1 = fdft1.Filter("trigger2").Histo2D(("h33", "Px vs x", 100, -80.0, 80.0, 100, -1.0, 1.0),"anaBarXPMT","anaBarPXPMT");
+hPz_vs_z1 = fdft1.Filter("trigger2").Histo2D(("h34", "Pz vs z", 100, -240.0, 240.0, 100, -1.0, 1.0),"anaBarZPMT","anaBarPZPMT");
+hz_vs_x1 = fdft1.Filter("trigger2").Histo2D(("h35", "z vs x", 100, -80.0, 80.0, 100, -240.0, 240.0),"anaBarXPMT","anaBarZPMT");
+hPrimXZ1 = fdft1.Histo2D(("h99", "z vs z", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z");
+hPx_vs_x2 = fdft2.Filter("trigger2").Histo2D(("h33", "Px vs x", 100, -80.0, 80.0, 100, -1.0, 1.0),"anaBarXPMT","anaBarPXPMT");
+hPz_vs_z2 = fdft2.Filter("trigger2").Histo2D(("h34", "Pz vs z", 100, -240.0, 240.0, 100, -1.0, 1.0),"anaBarZPMT","anaBarPZPMT");
+hz_vs_x2 = fdft2.Filter("trigger2").Histo2D(("h35", "z vs x", 100, -80.0, 80.0, 100, -240.0, 240.0),"anaBarXPMT","anaBarZPMT");
+hPrimXZ2 = fdft2.Histo2D(("h99", "z vs z", 100, -80.0, 80.0, 100, -240.0, 240.0),"Prim_X","Prim_Z");
 
 
 
 c15 = root.TCanvas("c15","c15",800,800);
-c15.Divide(2,2,0.01,0.01,0);
+c15.Divide(4,2,0.01,0.01,0);
 
 c15.cd(1);
-hPx_vs_x.Draw("COLZ");
+hPx_vs_x1.Draw("COLZ");
 c15.cd(2);
-hPz_vs_z.Draw("COLZ");
+hPz_vs_z1.Draw("COLZ");
 c15.cd(3);
-hz_vs_x.Draw("COLZ");
-plotDetector(hz_vs_x);
+hz_vs_x1.Draw("COLZ");
+plotDetector(hz_vs_x1);
 c15.cd(4);
-hPrimXZ.Draw("COLZ");
-plotDetector(hPrimXZ);
+hPrimXZ1.Draw("COLZ");
+plotDetector(hPrimXZ1);
+
+c15.cd(5);
+hPx_vs_x2.Draw("COLZ");
+c15.cd(6);
+hPz_vs_z2.Draw("COLZ");
+c15.cd(7);
+hz_vs_x2.Draw("COLZ");
+plotDetector(hz_vs_x2);
+c15.cd(8);
+hPrimXZ2.Draw("COLZ");
+plotDetector(hPrimXZ2);
 
 c15.Draw();
 c15.Print("plots/c15.pdf");
@@ -1656,22 +1936,34 @@ c15.Print("plots/c15.pdf");
 # In[28]:
 
 
-hx_vs_x = fdft.Filter("trigger2").Histo2D(("h33", "X vs XPMT", 100, -80.0, 80.0, 100, -80.0, 80.0),"anaBarXPMT","Prim_X");
-hz_vs_z = fdft.Filter("trigger2").Histo2D(("h34", "Z vs ZPMT", 100, -240.0, 240.0, 100, -240.0, 240.0),"anaBarZPMT","Prim_Z");
-hPx_vs_Px = fdft.Filter("trigger2").Histo2D(("h35", "Px vs PxPMT", 100, -1.0, 1.0, 100, -800.0, 800.0),"anaBarPXPMT","fPx");
-hPz_vs_Pz = fdft.Filter("trigger2").Histo2D(("h99", "Pz vs PzPMT", 100, -0.6, 0.6, 100, -2400.0, 2400.0),"anaBarPZPMT","fPz");
+hx_vs_x1 = fdft1.Filter("trigger2").Histo2D(("h33", "X vs XPMT", 100, -80.0, 80.0, 100, -80.0, 80.0),"anaBarXPMT","Prim_X");
+hz_vs_z1 = fdft1.Filter("trigger2").Histo2D(("h34", "Z vs ZPMT", 100, -240.0, 240.0, 100, -240.0, 240.0),"anaBarZPMT","Prim_Z");
+hPx_vs_Px1 = fdft1.Filter("trigger2").Histo2D(("h35", "Px vs PxPMT", 100, -1.0, 1.0, 100, -800.0, 800.0),"anaBarPXPMT","fPx");
+hPz_vs_Pz1 = fdft1.Filter("trigger2").Histo2D(("h99", "Pz vs PzPMT", 100, -0.6, 0.6, 100, -2400.0, 2400.0),"anaBarPZPMT","fPz");
+hx_vs_x2 = fdft2.Filter("trigger2").Histo2D(("h33", "X vs XPMT", 100, -80.0, 80.0, 100, -80.0, 80.0),"anaBarXPMT","Prim_X");
+hz_vs_z2 = fdft2.Filter("trigger2").Histo2D(("h34", "Z vs ZPMT", 100, -240.0, 240.0, 100, -240.0, 240.0),"anaBarZPMT","Prim_Z");
+hPx_vs_Px2 = fdft2.Filter("trigger2").Histo2D(("h35", "Px vs PxPMT", 100, -1.0, 1.0, 100, -800.0, 800.0),"anaBarPXPMT","fPx");
+hPz_vs_Pz2 = fdft2.Filter("trigger2").Histo2D(("h99", "Pz vs PzPMT", 100, -0.6, 0.6, 100, -2400.0, 2400.0),"anaBarPZPMT","fPz");
 
 c16 = root.TCanvas("c16","c16",800,800);
-c16.Divide(2,2,0.01,0.01,0);
+c16.Divide(4,2,0.01,0.01,0);
 
 c16.cd(1);
-hx_vs_x.Draw("COLZ");
+hx_vs_x1.Draw("COLZ");
 c16.cd(2);
-hz_vs_z.Draw("COLZ");
+hz_vs_z1.Draw("COLZ");
 c16.cd(3);
-hPx_vs_Px.Draw("COLZ");
+hPx_vs_Px1.Draw("COLZ");
 c16.cd(4);
-hPz_vs_Pz.Draw("COLZ");
+hPz_vs_Pz1.Draw("COLZ");
+c16.cd(5);
+hx_vs_x2.Draw("COLZ");
+c16.cd(6);
+hz_vs_z2.Draw("COLZ");
+c16.cd(7);
+hPx_vs_Px2.Draw("COLZ");
+c16.cd(8);
+hPz_vs_Pz2.Draw("COLZ");
 
 c16.Draw();
 c16.Print("plots/c16.pdf");
@@ -1681,6 +1973,12 @@ c16.Print("plots/c16.pdf");
 
 
 t.stop()
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
