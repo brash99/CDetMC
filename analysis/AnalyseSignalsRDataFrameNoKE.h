@@ -254,6 +254,7 @@ std::vector<float> getFingerXVec(bool trigger, int Detector_Nhits, int* Detector
         if (trigger) {
             if ((Detector_id[j] >= Detector_Offset && Detector_id[j] <= Detector_Offset+3) && Detector_pdg[j] == Prim_pdg) {
                 v.push_back(Detector_x[j]);
+                //cout << "j = " << j << " and Detector_x[j]: " << Detector_x[j] << endl;
             }
         }
     }
