@@ -43,21 +43,21 @@ int main(int argc, char** argv)
   G4UImanager * UI         = G4UImanager::GetUIpointer();
   G4VisManager* visManager = 0;
 
-  auto ui = new G4UIExecutive(argc, argv);
+//  auto ui = new G4UIExecutive(argc, argv);
 
-  if (argc == 1)   // Define UI session for interactive mode.
-    {
-
-      visManager = new G4VisExecutive;
-        visManager->Initialize();
-
-      UI->ApplyCommand("/control/execute ../vis.mac");
-      ui -> SessionStart();
-      delete ui;
+//  if (argc == 1)   // Define UI session for interactive mode.
+//    {
+//
+//      visManager = new G4VisExecutive;
+//        visManager->Initialize();
+//
+//      UI->ApplyCommand("/control/execute ../vis.mac");
+//      ui -> SessionStart();
+//      delete ui;
 
 
 //      G4cout << "Interactive mode!!!!!!!!!!!!!" << G4endl;
-////#ifdef G4VIS_USE
+//#ifdef G4VIS_USE
 //      visManager = new G4VisExecutive;
 //      visManager->Initialize();
 //
@@ -66,15 +66,15 @@ int main(int argc, char** argv)
 //#ifdef G4UI_USE_TCSH
 //      session = new G4UIterminal(new G4UItcsh);
 //#else
-//      session = new G4UIterminal();
+//     session = new G4UIterminal();
 //#endif
 //      session->SessionStart();
 //      delete session;
 
 
-    }
-  else           // Batch mode
-    {
+//    }
+//  else           // Batch mode
+//    {
         G4cout << "Batch mode!!!!!!!!!!!!!" << G4endl;
       G4String command = "/control/execute ";
       G4String fileName = argv[1];
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
 	snprintf(snev, 50, "%d", nev);
 	UI->ApplyCommand(commandr+snev);
       }
-    }
+//    }
 
   if(visManager) delete visManager;
   delete anaManager;

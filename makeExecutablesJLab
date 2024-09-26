@@ -1,4 +1,5 @@
 #!/bin/sh
+cp AnaBarMC.cc.jlab AnaBarMC.cc
 cp src/DetectorConstruction.cc.11 src/DetectorConstruction.cc
 cp src/WLSMaterials.cc.11 src/WLSMaterials.cc
 cp src/PhysicsList.cc.11 src/PhysicsList.cc
