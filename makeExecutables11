@@ -3,6 +3,7 @@
 rm -fr CMakeCache.txt CMakeFiles
 cmake -DCMAKE_INSTALL_PREFIX=$G4WORKDIR -DGeant4_DIR=$G4INSTALL/../../../lib/cmake/Geant4/ .
 
+cp AnaBarMC.cc.interactive AnaBarMC.cc
 cp src/DetectorConstruction.cc.11 src/DetectorConstruction.cc
 cp src/WLSMaterials.cc.11 src/WLSMaterials.cc
 cp src/PhysicsList.cc.11 src/PhysicsList.cc

@@ -66,8 +66,9 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
   //std::cout << pmtNumber << std::endl;
 
   G4double pmtTime= aStep->GetPostStepPoint()->GetGlobalTime();
+  G4double pmtTimeOverThreshold= aStep->GetPostStepPoint()->GetGlobalTime();
   //std::cout << pmtTime << std::endl;
-
+  
   
   // Try to get kinetic energy
   //G4Track* theTrack = aStep->GetTrack();
@@ -82,12 +83,13 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
   //std::cout << "Accessing fhitID ... " << fhitID[pmtNumber] << " " << energy << std::endl; 
   //if ( fhitID[pmtNumber] == -1 && energy > 0.1) {
   if ( fhitID[pmtNumber] == -1 ) {
-    //if (pmtNumber<2500) std::cout << "First PMT hit ... pmtNumber = " << pmtNumber << " time = " << pmtTime << std::endl; 
     PMTHit* OpHit = new PMTHit;
     OpHit->SetPMTNumber(pmtNumber);
     OpHit->SetPMTTime(pmtTime);
     //OpHit->SetPMTKineticEnergy(0,energy);
     OpHit->IncPhotonCount();
+    OpHit->SetPMTTimeOverThreshold(0.0);
+    //if (pmtNumber<2500) std::cout << "First PMT hit ... pmtNumber = " << pmtNumber << " time = " << pmtTime << " fhitID[pmtNumber] = " << fhitID[pmtNumber] << std::endl; 
 
     fhitID[pmtNumber] = fCollection->insert(OpHit) - 1;
     fHits[fNhits++] = pmtNumber;
@@ -95,9 +97,20 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
   //std::cout << "Accessing fhitID through fCollection... " << std::endl; 
   // this is not a new hit
     (*fCollection)[fhitID[pmtNumber]]->IncPhotonCount();
-    //G4int current_hit_number = (*fCollection)[fhitID[pmtNumber]]->GetPhotonCount();
+    G4int current_hit_number = (*fCollection)[fhitID[pmtNumber]]->GetPhotonCount();
 
     G4double current_time = (*fCollection)[fhitID[pmtNumber]]->GetPMTTime();
+    G4double current_global_time = aStep->GetPostStepPoint()->GetGlobalTime();
+    G4double current_time_overthreshold = (*fCollection)[fhitID[pmtNumber]]->GetPMTTimeOverThreshold();
+
+    //if (pmtNumber<2500) std::cout << "next hit ... pmtNumber = " << pmtNumber << " current_time = " << current_time << " current_time_over = " << current_time_overthreshold << " current hit number = " << current_hit_number << " current glob time = " << current_global_time << std::endl;
+
+    G4double new_time_overthreshold = current_global_time - current_time;
+    if (new_time_overthreshold > current_time_overthreshold) {
+        current_time_overthreshold = new_time_overthreshold;
+    }
+    (*fCollection)[fhitID[pmtNumber]]->SetPMTTimeOverThreshold(current_time_overthreshold);
+
     //G4double new_time = (current_time*(current_hit_number-1)+pmtTime)/current_hit_number;
     
     if (pmtTime < current_time) {

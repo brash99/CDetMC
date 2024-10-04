@@ -113,6 +113,7 @@ void EventAction::EndOfEventAction(const G4Event* evt)
         //std::cout << "Point 3" << std::endl;
 	fAnaManager->SetPhotonCount( (G4int) hit2->GetPMTNumber(), (G4int) hit2->GetPhotonCount() );
 	fAnaManager->SetPhotonTime( (G4int) hit2->GetPMTNumber(), (G4double) hit2->GetPMTTime() );
+	fAnaManager->SetPhotonTimeOverThreshold( (G4int) hit2->GetPMTNumber(), (G4double) hit2->GetPMTTimeOverThreshold() );
         //std::cout << j << " " << hit2->GetPMTNumber() << " "  << hit2->GetPhotonCount() << " "  << hit2->GetPMTTime() << std::endl; 
         //std::cout << "Point 4" << std::endl;
 	fAnaManager->SetPMTNumber( (G4int) hit2->GetPMTNumber() );

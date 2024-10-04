@@ -51,7 +51,11 @@ public:
 	}
   inline void SetPhotonTime       ( G4int pno, G4double stime )        { 
 	        //std::cout << "SetPhotonTime: " << pno << " ... " << stime << std::endl;
-		fPMTTime[pno]    = stime; 
+		fPMTTime[pno]    = stime;  
+	}
+  inline void SetPhotonTimeOverThreshold       ( G4int pno, G4double stimeoverthreshold )       {
+	        //std::cout << "SetPhotonTimeOverThreshold: " << pno << " ... " << stimeoverthreshold << std::endl;
+		fPMTTimeOverThreshold[pno]    = stimeoverthreshold; 
 	}
   
   /*
@@ -99,6 +103,7 @@ private:
   static const Int_t    fMaxPMTHits = 1000;
   Int_t			fNphotons[fMaxPMTNo];
   Float_t		fPMTTime[fMaxPMTNo];
+  Float_t		fPMTTimeOverThreshold[fMaxPMTNo];
   //Float_t 		fPMTKineticEnergy[fMaxPMTNo][fMaxPMTHits];
 
   // Detector (step information) 

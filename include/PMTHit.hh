@@ -31,7 +31,10 @@ public:
   inline G4int GetPMTNumber() { return pmtNumber; }
 
   inline void SetPMTTime(G4double t) { pmtTime = t; }
+  inline void SetPMTTimeOverThreshold(G4double t) { pmtTimeOverThreshold = t; }
+
   inline G4double GetPMTTime() { return pmtTime; }
+  inline G4double GetPMTTimeOverThreshold() { return pmtTimeOverThreshold; }
 
   //inline void SetPMTKineticEnergy(G4int photonhits, G4double energy) { pmtKineticEnergy[photonhits] = energy; }
   //inline G4double GetPMTKineticEnergy(G4int photonhits) { return pmtKineticEnergy[photonhits]; }
@@ -40,6 +43,7 @@ private:
   G4int pmtNumber;
   G4int photons;
   G4double pmtTime;
+  G4double pmtTimeOverThreshold;
   //G4double pmtKineticEnergy[50000];
 };
 
