@@ -720,10 +720,10 @@ std::vector<float> getAnaBarPMTTime(bool trigger, int* PMT_Nphotons, float* PMT_
 }
 
 std::vector<float> getAnaBarPMTTimeOverThreshold(bool trigger, int* PMT_Nphotons, float* PMT_TimeOverThreshold) {
-    
+
     std::vector<float> v;
     TRandom3* fRand = new TRandom3(-1);
-    float pmttimeoverthreshhold[NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS];
+    float pmttimeoverthreshold[NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS];
     //std::cout << "--------------------" << std::endl;
     if (trigger) {
         for (Int_t icount = AnaBar_PMT_Offset;icount<AnaBar_PMT_Offset+NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;icount++){
