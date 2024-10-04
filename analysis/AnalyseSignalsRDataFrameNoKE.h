@@ -26,7 +26,7 @@ const int NDET = NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;
 
 int NMaxPMT = 14;
 
-auto fileName = "data/AnaBarMC_9991.root";
+auto fileName = "data/AnaBarMC_7001.root";
 auto treeName = "T";
 
 TFile* f = new TFile((TString)fileName,"READ");
@@ -713,6 +713,24 @@ std::vector<float> getAnaBarPMTTime(bool trigger, int* PMT_Nphotons, float* PMT_
                 //std::cout << "getAnaBarPMTTime: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
                 pmttime[icount] = PMT_Time[icount];
                 v.push_back(pmttime[icount]);
+            }
+        }
+    }
+    return v;
+}
+
+std::vector<float> getAnaBarPMTTimeOverThreshold(bool trigger, int* PMT_Nphotons, float* PMT_TimeOverThreshold) {
+    
+    std::vector<float> v;
+    TRandom3* fRand = new TRandom3(-1);
+    float pmttimeoverthreshhold[NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS];
+    //std::cout << "--------------------" << std::endl;
+    if (trigger) {
+        for (Int_t icount = AnaBar_PMT_Offset;icount<AnaBar_PMT_Offset+NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;icount++){
+            if (PMT_Nphotons[icount]>Photon_min_cut) {
+                //std::cout << "getAnaBarPMTTime: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
+                pmttimeoverthreshold[icount] = PMT_TimeOverThreshold[icount];
+                v.push_back(pmttimeoverthreshold[icount]);
             }
         }
     }
