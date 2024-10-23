@@ -335,7 +335,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 */
 
 // Bottom Left trigger
- G4double yoffset = -80;   //Create(approx) 100cm gap between the top and bottom triggers  
+ G4double yoffset = -10;   //Create(approx) 100cm gap between the top and bottom triggers  
  
  G4ThreeVector MylarFinger_pos31(0.0*cm ,(yoffset+fFingerYoffset-fFingerThickness/2.0-fMylarThickness/2.0)*cm , fFingerZoffset*cm);
   	MylarFingerFront    =  new G4PVPlacement(0, MylarFinger_pos31 , logicMylarFinger , "MylarFinger" , expHall_log , false , 2602);
@@ -673,22 +673,21 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 						  Glass,
 						  "det2_log", 0, 0, 0);
   // Top Left Trigger Volume
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),
-  						det2_log, "det2", expHall_log, false, 2500);
-/*
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2500);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm-fFingerWidth/2.0*cm-fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2501);
+
+
   // Top Right Trigger Volume
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(xoffset*cm+0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),det2_log, "det2", expHall_log, false, 2501);
-*/
+  // fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(xoffset*cm+0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2501);
 
   // Bottom Left Trigger Volume
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),det2_log, "det2", expHall_log, false, 2502);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2502);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm-fFingerWidth/2.0*cm-fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2503);
 
 
-   /*
   // Bottom Right Trigger Volume
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(xoffset*cm+0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),
-  						det2_log, "det2", expHall_log, false, 2503);
-*/
+  // fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(xoffset*cm+0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2503);
+
 
   std::cout<<"The finger PMTs has been set as the fDet15Vol things - logical volume = det2_log"<<std::endl;
 
