@@ -8,11 +8,11 @@
 /AnaBarMC/detector/AnaBarXpos 37.5
 /AnaBarMC/detector/AnaBarYpos 0.0
 /AnaBarMC/detector/AnaBarZpos 150.0
-/AnaBarMC/detector/NumberOfLayers 14
-/AnaBarMC/detector/NumberOfBars 14
-/AnaBarMC/detector/NumberOfSides 2
-/AnaBarMC/detector/NumberOfModules 3
-/AnaBarMC/detector/NumberOfPlanes 2
+/AnaBarMC/detector/NumberOfLayers 1
+/AnaBarMC/detector/NumberOfBars 1
+/AnaBarMC/detector/NumberOfSides 1
+/AnaBarMC/detector/NumberOfModules 1
+/AnaBarMC/detector/NumberOfPlanes 1
 /AnaBarMC/physics/setCuts 0.1 mm
 /run/initialize
 

@@ -64,15 +64,15 @@ DetectorConstruction::DetectorConstruction()
   fAnaBarZpos	= 0.0;
 
   // There are 14 Layers in One Bar
-  fNumberOfLayers = 14;
+  fNumberOfLayers = 1;
   // There are 14 Bars in One Half Module
-  fNumberOfBars = 14;
+  fNumberOfBars = 1;
   // There are 2 sides to a Modules
-  fNumberOfSides = 2;
+  fNumberOfSides = 1;
   // There are 3 Modules in a Plane 
-  fNumberOfModules = 3;
+  fNumberOfModules = 1;
   // There are 2 Planes in the Detector
-  fNumberOfPlanes = 2;
+  fNumberOfPlanes = 1;
   
   fMirrorThickness = 0.20;
   fMylarThickness = 0.02;
@@ -81,9 +81,11 @@ DetectorConstruction::DetectorConstruction()
   fAnaBarWidth = 4.0;
   fAnaBarThickness = 0.50;
 
-  fFingerLength = 10.0;
-  fFingerWidth = fNumberOfModules*fNumberOfBars*fNumberOfLayers*(fAnaBarThickness+2.0*fMylarThickness)+20.0;
-  fFingerThickness = 1.0;
+  fFingerLength = 30.0;
+  //fFingerWidth = fNumberOfModules*fNumberOfBars*fNumberOfLayers*(fAnaBarThickness+2.0*fMylarThickness)+20.0;
+  fFingerWidth = 30.0;
+
+  fFingerThickness = 0.5;
   fFingerZoffset = -(fFingerWidth-20.0)/2.0+fAnaBarZpos;
   fFingerYoffset = fAnaBarWidth/2.0+fFingerThickness/2.0+2.0;
 
@@ -319,7 +321,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   	MylarFingerSide2    =  new G4PVPlacement(0, MylarFinger_pos4 , logicMylarFingerSide , "MylarFingerSide" , expHall_log , false , 2585);
  
 
-
+/*
 // Top Right trigger
  G4double xoffset = 1.2*fFingerLength; 
  G4ThreeVector MylarFinger_pos21((0.0+xoffset)*cm , (fFingerYoffset-fFingerThickness/2.0-fMylarThickness/2.0)*cm , fFingerZoffset*cm);
@@ -330,6 +332,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   	MylarFingerSide1    =  new G4PVPlacement(0, MylarFinger_pos23 , logicMylarFingerSide , "MylarFingerSide" , expHall_log , false , 2594);
  G4ThreeVector MylarFinger_pos24((xoffset-1.0*(fFingerLength/2.0+fMylarThickness/2.0))*cm , fFingerYoffset*cm , fFingerZoffset*cm);
   	MylarFingerSide2    =  new G4PVPlacement(0, MylarFinger_pos24 , logicMylarFingerSide , "MylarFingerSide" , expHall_log , false , 2595);
+*/
 
 // Bottom Left trigger
  G4double yoffset = -80;   //Create(approx) 100cm gap between the top and bottom triggers  
@@ -344,6 +347,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   	MylarFingerSide2    =  new G4PVPlacement(0, MylarFinger_pos34 , logicMylarFingerSide , "MylarFingerSide" , expHall_log , false , 2605);
 
 
+/*
 // Bottom Right trigger
  G4ThreeVector MylarFinger_pos41((0.0+xoffset)*cm ,(yoffset+fFingerYoffset-fFingerThickness/2.0-fMylarThickness/2.0)*cm , fFingerZoffset*cm);
   	MylarFingerFront    =  new G4PVPlacement(0, MylarFinger_pos41 , logicMylarFinger , "MylarFinger" , expHall_log , false , 2612);
@@ -353,7 +357,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   	MylarFingerSide1    =  new G4PVPlacement(0, MylarFinger_pos43 , logicMylarFingerSide , "MylarFingerSide" , expHall_log , false , 2614);
  G4ThreeVector MylarFinger_pos44((xoffset-1.0*(fFingerLength/2.0+fMylarThickness/2.0))*cm ,(yoffset+fFingerYoffset)*cm , fFingerZoffset*cm);
   	MylarFingerSide2    =  new G4PVPlacement(0, MylarFinger_pos44 , logicMylarFingerSide , "MylarFingerSide" , expHall_log , false , 2615);
-
+*/
 
   //---------------------------------------------------------------------------
   // Create Detectors
@@ -370,24 +374,28 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
    FingerCounter=  new G4PVPlacement(0, fingercounter_pos0 , fingercounter_log , "FingerCounter" , expHall_log , false , 2560);
    G4ThreeVector MylarFinger_pos5(0.0*cm, fFingerYoffset*cm , fFingerZoffset*cm-fFingerWidth/2.0*cm-fMylarThickness/2.0*cm);
    MylarFingerEnd    =  new G4PVPlacement(0, MylarFinger_pos5 , logicMylarFingerEnd , "MylarFingerEnd" , expHall_log , false , 2586);
-   
+  
+  /*
    // Top Right Trigger
    G4ThreeVector fingercounter_pos1(xoffset*cm+0.0*cm , fFingerYoffset*cm , fFingerZoffset*cm);
    FingerCounter=  new G4PVPlacement(0, fingercounter_pos1 , fingercounter_log , "FingerCounter" , expHall_log , false , 2561);
    G4ThreeVector MylarFinger_pos6(xoffset*cm+0.0*cm, fFingerYoffset*cm , fFingerZoffset*cm-fFingerWidth/2.0*cm-fMylarThickness/2.0*cm);
    MylarFingerEnd    =  new G4PVPlacement(0, MylarFinger_pos6 , logicMylarFingerEnd , "MylarFingerEnd" , expHall_log , false , 2587);
-   
+   */
+
    // Bottom Left Trigger
    G4ThreeVector fingercounter_pos2(0.0*cm ,yoffset*cm + fFingerYoffset*cm , fFingerZoffset*cm);
    FingerCounter=  new G4PVPlacement(0, fingercounter_pos2 , fingercounter_log , "FingerCounter" , expHall_log , false , 2562);
    G4ThreeVector MylarFinger_pos7(0.0*cm, yoffset*cm + fFingerYoffset*cm , fFingerZoffset*cm-fFingerWidth/2.0*cm-fMylarThickness/2.0*cm);
    MylarFingerEnd    =  new G4PVPlacement(0, MylarFinger_pos7 , logicMylarFingerEnd , "MylarFingerEnd" , expHall_log , false , 2588);
    
+   /*
    // Bottom Right Trigger
    G4ThreeVector fingercounter_pos3(xoffset*cm+0.0*cm ,yoffset*cm + fFingerYoffset*cm , fFingerZoffset*cm);
    FingerCounter=  new G4PVPlacement(0, fingercounter_pos3 , fingercounter_log , "FingerCounter" , expHall_log , false , 2563);
    G4ThreeVector MylarFinger_pos8(xoffset*cm+0.0*cm, yoffset*cm + fFingerYoffset*cm , fFingerZoffset*cm-fFingerWidth/2.0*cm-fMylarThickness/2.0*cm);
    MylarFingerEnd    =  new G4PVPlacement(0, MylarFinger_pos8 , logicMylarFingerEnd , "MylarFingerEnd" , expHall_log , false , 2589);
+   */
 
    //std::cout<<"The xoffset is: "<<xoffset<<" and the yoffset is: "<<yoffset<<std::endl;
    
@@ -667,16 +675,20 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Top Left Trigger Volume
    fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),
   						det2_log, "det2", expHall_log, false, 2500);
-
+/*
   // Top Right Trigger Volume
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(xoffset*cm+0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),
-  						det2_log, "det2", expHall_log, false, 2501);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(xoffset*cm+0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),det2_log, "det2", expHall_log, false, 2501);
+*/
+
   // Bottom Left Trigger Volume
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),
-  						det2_log, "det2", expHall_log, false, 2502);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),det2_log, "det2", expHall_log, false, 2502);
+
+
+   /*
   // Bottom Right Trigger Volume
    fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(xoffset*cm+0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/20*cm),
   						det2_log, "det2", expHall_log, false, 2503);
+*/
 
   std::cout<<"The finger PMTs has been set as the fDet15Vol things - logical volume = det2_log"<<std::endl;
 
