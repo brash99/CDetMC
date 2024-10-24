@@ -57,7 +57,7 @@ bool getTrigger(int Detector_Nhits, int* Detector_id) {
                 ahit = true;
             }
         }
-        if (ahit) {
+        if (tophit && bottomhit) {
             fhit = true;
             trigger = true;
         }
@@ -711,6 +711,24 @@ std::vector<float> getAnaBarPMTTime(bool trigger, int* PMT_Nphotons, float* PMT_
         for (Int_t icount = AnaBar_PMT_Offset;icount<AnaBar_PMT_Offset+NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;icount++){
             if (PMT_Nphotons[icount]>Photon_min_cut) {
                 //std::cout << "getAnaBarPMTTime: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
+                pmttime[icount] = PMT_Time[icount];
+                v.push_back(pmttime[icount]);
+            }
+        }
+    }
+    return v;
+}
+
+std::vector<float> getFingerPMTTime(bool trigger, int* PMT_Nphotons, float* PMT_Time) {
+
+    std::vector<float> v;
+    TRandom3* fRand = new TRandom3(-1);
+    float pmttime[4];
+    //std::cout << "--------------------" << std::endl;
+    if (trigger) {
+        for (Int_t icount = Detector_PMT_Offset;icount<Detector_PMT_Offset+4;icount++){
+            if (PMT_Nphotons[icount]>Photon_min_cut) {
+                //std::cout << "getFingerPMTTime: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
                 pmttime[icount] = PMT_Time[icount];
                 v.push_back(pmttime[icount]);
             }

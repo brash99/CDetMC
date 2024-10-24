@@ -13,12 +13,12 @@ echo "/AnaBarMC/physics/optical 1"	                                 >>  $MCMACRO
 echo "/AnaBarMC/physics/hadronic 1"	                                 >>  $MCMACRO
 echo "/AnaBarMC/detector/AnaBarXpos 37.50"	                         >>  $MCMACRO
 echo "/AnaBarMC/detector/AnaBarYpos 0.00"	                         >>  $MCMACRO
-echo "/AnaBarMC/detector/AnaBarZpos 150.00"	                         >>  $MCMACRO
-echo "/AnaBarMC/detector/NumberOfLayers 14"	                         >>  $MCMACRO
-echo "/AnaBarMC/detector/NumberOfBars 14"	                         >>  $MCMACRO
+echo "/AnaBarMC/detector/AnaBarZpos 0.00"	                         >>  $MCMACRO
+echo "/AnaBarMC/detector/NumberOfLayers 1"	                         >>  $MCMACRO
+echo "/AnaBarMC/detector/NumberOfBars 1"	                         >>  $MCMACRO
 echo "/AnaBarMC/detector/NumberOfSides 2"	                         >>  $MCMACRO
-echo "/AnaBarMC/detector/NumberOfModules 3"	                         >>  $MCMACRO
-echo "/AnaBarMC/detector/NumberOfPlanes 2"	                         >>  $MCMACRO
+echo "/AnaBarMC/detector/NumberOfModules 1"	                         >>  $MCMACRO
+echo "/AnaBarMC/detector/NumberOfPlanes 1"	                         >>  $MCMACRO
 echo "/run/initialize"                                                   >>  $MCMACRO
 echo "/AnaBarMC/generator/Mode 1"                              >>  $MCMACRO
 echo "/AnaBarMC/generator/InputFile $tempdir/data/AnaBarMC_Gen_$RUN_NUMBER.root" >>  $MCMACRO
