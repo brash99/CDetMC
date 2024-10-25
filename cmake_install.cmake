@@ -41,8 +41,8 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/brash/CDetMC/AnaBarMC")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/AnaBarMC" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/AnaBarMC")
-    execute_process(COMMAND /Users/brash/anaconda3/bin/install_name_tool
-      -delete_rpath "/Users/brash/Geant4/geant4_install_v11.2.1/lib"
+    execute_process(COMMAND /usr/bin/install_name_tool
+      -delete_rpath "/Users/brash/Geant4/geant4_install_11.2.1/lib"
       -delete_rpath "/Users/brash/root_install/lib"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/AnaBarMC")
     if(CMAKE_INSTALL_DO_STRIP)

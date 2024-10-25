@@ -1,3 +1,15 @@
+#include <iostream>
+#include <TF1.h>
+#include <TVectorD.h>
+#include <TMatrixD.h>
+#include <TLinearFitter.h>
+
+using namespace std;
+using RNode = ROOT::RDF::RNode;
+
+std::vector<RNode> v;
+TList* myGeometryData;
+int global_run_number;
 int Analyse_Secondaries = 1;
 float Theta_min_cut = 2.524;
 float ThetaVerticalCut = 3.02;
@@ -25,14 +37,6 @@ const int NUMLAYERS = 2;
 const int NDET = NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;
 
 int NMaxPMT = 14;
-
-auto fileName = "data/AnaBarMC_7001.root";
-auto treeName = "T";
-
-TFile* f = new TFile((TString)fileName,"READ");
-TTree* t = (TTree*)f->Get(treeName);
-
-TList* myGeometryData = (TList*)t->GetUserInfo()->FindObject("myGeometryData");
 
 bool getTrigger(int Detector_Nhits, int* Detector_id) {
 
@@ -1005,4 +1009,450 @@ std::vector<float> getAnaBarEdTotal(bool trigger, float fNewTheta, int Detector_
     v.push_back(edeptotal);
     
     return v;
+}
+
+//RNode AnalyseSignalsRDataFrameNoKE(int run_number = 4000) {
+void Luter345(int run_number = 4000) {
+
+        global_run_number = run_number;
+        std::cout << run_number << std::endl;
+	//TString fileName;
+        //fileName.Form("data/AnaBarMC_%d.root",run_number);
+        auto fileName = "data/AnaBarMC_"+std::to_string(run_number)+".root";
+        auto treeName = "T";
+
+        TFile* f = new TFile((TString)fileName,"READ");
+        TTree* t = (TTree*)f->Get(treeName);
+
+        ROOT::RDataFrame d(treeName,fileName);
+
+        //myGeometryData = (TList*)t->GetUserInfo()->FindObject("myGeometryData");
+
+        //myGeometryData->Print();
+
+        //auto entries = d.Count();
+        //cout << *entries << " entries in Tree with no filter" << endl
+
+	auto fdf = d.Define("trigger", "getTrigger(Detector_Nhits, &Detector_id[0])")
+       			.Define("fMass", "getMass(Prim_pdg)")
+       			.Define("fMomentum","getMomentum(Prim_E,fMass)")
+       			.Define("fPx", "getPx(fMomentum,Prim_Th,Prim_Ph)")
+       			.Define("fPy", "getPy(fMomentum,Prim_Th,Prim_Ph)")
+       			.Define("fPz", "getPz(fMomentum,Prim_Th,Prim_Ph)")
+       			.Define("fNewTheta", "getNewTheta(fMomentum,fPy)")
+       			.Define("fNewPhi", "getNewPhi(fMomentum,fPx,fPz)")
+       			.Define("trigger2", "getTrigger2(trigger,fNewTheta)")
+       			.Define("trigger3", "getTrigger3(trigger,fNewTheta)")
+       			.Define("fingerXVec","getFingerXVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_x[0],Prim_pdg)")
+       			.Define("fingerYVec","getFingerYVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_y[0],Prim_pdg)")
+       			.Define("fingerZVec","getFingerZVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_z[0],Prim_pdg)")
+       			.Define("fingerTVec","getFingerTVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_t[0],Prim_pdg)")
+       			.Define("anaBarXVec","getAnaBarXVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_x[0],Prim_pdg)")
+       			.Define("anaBarYVec","getAnaBarYVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_y[0],Prim_pdg)")
+       			.Define("anaBarZVec","getAnaBarZVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_z[0],Prim_pdg)")
+       			.Define("anaBarTVec","getAnaBarTVec(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0],&Detector_t[0],Prim_pdg)")
+       			.Define("fingerID","getFingerID(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0])")
+       			.Define("fingerPDG","getFingerPDG(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0])")
+       			.Define("anaBarID","getAnaBarID(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0])")
+       			.Define("anaBarPDG","getAnaBarPDG(trigger,Detector_Nhits,&Detector_id[0],&Detector_pdg[0])")
+                        .Define("anaBarPMTID","getAnaBarPMTID(trigger,&PMT_Nphotons[0])") \
+                        .Define("fingerPMTID","getFingerPMTID(trigger,&PMT_Nphotons[0])") \
+                        .Define("fingerPMTNPhotons","getFingerPMTNPhotons(trigger,&PMT_Nphotons[0])")
+       			.Define("anaBarPMTNPhotons","getAnaBarPMTNPhotons(trigger,&PMT_Nphotons[0])")
+       			.Define("anaBarXPMT","getAnaBarXPMT(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("anaBarZPMT","getAnaBarZPMT(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("anaBarPXPMT","getAnaBarPXPMT(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("anaBarPZPMT","getAnaBarPZPMT(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("fingerPMTTime","getFingerPMTTime(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("fingerAngleRad","getFingerAngleRad(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("anaBarPMTTime","getAnaBarPMTTime(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("anaBarPMTTimeTop","getAnaBarPMTTimeTop(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("anaBarPMTTimeBottom","getAnaBarPMTTimeBottom(trigger,&PMT_Nphotons[0],&PMT_Time[0])")
+       			.Define("anaBarNPhotonsTotal","getAnaBarNPhotonsTotal(trigger,&PMT_Nphotons[0])")
+       			.Define("imult","getAnaBarMult(trigger,&PMT_Nphotons[0])")
+       			.Define("fingerEd","getFingerEd(trigger,fNewTheta,Detector_Nhits,Prim_pdg,&Detector_id[0],&Detector_pdg[0],&Detector_Ed[0])")
+       			.Define("anaBarEd","getAnaBarEd(trigger,fNewTheta,Detector_Nhits,Prim_pdg,&Detector_id[0],&Detector_pdg[0],&Detector_Ed[0])")
+       			.Define("anaBarEdTotal","getAnaBarEdTotal(trigger,fNewTheta,Detector_Nhits,Prim_pdg,&Detector_id[0],&Detector_pdg[0],&Detector_Ed[0])");
+
+	//auto entries2 = fdf.Count();
+	//cout << *entries2 << " entries in Expanded Dataframe with no filter" << endl;
+
+	auto triggers = fdf.Filter("trigger==true").Count();
+	cout << *triggers << " entries passed Main trigger" << endl;
+
+        auto fdft = fdf.Filter("trigger==true");
+        v.push_back(fdft);
+
+	//return fdft;
+}
+
+TCanvas* plotC1(){
+
+  //RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+  auto hFingerX = v[0].Histo1D("fingerXVec");
+  auto hFingerY = v[0].Histo1D("fingerYVec");
+  auto hFingerZ = v[0].Histo1D("fingerZVec");
+  auto hFingerT = v[0].Histo1D("fingerTVec");
+  
+  TCanvas *c1 = new TCanvas("c1", "c1", 100,100,500,270);
+  c1->Divide(2,2, 0.01, 0.01, 0);
+
+  c1->cd(1);
+  hFingerX->Draw();
+  c1->cd(2);
+  hFingerY->Draw();
+  c1->cd(3);
+  hFingerZ->Draw();
+  c1->cd(4);
+  hFingerT->Draw();
+
+  c1->DrawClone();
+  c1->Print("plots/c1.pdf");
+
+  return c1;
+
+}
+
+TCanvas* plotC2(){
+
+	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+	auto hPrimE = v[0].Histo1D("Prim_E");
+	auto hPrimTh = v[0].Histo1D("fNewTheta");
+	auto hPrimPh = v[0].Histo1D("fNewPhi");
+	auto hPrimPdg = v[0].Histo1D("Prim_pdg");
+
+	TCanvas *c2 = new TCanvas("c2","c2",800,800);
+	c2->Divide(2,2,0.01,0.01,0);
+
+	c2->cd(1);
+	hPrimE->Draw();
+	c2->cd(2);
+	hPrimTh->Draw();
+	c2->cd(3);
+	hPrimPh->Draw();
+	c2->cd(4);
+	hPrimPdg->Draw();
+
+	c2->DrawClone();
+	c2->Print("plots/c2RA.pdf");
+
+	return c2;
+
+}
+
+void plotDetector(ROOT::RDF::RResultPtr<TH2D> hist) {
+
+    double opacity=0.2;
+    double x1 = 55.0;
+    double y1 = -61.6;
+    double x2 = -45.2;
+    double y2 = -8.74;
+    TBox *rect1 = new TBox(x1, y1, x2, y2);
+    rect1->SetFillColorAlpha(kRed, opacity);
+    hist->GetListOfFunctions()->Add(rect1);
+    x1 = 55.0;
+    y1 = -8.74;
+    x2 = -45.2;
+    y2 = 44.14;
+    TBox *rect2 = new TBox(x1, y1, x2, y2);
+    rect2->SetFillColorAlpha(kRed, opacity);
+    hist->GetListOfFunctions()->Add(rect2);
+    x1 = 62.5;
+    y1 = -114.54;
+    x2 = -37.7;
+    y2 = -61.62;
+    TBox *rect3 = new TBox(x1, y1, x2, y2);
+    rect3->SetFillColorAlpha(kRed, opacity);
+    hist->GetListOfFunctions()->Add(rect3);
+    x1 = 70.0;
+    y1 = -167.46;
+    x2 = -30.2;
+    y2 = -114.54;
+    TBox *rect4 = new TBox(x1, y1, x2, y2);
+    rect4->SetFillColorAlpha(kRed, opacity);
+    hist->GetListOfFunctions()->Add(rect4);
+    x1 = 62.5;
+    y1 = 44.14;
+    x2 = -37.7;
+    y2 = 97.50;
+    TBox *rect5 = new TBox(x1, y1, x2, y2);
+    rect5->SetFillColorAlpha(kRed, opacity);
+    hist->GetListOfFunctions()->Add(rect5);
+    x1 = 70.0;
+    y1 = 97.50;
+    x2 = -30.2;
+    y2 = 150.0;
+    TBox *rect6 = new TBox(x1, y1, x2, y2);
+    rect6->SetFillColorAlpha(kRed, opacity);
+    hist->GetListOfFunctions()->Add(rect6);
+
+}
+
+void plotSinglePoints(ROOT::RDF::RResultPtr<TH2D> hist) {
+
+    double x1 = 60.0;
+    double y1 = 115.0;
+    double x2 = 70.0;
+    double y2 = 125.0;
+    double opacity = 0.9;
+    TBox *rect7 = new TBox(x1, y1, x2, y2);
+    rect7->SetFillColorAlpha(kGreen, opacity);
+    hist->GetListOfFunctions()->Add(rect7);
+    x1 = 60.0;
+    y1 = -115.0;
+    x2 = 70.0;
+    y2 = -125.0;
+    opacity = 0.9;
+    TBox *rect8 = new TBox(x1, y1, x2, y2);
+    rect8->SetFillColorAlpha(kGreen, opacity);
+    hist->GetListOfFunctions()->Add(rect8);
+    x1 = -35.0;
+    y1 = -5.0;
+    x2 = -45.0;
+    y2 = 5.0;
+    opacity = 0.9;
+    TBox *rect9 = new TBox(x1, y1, x2, y2);
+    rect9->SetFillColorAlpha(kGreen, opacity);
+    hist->GetListOfFunctions()->Add(rect9);
+    x1 = -5.0;
+    y1 = 55.0;
+    x2 = 5.0;
+    y2 = 65.0;
+    opacity = 0.9;
+    TBox *rect10 = new TBox(x1, y1, x2, y2);
+    rect10->SetFillColorAlpha(kGreen, opacity);
+    hist->GetListOfFunctions()->Add(rect10);
+    x1 = -5.0;
+    y1 = -55.0;
+    x2 = 5.0;
+    y2 = -65.0;
+    opacity = 0.9;
+    TBox *rect11 = new TBox(x1, y1, x2, y2);
+    rect11->SetFillColorAlpha(kGreen, opacity);
+    hist->GetListOfFunctions()->Add(rect11);
+    x1 = 25.0;
+    y1 = -85.0;
+    x2 = 35.0;
+    y2 = -95.0;
+    opacity = 0.9;
+    TBox *rect12 = new TBox(x1, y1, x2, y2);
+    rect12->SetFillColorAlpha(kGreen, opacity);
+    hist->GetListOfFunctions()->Add(rect12);
+    x1 = 25.0;
+    y1 = 85.0;
+    x2 = 35.0;
+    y2 = 95.0;
+    opacity = 0.9;
+    TBox *rect13 = new TBox(x1, y1, x2, y2);
+    rect13->SetFillColorAlpha(kGreen, opacity);
+    hist->GetListOfFunctions()->Add(rect13);
+
+}
+
+
+TCanvas* plotC3(){
+
+	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+	auto hDetectorNhits = v[0].Histo1D("Detector_Nhits");
+	auto hFingerPdg = v[0].Histo1D("fingerPDG");
+	auto hFingerID = v[0].Histo1D("fingerID");
+	auto hFingerEdep = v[0].Histo1D("fingerEd");
+	auto hFingerPMTID = v[0].Histo1D("fingerPMTID");
+	auto hFingerPMTTime = v[0].Histo1D({"h1","Finger PMT Time", 100, -1.1, 4.0},"fingerPMTTime");
+
+	TCanvas *c3 = new TCanvas("c3","c3",800,800);
+	c3->Divide(2,3,0.01,0.01,0);
+
+	c3->cd(1);
+	hDetectorNhits->Draw();
+	c3->cd(2);
+	hFingerPdg->Draw();
+	c3->cd(3);
+	hFingerID->Draw();
+	c3->cd(4);
+	hFingerEdep->Draw();
+	c3->cd(5);
+	hFingerPMTID->Draw();
+	c3->cd(6);
+	hFingerPMTTime->Draw();
+
+	c3->DrawClone();
+	c3->Print("plots/c3RA.pdf");
+
+	return c3;
+
+}
+
+TCanvas* plotC33(){
+
+	auto hFingerAngleRad = v[0].Histo1D({"h1","t1",100,-1.58,1.58},"fingerAngleRad");
+	auto hFingerEdepVsAngle = v[0].Histo2D({"h1","t1",100,-1.58,1.58,100,-0.1,4.0},"fingerAngleRad","fingerEd");
+
+	TCanvas *c33 = new TCanvas("c33","c33",800,800);
+	c33->Divide(1,2,0.01,0.01,0);
+
+	c33->cd(1);
+	hFingerAngleRad->Draw();
+	c33->cd(2);
+	hFingerEdepVsAngle->Draw("COLZ");
+
+	c33->DrawClone();
+	c33->Print("plots/c33RA.pdf");
+
+	return c33;
+
+}
+
+
+TCanvas* plotC4(){
+
+	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+	auto hFingerEd = v[0].Histo1D({"h1","Finger EDep",100,-1.0,10.0},"fingerEd");
+	auto hFingerPMTNphot = v[0].Histo1D({"h1","Finger Npe",100,-250.0,1000.0},"fingerPMTNPhotons");
+
+	TCanvas *c4 = new TCanvas("c4","c4",800,800);
+
+	c4->cd();
+	TPad *pad1 = new TPad("pad1","pad1",0.01,0.01,0.50,0.99);
+	pad1->Draw();
+	pad1->cd();
+	hFingerEd->GetXaxis()->SetRangeUser(-1.0,4.0);
+	hFingerEd->Draw();
+
+	c4->cd();
+	TPad *pad2 = new TPad("pad2","pad2",0.51,0.01,0.99,0.99);
+	pad2->Draw();
+	pad2->cd();
+	hFingerPMTNphot->GetXaxis()->SetRangeUser(-250,1000);
+	hFingerPMTNphot->Draw();
+
+	c4->DrawClone();
+	c4->Print("plots/c4RA.pdf");
+
+	return c4;
+}
+
+
+TCanvas* plotC7(){
+
+	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+	auto hFinger_Edep_vs_Nphot = v[0].Filter("trigger2").Histo2D({"h3", "Finger Edep vs Nphot", 100, 0.01, 500.0, 100, 0.01, 4.0},"fingerPMTNPhotons","fingerEd");
+
+	TCanvas *c7 = new TCanvas("c7","c7",800,800);
+	c7->Divide(2,1,0.01,0.01,0);
+
+	c7->cd(1);
+	hFinger_Edep_vs_Nphot->Draw("COLZ");
+	c7->cd(2);
+	TProfile *prof = hFinger_Edep_vs_Nphot->ProfileX();
+	prof->Fit("pol1");
+
+	c7->DrawClone();
+	c7->Print("plots/c7RA.pdf");
+
+	return c7;
+
+}
+
+TCanvas* plotC8(){
+
+	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+	auto hFinger_Edep_vs_NphotCut = v[0].Filter("trigger3").Histo2D({"h3", "Finger Edep vs Nphot", 100, 0.01, 500.0, 100, 0.01, 10.0},"fingerPMTNPhotons","fingerEd");
+
+	TCanvas *c8 = new TCanvas("c8","c8",800,800);
+	c8->Divide(1,2,0.01,0.01,0);
+
+	c8->cd(1);
+	hFinger_Edep_vs_NphotCut->Draw("COLZ");
+	c8->cd(2);
+	TProfile *profCut = hFinger_Edep_vs_NphotCut->ProfileX();
+	profCut->Fit("pol1");
+
+	c8->DrawClone();
+	c8->Print("plots/c8RA.pdf");
+
+	return c8;
+
+}
+
+
+TCanvas* plotC12(){
+
+	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+	auto hPrimPx = v[0].Histo1D("fPx");
+	auto hPrimPy = v[0].Histo1D("fPy");
+	auto hPrimPz = v[0].Histo1D("fPz");
+
+	TCanvas *c12 = new TCanvas("c12","c12",800,800);
+	c12->Divide(2,2,0.01,0.01,0);
+
+	c12->cd(1);
+	hPrimPx->Draw();
+	c12->cd(2);
+	hPrimPy->Draw();
+	c12->cd(3);
+	hPrimPz->Draw();
+
+	c12->DrawClone();
+	c12->Print("plots/c12.pdf");
+
+	return c12;
+
+}
+
+TCanvas* plotC13() {
+
+
+	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+	auto hPrimXZ = v[0].Histo2D({"h99", "G4SBS z vs x", 100, -80.0, 80.0, 100, -80.0, 80.0},"Prim_X","Prim_Z");
+
+
+
+	TCanvas *c13 = new TCanvas("c13","c13",800,800);
+	hPrimXZ->Draw("COLZ");
+    	//plotDetector(hPrimXZ);
+
+	c13->DrawClone();
+	c13->Print("plots/c13.pdf");
+
+	return c13;
+
+}
+
+
+TCanvas* plotC14(){
+
+	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
+
+	auto hPrimX = v[0].Histo1D("Prim_X");
+	auto hPrimY = v[0].Histo1D("Prim_Y");
+	auto hPrimZ = v[0].Histo1D("Prim_Z");
+	auto hPrimXZ = v[0].Histo2D({"h99", "z vs z", 100, -80.0, 80.0, 100, -80.0, 80.0},"Prim_X","Prim_Z");
+	
+	TCanvas *c14 = new TCanvas("c14","c14",800,800);
+	c14->Divide(2,2,0.01,0.01,0);
+
+	c14->cd(1);
+	hPrimZ->Draw();
+	c14->cd(2);
+	hPrimY->Draw();
+	c14->cd(3);
+	hPrimZ->Draw();
+	c14->cd(4);
+	hPrimXZ->Draw("COLZ");
+        plotDetector(hPrimXZ);
+
+	c14->DrawClone();
+	c14->Print("plots/c14.pdf");
+
+	return c14;
+
 }

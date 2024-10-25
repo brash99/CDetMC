@@ -301,21 +301,25 @@ void GenerateOneParticle(int fPDGCode, double xvalue, double zvalue)
 {
 
   // Generate vertex position in cm 
-  fVx = fRand->Uniform(xvalue , xvalue+0.01 );
+  fVx = fRand->Uniform(xvalue-25.0 , xvalue+25.0 );
   fVy = 25.0;
-  fVz = fRand->Uniform(zvalue , zvalue+0.01 );
+  fVz = fRand->Uniform(zvalue-25.0 , zvalue+25.0 );
+  //fVx = fRand->Uniform(xvalue, xvalue+0.00 );
+  //fVy = 25.0;
+  //fVz = fRand->Uniform(zvalue , zvalue+0.01 );
 
   // Sample Momentum Distributions (flat from min to mean, p^-2.7 from mean to max)
-  //if( fRand->Uniform(0.,1) < fIntRatio ) 
-  //  fP = 1000. * fMomFlatDist->GetRandom();
-  //else 
-  //  fP = 1000. * fMomPowDist->GetRandom();
-  
-  fP = 1000.*fRand->Uniform(3.0,3.1);
+  if( fRand->Uniform(0.,1) < fIntRatio )
+    fP = 1000. * fMomFlatDist->GetRandom();
+  else
+    fP = 1000. * fMomPowDist->GetRandom();
+
+  // Sample Momentum Distributions (flat from min to mex)
+  //fP = 1000.*fRand->Uniform(3.0,3.1);
 
   // Sample Angular Distributions (cos^2(theta) and flat phi)
-  //Float_t th = fThetaDist->GetRandom();
-  Float_t th = TMath::Pi()-fRand->Uniform(0.00,0.01);
+  Float_t th = fThetaDist->GetRandom();
+  //Float_t th = TMath::Pi()-fRand->Uniform(0.00,0.01);
   Float_t ph = fPhiDist->GetRandom();
   //Float_t th = 3.14159265;
   //Float_t ph = 0.0;

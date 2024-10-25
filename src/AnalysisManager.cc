@@ -60,11 +60,12 @@ AnalysisManager::~AnalysisManager()
   std::vector<TVectorD> x;
   for (long unsigned int i=0; i<geometryData.size(); i++) {
       TVectorD y(geometryData[0].size());
+            std::cout << "PMT ID: " << geometryData[i][0] << std::endl;
       for (long unsigned int j=0; j<geometryData[0].size(); j++) {
-              //std::cout << geometryData[i][j] << " ";
+                  std::cout << geometryData[i][j] << " ";
               y[j]=geometryData[i][j];
       }
-      //std::cout << endl;
+            std::cout << std::endl;
       //y.Print();
       x.push_back(y);
   }
