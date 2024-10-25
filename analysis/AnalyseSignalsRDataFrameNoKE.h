@@ -1,7 +1,7 @@
 int Analyse_Secondaries = 1;
 float Theta_min_cut = 2.524;
 float ThetaVerticalCut = 3.02;
-float Photon_min_cut = 80.0;
+float Photon_min_cut = 0.0;
 
 int MaxPMTNo = 50000;
 int MaxPMTHits = 1000;
@@ -731,10 +731,69 @@ std::vector<float> getFingerPMTTime(bool trigger, int* PMT_Nphotons, float* PMT_
                 //std::cout << "getFingerPMTTime: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
                 pmttime[icount] = PMT_Time[icount];
                 v.push_back(pmttime[icount]);
+            } else {
+                v.push_back(-1000.0);
             }
         }
     }
+
     return v;
+}
+
+std::vector<float> getFingerAngleRad(bool trigger, int* PMT_Nphotons, float* PMT_Time) {
+
+    std::vector<float> v;
+    std::vector<float> v2;
+
+    TRandom3* fRand = new TRandom3(-1);
+    float pmttime[4];
+    //std::cout << "--------------------" << std::endl;
+    float ytop = 0.0;
+    float ybottom = 10.0;
+    if (trigger) {
+        for (Int_t icount = Detector_PMT_Offset;icount<Detector_PMT_Offset+4;icount++){
+            if (PMT_Nphotons[icount]>Photon_min_cut) {
+                //std::cout << "getFingerAngleRad: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
+                pmttime[icount] = PMT_Time[icount];
+                v.push_back(pmttime[icount]);
+
+                /*
+                std::cout << "getFingerAngleRad: before" << std::endl;
+                TVectorD* y = (TVectorD*)myGeometryData->At(icount);
+                std::cout << "getFingerAngleRad: after" << std::endl;
+
+                std::cout << "length of y = " << y << std::endl;
+                if (icount == Detector_PMT_Offset) {
+                    std::cout << "getFingerAngleRad: dereferencing ytop" << std::endl;
+                    ytop = (*y)[2]/10.0;
+                    std::cout << "getFingerAngleRad: ytop = " << ytop << std::endl;
+                } else {
+                    if (icount == Detector_PMT_Offset+2) {
+                        std::cout << "getFingerAngleRad: dereferencing ybottom" << std::endl;
+                        ybottom = (*y)[2]/10.0;
+                    }
+                }
+                */
+            }  else {
+                v.push_back(-1000.0);
+            }
+        }
+    }
+
+        // Calculate the angle between the scintillator planes, assuming the distance is 10.0cm
+        float distance = fabs(ytop-ybottom);
+        float speed = 29.98/1.5; // speed of light in scintillator in cm/ns
+
+        if (v.size() == 4) {
+            float angle = atan(speed*(v[0]-v[1]-v[2]+v[3])/distance);
+            v2.push_back(angle);
+            //std::cout << "getFingerAngleRad: Angle = " << angle << std::endl;
+        } else {
+            v2.push_back(-10.0);
+            //std::cout << "getFingerAngleRad: Angle = -10.0" << std::endl;
+        }
+
+    return v2;
 }
 
 std::vector<float> getAnaBarPMTTimeOverThreshold(bool trigger, int* PMT_Nphotons, float* PMT_TimeOverThreshold) {
@@ -866,7 +925,8 @@ std::vector<float> getFingerEd(bool trigger, float fNewTheta, int Detector_Nhits
     
     for (int j=0; j < Detector_Nhits; j++) {
         if (trigger) {
-            if (Detector_id[j] == Detector_Offset || Detector_id[j] == Detector_Offset+1) {
+            if (Detector_id[j] == Detector_Offset || Detector_id[j] == Detector_Offset+1 ||
+                Detector_id[j] == Detector_Offset+2 || Detector_id[j] == Detector_Offset+3) {
                 if (Analyse_Secondaries == 1 && fNewTheta > Theta_min_cut) {
                     edep0tot += Detector_Ed[j];
                 }

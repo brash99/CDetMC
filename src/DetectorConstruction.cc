@@ -335,7 +335,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 */
 
 // Bottom Left trigger
- G4double yoffset = -10;   //Create(approx) 100cm gap between the top and bottom triggers  
+ G4double yoffset = -10.0;   //Create(approx) 10cm gap between the top and bottom triggers  
  
  G4ThreeVector MylarFinger_pos31(0.0*cm ,(yoffset+fFingerYoffset-fFingerThickness/2.0-fMylarThickness/2.0)*cm , fFingerZoffset*cm);
   	MylarFingerFront    =  new G4PVPlacement(0, MylarFinger_pos31 , logicMylarFinger , "MylarFinger" , expHall_log , false , 2602);
