@@ -1,0 +1,44 @@
+# Auto-generated: OP Emission for PWO-SICCAS
+# http://hurel.hanyang.ac.kr/Geant4/Geant4_GPS/reat.space.qinetiq.com/gps/examples/examples.html
+
+/gps/particle opticalphoton
+/gps/pos/type Point
+/gps/ang/type iso
+
+# In example #18
+/gps/ene/type Arb
+/gps/hist/type arb
+
+/gps/hist/point 2.21757e-06 0
+/gps/hist/point 2.25549e-06 0.000238941
+/gps/hist/point 2.29473e-06 0.000541599
+/gps/hist/point 2.33404e-06 0.000939833
+/gps/hist/point 2.37973e-06 0.00140179
+/gps/hist/point 2.40886e-06 0.00176816
+/gps/hist/point 2.43728e-06 0.0021664
+/gps/hist/point 2.47869e-06 0.00285136
+/gps/hist/point 2.49716e-06 0.00326552
+/gps/hist/point 2.53029e-06 0.00396641
+/gps/hist/point 2.56909e-06 0.00479474
+/gps/hist/point 2.61074e-06 0.005639
+/gps/hist/point 2.65037e-06 0.00641954
+/gps/hist/point 2.68946e-06 0.00713636
+/gps/hist/point 2.73033e-06 0.00774168
+/gps/hist/point 2.76998e-06 0.00834699
+/gps/hist/point 2.80761e-06 0.00890452
+/gps/hist/point 2.85152e-06 0.00941426
+/gps/hist/point 2.88537e-06 0.0095417
+/gps/hist/point 2.92071e-06 0.0095417
+/gps/hist/point 2.95411e-06 0.00944612
+/gps/hist/point 2.98685e-06 0.0092709
+/gps/hist/point 3.00933e-06 0.00896824
+/gps/hist/point 3.06209e-06 0.00833106
+/gps/hist/point 3.1191e-06 0.00759831
+/gps/hist/point 3.17582e-06 0.00673813
+/gps/hist/point 3.21369e-06 0.0060213
+/gps/hist/point 3.29132e-06 0.00452394
+/gps/hist/point 3.37464e-06 0.00289915
+/gps/hist/point 3.45842e-06 0.00138586
+/gps/hist/point 3.54544e-06 0
+
+/gps/hist/inter Lin

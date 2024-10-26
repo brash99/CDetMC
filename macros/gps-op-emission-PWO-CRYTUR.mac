@@ -1,0 +1,35 @@
+# Auto-generated: OP Emission for PWO-CRYTUR
+# http://hurel.hanyang.ac.kr/Geant4/Geant4_GPS/reat.space.qinetiq.com/gps/examples/examples.html
+
+/gps/particle opticalphoton
+/gps/pos/type Point
+/gps/ang/type iso
+
+# In example #18
+/gps/ene/type Arb
+/gps/hist/type arb
+
+/gps/hist/point 1.69149e-06 0
+/gps/hist/point 1.76307e-06 4.7e-05
+/gps/hist/point 1.88813e-06 0.000158507
+/gps/hist/point 2.0453e-06 0.00047552
+/gps/hist/point 2.24146e-06 0.0011888
+/gps/hist/point 2.37919e-06 0.00213984
+/gps/hist/point 2.48083e-06 0.00309088
+/gps/hist/point 2.56208e-06 0.00412117
+/gps/hist/point 2.66358e-06 0.00554773
+/gps/hist/point 2.75349e-06 0.00673653
+/gps/hist/point 2.81827e-06 0.0072913
+/gps/hist/point 2.89055e-06 0.00784607
+/gps/hist/point 2.93259e-06 0.00792533
+/gps/hist/point 2.97125e-06 0.00784607
+/gps/hist/point 3.02992e-06 0.00760831
+/gps/hist/point 3.07371e-06 0.00713279
+/gps/hist/point 3.134e-06 0.00641951
+/gps/hist/point 3.22632e-06 0.00467594
+/gps/hist/point 3.36511e-06 0.00213984
+/gps/hist/point 3.5003e-06 0.000396266
+/gps/hist/point 3.5754e-06 7.9e-05
+/gps/hist/point 3.67132e-06 0
+
+/gps/hist/inter Lin

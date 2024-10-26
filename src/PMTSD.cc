@@ -28,7 +28,7 @@ PMTSD::PMTSD(G4String name, G4int Nelements )
   fHits       = new G4int[fNelements];
   for(G4int i=0; i<fNelements; i++) fhitID[i] = -1;
   for(G4int i=0; i<fNelements; i++) fHits[i]  = 0;
-  //TString myHitsFile = fAnaManager->GetHitFilename();
+  //G4String myHitsFile = fAnaManager->GetHitFilename();
 }
 
 //---------------------------------------------------------------------------
@@ -61,26 +61,31 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
      != G4OpticalPhoton::OpticalPhotonDefinition()) return false;
  
   //std::cout << "Getting PMT number and time .... " << std::endl;
-  G4int pmtNumber= aStep->GetPostStepPoint()->GetTouchable()
-    ->GetVolume()->GetCopyNo();
-  //std::cout << pmtNumber << std::endl;
+  G4int pmtNumber;
+  G4double pmtTime, pmtTimeOverThreshold;
+  try {
+    pmtNumber= aStep->GetPostStepPoint()->GetTouchable()
+      ->GetVolume()->GetCopyNo();
+    pmtTime= aStep->GetPostStepPoint()->GetGlobalTime();
+    pmtTimeOverThreshold= aStep->GetPostStepPoint()->GetGlobalTime();
+    //std::cout << pmtNumber << " " << pmtTime << " " << pmtTimeOverThreshold << std::endl;
+  }
+  catch (const std::exception& e) {
+    std::cerr << e.what() << std::endl;
+  }
 
-  G4double pmtTime= aStep->GetPostStepPoint()->GetGlobalTime();
-  G4double pmtTimeOverThreshold= aStep->GetPostStepPoint()->GetGlobalTime();
-  //std::cout << pmtTime << std::endl;
-  
-  
   // Try to get kinetic energy
   //G4Track* theTrack = aStep->GetTrack();
   //G4double energy=theTrack->GetKineticEnergy()*1.0E6;
   //std::cout << "PMT No. = " << pmtNumber << ", Photon kinetic energy = " << energy << std::endl;
 
   //for (G4int iii = 0; iii<10000; iii++){
+  //    if (fhitID[iii] != -1)
   //	std::cout << " iii = " << iii << "  fhitID[iii] = " << fhitID[iii] << std::endl;
-  //} 
+  //}
  
   // if this PMT hasn't been hit in this event
-  //std::cout << "Accessing fhitID ... " << fhitID[pmtNumber] << " " << energy << std::endl; 
+  //std::cout << "Accessing fhitID ... " << fhitID[pmtNumber] << " " << energy << std::endl;
   //if ( fhitID[pmtNumber] == -1 && energy > 0.1) {
   if ( fhitID[pmtNumber] == -1 ) {
     PMTHit* OpHit = new PMTHit;
@@ -89,7 +94,7 @@ G4bool PMTSD::ProcessHits_constStep(const G4Step* aStep,
     //OpHit->SetPMTKineticEnergy(0,energy);
     OpHit->IncPhotonCount();
     OpHit->SetPMTTimeOverThreshold(0.0);
-    //if (pmtNumber<2500) std::cout << "First PMT hit ... pmtNumber = " << pmtNumber << " time = " << pmtTime << " fhitID[pmtNumber] = " << fhitID[pmtNumber] << std::endl; 
+    if (pmtNumber<2500) std::cout << "First PMT hit ... pmtNumber = " << pmtNumber << " time = " << pmtTime << " fhitID[pmtNumber] = " << fhitID[pmtNumber] << std::endl;
 
     fhitID[pmtNumber] = fCollection->insert(OpHit) - 1;
     fHits[fNhits++] = pmtNumber;

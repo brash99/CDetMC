@@ -22,6 +22,7 @@
 #include "G4Box.hh"
 #include "G4Sphere.hh"
 #include "G4Tubs.hh"
+#include "G4Trd.hh"
 #include "G4SubtractionSolid.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
@@ -78,8 +79,8 @@ DetectorConstruction::DetectorConstruction()
   fMylarThickness = 0.02;
 
   fAnaBarLength = 50.0;
-  fAnaBarWidth = 4.0;
-  fAnaBarThickness = 0.50;
+  fAnaBarWidth = 0.01;
+  fAnaBarThickness = 0.01;
 
   fFingerLength = 30.0;
   //fFingerWidth = fNumberOfModules*fNumberOfBars*fNumberOfLayers*(fAnaBarThickness+2.0*fMylarThickness)+20.0;
@@ -211,6 +212,20 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   Pscint->SetMaterialPropertiesTable(Pscint_mt);
 
   //-----------------------------------------------------
+  // Light Guide made of PMMA
+    G4Material* lightGuideMaterial = new G4Material("LightGuideMaterial", 1.19*g/cm3, 3);
+    lightGuideMaterial->AddElement(C, 5);
+    lightGuideMaterial->AddElement(H, 8);
+    lightGuideMaterial->AddElement(O, 2);
+
+    G4double    lightGuide_RIND[Num]      = { 1.49, 1.49, 1.49, 1.49, 1.49, 1.49,
+  					    1.49, 1.49, 1.49, 1.49, 1.49, 1.49 };
+
+    G4MaterialPropertiesTable *lightGuide_mt = new G4MaterialPropertiesTable();
+    lightGuide_mt->AddProperty("RINDEX",        Energy, lightGuide_RIND,      Num );
+    lightGuideMaterial->SetMaterialPropertiesTable(lightGuide_mt);
+
+  //-----------------------------------------------------
   // PMT Glass
 
   G4Material* Glass = new G4Material("Glass", 2.55*g/cm3, 4);
@@ -261,12 +276,13 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   
   
   // Redefine here some quantities from the constructor that are based on parameters definable at runtime!!!!
-  fFingerWidth = fNumberOfModules*fNumberOfBars*fNumberOfLayers*(fAnaBarThickness+2.0*fMylarThickness)+20.0;
-  fFingerZoffset = -(fFingerWidth-20.0)/2.0+fAnaBarZpos;
+  //fFingerWidth = fNumberOfModules*fNumberOfBars*fNumberOfLayers*(fAnaBarThickness+2.0*fMylarThickness)+20.0;
+  fFingerWidth = 30.0;
+  fFingerZoffset = -(fFingerWidth-30.0)/2.0+fAnaBarZpos;
   fFingerYoffset = fAnaBarWidth/2.0+fFingerThickness/2.0+2.0;
   fHoleLength = fAnaBarLength;
   fFibreLength = fCladdingLength;
-  std::cout << "In DetectorConstuction Construct(): Bars = " << fNumberOfBars << "  FingerWidth = " << fFingerWidth << std::endl; 
+  std::cout << "In DetectorConstruction Construct(): Bars = " << fNumberOfBars << "  FingerWidth = " << fFingerWidth << std::endl;
 
 
   G4VSolid* solidMylar = new G4Box("Mylar",fAnaBarLength/2.0*cm,fAnaBarWidth/2.0*cm,fMylarThickness/2.0*cm);
@@ -359,7 +375,159 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   	MylarFingerSide2    =  new G4PVPlacement(0, MylarFinger_pos44 , logicMylarFingerSide , "MylarFingerSide" , expHall_log , false , 2615);
 */
 
-  //---------------------------------------------------------------------------
+//----------------------------
+// Creating Trapezoidal Light Guide made of Lucite
+//---------------------------
+G4double fLightGuideLength = 50.0;
+G4double fLightGuideWidthWide = fFingerWidth;
+G4double fLightGuideWidthNarrow = 2.0*2.54;
+G4double fLightGuideThicknessWide = fFingerThickness;
+G4double fLightGuideThicknessNarrow = 2.0*2.54;
+
+G4double fLightGuideZoffsetTopLeft = fFingerZoffset+fFingerLength/2.0+fLightGuideLength/2.0;
+G4double fLightGuideYoffsetTopLeft = fFingerYoffset;
+G4double fLightGuideZoffsetBottomLeft = fFingerZoffset+fFingerLength/2.0+fLightGuideLength/2.0;
+G4double fLightGuideYoffsetBottomLeft = fFingerYoffset+yoffset;
+G4double fLightGuideZoffsetTopRight = fFingerZoffset-fFingerLength/2.0-fLightGuideLength/2.0;
+G4double fLightGuideYoffsetTopRight = fFingerYoffset;
+G4double fLightGuideZoffsetBottomRight = fFingerZoffset-fFingerLength/2.0-fLightGuideLength/2.0;
+G4double fLightGuideYoffsetBottomRight = fFingerYoffset+yoffset;
+
+G4double fLightGuideWrapThickness = 0.05;
+
+G4OpticalSurface* mirrorSurfaceWrap = new G4OpticalSurface("MirrorSurfaceWrap",glisur, ground, dielectric_metal, 1.0);
+G4MaterialPropertiesTable* mirrorSurfaceWrapProperty = new G4MaterialPropertiesTable();
+
+G4double p_mirror_wrap[] = {2.00*eV, 3.47*eV};
+const G4int nbins_wrap = sizeof(p_mirror_wrap)/sizeof(G4double);
+G4double refl_mirror_wrap[] = {1.0, 1.0};
+assert (sizeof(refl_mirror_wrap) == sizeof(p_mirror_wrap));
+G4double effi_mirror_wrap[] = {0, 0};
+assert (sizeof(effi_mirror_wrap) == sizeof(p_mirror_wrap));
+
+mirrorSurfaceWrapProperty->AddProperty("REFLECTIVITY",p_mirror_wrap,refl_mirror_wrap,nbins_wrap);
+mirrorSurfaceWrapProperty->AddProperty("EFFICIENCY",p_mirror_wrap,effi_mirror_wrap,nbins_wrap);
+
+mirrorSurfaceWrap -> SetMaterialPropertiesTable(mirrorSurfaceWrapProperty);
+
+// Top Left Light Guide
+G4Trd* solidLightGuideTopLeft = new G4Trd("LightGuideTopLeft_solid",fLightGuideWidthWide/2.0*cm,fLightGuideWidthNarrow/2.0*cm,fLightGuideThicknessWide/2.0*cm,fLightGuideThicknessNarrow/2.0*cm,fLightGuideLength/2.0*cm);
+G4LogicalVolume* logicLightGuideTopLeft = new G4LogicalVolume(solidLightGuideTopLeft,lightGuideMaterial, "LightGuideTopLeft_log");
+G4ThreeVector LightGuide_posTopLeft(0.0*cm , fLightGuideYoffsetTopLeft*cm , fLightGuideZoffsetTopLeft*cm);
+LightGuideTopLeft    =  new G4PVPlacement(0, LightGuide_posTopLeft , logicLightGuideTopLeft, "LightGuideTopLeft" , expHall_log , false , 2566);
+
+G4Trd* wrapLightGuideTopLeftA = new G4Trd("LightGuideTopLeft_wrapA",(fLightGuideWidthWide+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideWidthNarrow+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideThicknessWide+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideThicknessNarrow+fLightGuideWrapThickness)/2.0*cm,
+                                          fLightGuideLength/2.0*cm);
+G4Trd* wrapLightGuideTopLeftB = new G4Trd("LightGuideTopLeft_wrapB",fLightGuideWidthWide/2.0*cm,fLightGuideWidthNarrow/2.0*cm,fLightGuideThicknessWide/2.0*cm,fLightGuideThicknessNarrow/2.0*cm,fLightGuideLength/2.0*cm);
+G4RotationMatrix *noRotation = new G4RotationMatrix();
+G4ThreeVector wrapTranslation(0, 0, 0);
+G4SubtractionSolid *wrapLightGuideTopLeft = new G4SubtractionSolid("LightGuideTopLeft_Wrap",
+                                                                   wrapLightGuideTopLeftA,
+                                                                   wrapLightGuideTopLeftB,
+                                                                   noRotation,
+                                                                   wrapTranslation);
+
+G4LogicalVolume* logicLightGuideTopLeftA = new G4LogicalVolume(wrapLightGuideTopLeft,
+                                                               FindMaterial("G4_Al"),
+                                                               "LightGuideTopLeftA_log");
+
+new G4LogicalSkinSurface("MirrorSurfaceWrapTopLeft",logicLightGuideTopLeftA,mirrorSurfaceWrap);
+
+G4ThreeVector LightGuide_posTopLeftA(0.0*cm ,
+                                     fLightGuideYoffsetTopLeft*cm ,
+                                     fLightGuideZoffsetTopLeft*cm);
+LightGuideTopLeftA = new G4PVPlacement(0, LightGuide_posTopLeftA ,
+                                       logicLightGuideTopLeftA,
+                                       "LightGuideTopLeftA" ,
+                                       expHall_log ,
+                                       false , 2570);
+
+// Bottom Left Light Guide
+G4Trd* solidLightGuideBottomLeft = new G4Trd("LightGuideBottomLeft_solid",fLightGuideWidthWide/2.0*cm,fLightGuideWidthNarrow/2.0*cm,fLightGuideThicknessWide/2.0*cm,fLightGuideThicknessNarrow/2.0*cm,fLightGuideLength/2.0*cm);
+G4LogicalVolume* logicLightGuideBottomLeft = new G4LogicalVolume(solidLightGuideBottomLeft,lightGuideMaterial, "LightGuideBottomLeft_log");
+G4ThreeVector LightGuide_posBottomLeft(0.0*cm , fLightGuideYoffsetBottomLeft*cm , fLightGuideZoffsetBottomLeft*cm);
+LightGuideBottomLeft    =  new G4PVPlacement(0, LightGuide_posBottomLeft , logicLightGuideBottomLeft , "LightGuideBottomLeft" , expHall_log , false , 2567);
+
+G4Trd* wrapLightGuideBottomLeftA = new G4Trd("LightGuideBottomLeft_wrapA",(fLightGuideWidthWide+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideWidthNarrow+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideThicknessWide+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideThicknessNarrow+fLightGuideWrapThickness)/2.0*cm,
+                                          fLightGuideLength/2.0*cm);
+G4Trd* wrapLightGuideBottomLeftB = new G4Trd("LightGuideBottomLeft_wrapB",fLightGuideWidthWide/2.0*cm,fLightGuideWidthNarrow/2.0*cm,fLightGuideThicknessWide/2.0*cm,fLightGuideThicknessNarrow/2.0*cm,fLightGuideLength/2.0*cm);
+G4SubtractionSolid *wrapLightGuideBottomLeft = new G4SubtractionSolid("LightGuideBottomLeft_Wrap",
+                                                                   wrapLightGuideBottomLeftA,
+                                                                   wrapLightGuideBottomLeftB,
+                                                                   noRotation,
+                                                                   wrapTranslation);
+G4LogicalVolume* logicLightGuideBottomLeftA = new G4LogicalVolume(wrapLightGuideBottomLeft,
+                                                               FindMaterial("G4_Al"),
+                                                               "LightGuideBottomLeftA_log");
+
+new G4LogicalSkinSurface("MirrorSurfaceWrapBottomLeft",logicLightGuideBottomLeftA,mirrorSurfaceWrap);
+
+G4ThreeVector LightGuide_posBottomLeftA(0.0*cm ,
+                                        fLightGuideYoffsetBottomLeft*cm ,
+                                        fLightGuideZoffsetBottomLeft*cm);
+LightGuideBottomLeftA = new G4PVPlacement(0, LightGuide_posBottomLeftA ,
+                                          logicLightGuideBottomLeftA,
+                                          "LightGuideBottomLeftA" ,
+                                          expHall_log ,
+                                          false , 2571);
+
+// Top Right Light Guide
+G4Trd* solidLightGuideTopRight = new G4Trd("LightGuideTopRight_solid",fLightGuideWidthNarrow/2.0*cm,fLightGuideWidthWide/2.0*cm,fLightGuideThicknessNarrow/2.0*cm,fLightGuideThicknessWide/2.0*cm,fLightGuideLength/2.0*cm);
+G4LogicalVolume* logicLightGuideTopRight = new G4LogicalVolume(solidLightGuideTopRight,lightGuideMaterial, "LightGuideTopRight_log");
+G4ThreeVector LightGuide_posTopRight(0.0*cm , fLightGuideYoffsetTopRight*cm , fLightGuideZoffsetTopRight*cm);
+LightGuideTopRight    =  new G4PVPlacement(0, LightGuide_posTopRight , logicLightGuideTopRight, "LightGuideTopRight" , expHall_log , false , 2568);
+
+G4Trd* wrapLightGuideTopRightA = new G4Trd("LightGuideTopRight_wrapA",(fLightGuideWidthNarrow+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideWidthWide+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideThicknessNarrow+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideThicknessWide+fLightGuideWrapThickness)/2.0*cm,
+                                          fLightGuideLength/2.0*cm);
+G4Trd* wrapLightGuideTopRightB = new G4Trd("LightGuideTopRight_wrapB",fLightGuideWidthNarrow/2.0*cm,fLightGuideWidthWide/2.0*cm,fLightGuideThicknessNarrow/2.0*cm,fLightGuideThicknessWide/2.0*cm,fLightGuideLength/2.0*cm);
+G4SubtractionSolid *wrapLightGuideTopRight = new G4SubtractionSolid("LightGuideTopRight_Wrap",
+                                                                   wrapLightGuideTopRightA,
+                                                                   wrapLightGuideTopRightB,
+                                                                   noRotation,
+                                                                   wrapTranslation);
+G4LogicalVolume* logicLightGuideTopRightA = new G4LogicalVolume(wrapLightGuideTopRight, FindMaterial("G4_Al"), "LightGuideTopRightA_log");
+
+new G4LogicalSkinSurface("MirrorSurfaceWrapTopRight",logicLightGuideTopRightA,mirrorSurfaceWrap);
+
+G4ThreeVector LightGuide_posTopRightA(0.0*cm , fLightGuideYoffsetTopRight*cm , fLightGuideZoffsetTopRight*cm);
+LightGuideTopRightA = new G4PVPlacement(0, LightGuide_posTopRightA , logicLightGuideTopRightA, "LightGuideTopRightA" , expHall_log , false , 2572);
+
+// Bottom Right Light Guide
+G4Trd* solidLightGuideBottomRight = new G4Trd("LightGuideBottomRight_solid",fLightGuideWidthNarrow/2.0*cm,fLightGuideWidthWide/2.0*cm,fLightGuideThicknessNarrow/2.0*cm,fLightGuideThicknessWide/2.0*cm,fLightGuideLength/2.0*cm);
+G4LogicalVolume* logicLightGuideBottomRight = new G4LogicalVolume(solidLightGuideBottomRight,lightGuideMaterial, "LightGuideBottomRight_log");
+G4ThreeVector LightGuide_posBottomRight(0.0*cm , fLightGuideYoffsetBottomRight*cm , fLightGuideZoffsetBottomRight*cm);
+LightGuideBottomRight    =  new G4PVPlacement(0, LightGuide_posBottomRight , logicLightGuideBottomRight , "LightGuideBottomRight" , expHall_log , false , 2569);
+
+G4Trd* wrapLightGuideBottomRightA = new G4Trd("LightGuideBottomRight_wrapA",(fLightGuideWidthNarrow+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideWidthWide+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideThicknessNarrow+fLightGuideWrapThickness)/2.0*cm,
+                                          (fLightGuideThicknessWide+fLightGuideWrapThickness)/2.0*cm,
+                                          fLightGuideLength/2.0*cm);
+G4Trd* wrapLightGuideBottomRightB = new G4Trd("LightGuideBottomRight_wrapB",fLightGuideWidthNarrow/2.0*cm,fLightGuideWidthWide/2.0*cm,fLightGuideThicknessNarrow/2.0*cm,fLightGuideThicknessWide/2.0*cm,fLightGuideLength/2.0*cm);
+G4SubtractionSolid *wrapLightGuideBottomRight = new G4SubtractionSolid("LightGuideBottomRight_Wrap",
+                                                                   wrapLightGuideBottomRightA,
+                                                                   wrapLightGuideBottomRightB,
+                                                                   noRotation,
+                                                                   wrapTranslation);
+G4LogicalVolume* logicLightGuideBottomRightA = new G4LogicalVolume(wrapLightGuideBottomRight, FindMaterial("G4_Al"), "LightGuideBottomRightA_log");
+
+new G4LogicalSkinSurface("MirrorSurfaceWrapBottomRight",logicLightGuideBottomRightA,mirrorSurfaceWrap);
+
+G4ThreeVector LightGuide_posBottomRightA(0.0*cm , fLightGuideYoffsetBottomRight*cm , fLightGuideZoffsetBottomRight*cm);
+LightGuideBottomRightA = new G4PVPlacement(0, LightGuide_posBottomRightA , logicLightGuideBottomRightA, "LightGuideBottomRightA" , expHall_log , false , 2573);
+
+
+
+    //---------------------------------------------------------------------------
   // Create Detectors
   //---------------------------------------------------------------------------
 // TODO
@@ -372,8 +540,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
    // Top Left Trigger
    G4ThreeVector fingercounter_pos0(0.0*cm , fFingerYoffset*cm , fFingerZoffset*cm);
    FingerCounter=  new G4PVPlacement(0, fingercounter_pos0 , fingercounter_log , "FingerCounter" , expHall_log , false , 2560);
-   G4ThreeVector MylarFinger_pos5(0.0*cm, fFingerYoffset*cm , fFingerZoffset*cm-fFingerWidth/2.0*cm-fMylarThickness/2.0*cm);
-   MylarFingerEnd    =  new G4PVPlacement(0, MylarFinger_pos5 , logicMylarFingerEnd , "MylarFingerEnd" , expHall_log , false , 2586);
+   //G4ThreeVector MylarFinger_pos5(0.0*cm, fFingerYoffset*cm , fFingerZoffset*cm-fFingerWidth/2.0*cm-fMylarThickness/2.0*cm);
+   //MylarFingerEnd    =  new G4PVPlacement(0, MylarFinger_pos5 , logicMylarFingerEnd , "MylarFingerEnd" , expHall_log , false , 2586);
   
   /*
    // Top Right Trigger
@@ -386,8 +554,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
    // Bottom Left Trigger
    G4ThreeVector fingercounter_pos2(0.0*cm ,yoffset*cm + fFingerYoffset*cm , fFingerZoffset*cm);
    FingerCounter=  new G4PVPlacement(0, fingercounter_pos2 , fingercounter_log , "FingerCounter" , expHall_log , false , 2562);
-   G4ThreeVector MylarFinger_pos7(0.0*cm, yoffset*cm + fFingerYoffset*cm , fFingerZoffset*cm-fFingerWidth/2.0*cm-fMylarThickness/2.0*cm);
-   MylarFingerEnd    =  new G4PVPlacement(0, MylarFinger_pos7 , logicMylarFingerEnd , "MylarFingerEnd" , expHall_log , false , 2588);
+   //G4ThreeVector MylarFinger_pos7(0.0*cm, yoffset*cm + fFingerYoffset*cm , fFingerZoffset*cm-fFingerWidth/2.0*cm-fMylarThickness/2.0*cm);
+   //MylarFingerEnd    =  new G4PVPlacement(0, MylarFinger_pos7 , logicMylarFingerEnd , "MylarFingerEnd" , expHall_log , false , 2588);
    
    /*
    // Bottom Right Trigger
@@ -450,7 +618,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
      for (G4int iLayer=0; iLayer<fNumberOfLayers; iLayer++){
 	  G4double fAnaBarZposA = zoff-1.0*(fAnaBarThickness/2.0)*cm-(fAnaBarThickness+2.0*fMylarThickness)*iLayer*cm + iBar*(-(fAnaBarThickness+2.0*fMylarThickness)*fNumberOfLayers*cm); 
      	  
-	  G4ThreeVector AnaBar_pos(xoff+fAnaBarXposA*cm , yoff+0.0*cm , fAnaBarZposA);
+	  G4ThreeVector AnaBar_pos(xoff+fAnaBarXposA*cm , yoff+0.0*cm , fAnaBarZposA+200.0);
    	  AnaBar      =  new G4PVPlacement(0, AnaBar_pos , AnaBar_log , "AnaBar" , expHall_log , false , SetDetectorID(30000,iLayer, iBar, iModule, iSide, iPlane ));
 
           // Testing of printout of geometry information
@@ -667,22 +835,22 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4RotationMatrix* finger_rm  = new G4RotationMatrix();
   finger_rm->rotateX(0. *deg);
   
-  G4Box* det2_tubs            = new G4Box("det2_tubs",fFingerLength/2.0*cm, fFingerThickness/2.0*cm, fPhotoCathodeThickness/2.0*cm);
+  G4Box* det2_tubs            = new G4Box("det2_tubs",fLightGuideWidthNarrow/2.0*cm, fLightGuideThicknessNarrow/2.0*cm, fPhotoCathodeThickness/2.0*cm);
   
   G4LogicalVolume* det2_log = new G4LogicalVolume(det2_tubs,
 						  Glass,
 						  "det2_log", 0, 0, 0);
   // Top Left Trigger Volume
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2500);
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm-fFingerWidth/2.0*cm-fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2501);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fLightGuideLength*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2500);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm-fFingerWidth/2.0*cm-fLightGuideLength*cm-fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2501);
 
 
   // Top Right Trigger Volume
   // fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(xoffset*cm+0.0*cm,fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2501);
 
   // Bottom Left Trigger Volume
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2502);
-   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm-fFingerWidth/2.0*cm-fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2503);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm+fFingerWidth/2.0*cm+fLightGuideLength*cm+fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2502);
+   fDet15Vol                  = new G4PVPlacement(finger_rm, G4ThreeVector(0.0*cm,yoffset*cm + fFingerYoffset*cm,fFingerZoffset*cm-fFingerWidth/2.0*cm-fLightGuideLength*cm-fPhotoCathodeThickness/2.0*cm),det2_log, "det2", expHall_log, false, 2503);
 
 
   // Bottom Right Trigger Volume

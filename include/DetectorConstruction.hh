@@ -32,6 +32,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
   inline G4VPhysicalVolume* GetDetVol()    { return fDetVol;  };
   inline G4VPhysicalVolume* GetDet15Vol()    { return fDet15Vol;  };
   inline G4VPhysicalVolume* GetFingerVol()    { return FingerCounter;  };
+  inline G4VPhysicalVolume* GetLightGuideTopLeftVol()    { return LightGuideTopLeft;  };
   inline G4VPhysicalVolume* GetAnaBarVol()    { return AnaBar;  };
   inline G4VPhysicalVolume* GetCladVol()    { return physiClad;  };
   inline G4VPhysicalVolume* GetWLSfiberVol()    { return physiWLSfiber;  };
@@ -95,6 +96,14 @@ class DetectorConstruction : public G4VUserDetectorConstruction
   G4VPhysicalVolume* MylarFingerEnd;
   G4VPhysicalVolume* MylarFingerSide1;
   G4VPhysicalVolume* MylarFingerSide2;
+  G4VPhysicalVolume* LightGuideTopLeft;
+  G4VPhysicalVolume* LightGuideTopRight;
+  G4VPhysicalVolume* LightGuideBottomLeft;
+  G4VPhysicalVolume* LightGuideBottomRight;
+    G4VPhysicalVolume* LightGuideTopLeftA;
+    G4VPhysicalVolume* LightGuideTopRightA;
+    G4VPhysicalVolume* LightGuideBottomLeftA;
+    G4VPhysicalVolume* LightGuideBottomRightA;
   G4VPhysicalVolume* Mirror;
   G4VPhysicalVolume* physiClad;
   G4VPhysicalVolume* physiWLSfiber;
