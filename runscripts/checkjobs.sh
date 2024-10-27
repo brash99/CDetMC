@@ -1,5 +1,5 @@
 #!/bin/sh
 echo 'Running jobs:'
-squeue -u brash | grep R | grep product | grep jlab | wc -l
+squeue -u $USER | grep R | grep product | grep jlab | wc -l
 echo 'Pending jobs:'
-squeue -u brash | grep PD | wc -l
+squeue -u $USER | grep PD | wc -l
