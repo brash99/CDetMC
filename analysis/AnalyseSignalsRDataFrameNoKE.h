@@ -26,7 +26,7 @@ const int NDET = NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;
 
 int NMaxPMT = 14;
 
-auto fileName = "data/AnaBarMC_7001.root";
+auto fileName = "data/AnaBarMC_9999.root";
 auto treeName = "T";
 
 TFile* f = new TFile((TString)fileName,"READ");
