@@ -645,6 +645,63 @@ std::vector<float> getAnaBarXPMT(bool trigger, int* PMT_Nphotons, float* PMT_Tim
     return v;
 }
 
+std::vector<float> getAnaBarXPMTDiff(bool trigger, int* PMT_Nphotons, float* PMT_Time, float Prim_X) {
+
+    float pmttime[NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS];
+    std::vector<float> v;
+
+    std::vector<std::vector<double>> spacePointsTop;
+    std::vector<std::vector<double>> spacePointsBottom;
+
+    //std::cout << "--------------------" << std::endl;
+    if (trigger) {
+        for (Int_t icount = AnaBar_PMT_Offset;icount<AnaBar_PMT_Offset+NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;icount++){
+
+            if (PMT_Nphotons[icount]>Photon_min_cut) {
+                float xdpos, ydpos, zdpos;
+                std::vector<double> hitPoint;
+
+                TVectorD* y = (TVectorD*)myGeometryData->At(icount);
+                xdpos = (*y)[1]/10.0;
+                ydpos = (*y)[2]/10.0;
+                zdpos = (*y)[3]/10.0;
+
+                //std::cout << "getAnaBarPMTTime: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
+                //std::cout << "iLayer = " << getLayer(icount) << std::endl;
+                //std::cout << "iBar = " << getBar(icount) << std::endl;
+                //std::cout << "iSide = " << getSide(icount) << std::endl;
+                //std::cout << "iModule = " << getModule(icount) << std::endl;
+                //std::cout << "iPlane = " << getPlane(icount) << std::endl;
+                pmttime[icount] = PMT_Time[icount];
+
+                float xoffset = getXOffsetFromTime(icount,pmttime[icount]);
+                //std::cout << "X offset = " << xoffset << std::endl;
+                xdpos = xdpos + xoffset;
+                hitPoint.push_back(xdpos);
+                hitPoint.push_back(ydpos);
+                hitPoint.push_back(zdpos);
+                //std::cout << "detector positions: " <<  xdpos << " " << ydpos << " " << zdpos << std::endl;
+
+                int iPlane = getPlane(icount);
+                if (iPlane == 0) {
+                    spacePointsTop.push_back(hitPoint);
+                } else {
+                    spacePointsBottom.push_back(hitPoint);
+                }
+            }
+
+        }
+
+        // Fit space points
+        std::vector<double> topPosition = getPosition(spacePointsTop);
+
+        v.push_back(topPosition[0]-Prim_X);
+
+    }
+    return v;
+}
+
+
 std::vector<float> getAnaBarZPMT(bool trigger, int* PMT_Nphotons, float* PMT_Time) {
 
     float pmttime[NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS];
@@ -696,6 +753,62 @@ std::vector<float> getAnaBarZPMT(bool trigger, int* PMT_Nphotons, float* PMT_Tim
         std::vector<double> topPosition = getPosition(spacePointsTop);
         
         v.push_back(topPosition[2]);
+
+    }
+    return v;
+}
+
+std::vector<float> getAnaBarZPMTDiff(bool trigger, int* PMT_Nphotons, float* PMT_Time, float Prim_Z) {
+
+    float pmttime[NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS];
+    std::vector<float> v;
+
+    std::vector<std::vector<double>> spacePointsTop;
+    std::vector<std::vector<double>> spacePointsBottom;
+
+    //std::cout << "--------------------" << std::endl;
+    if (trigger) {
+        for (Int_t icount = AnaBar_PMT_Offset;icount<AnaBar_PMT_Offset+NUMPADDLE*NUMBARS*NUMMODULES*NUMSIDES*NUMLAYERS;icount++){
+
+            if (PMT_Nphotons[icount]>Photon_min_cut) {
+                float xdpos, ydpos, zdpos;
+                std::vector<double> hitPoint;
+
+                TVectorD* y = (TVectorD*)myGeometryData->At(icount);
+                xdpos = (*y)[1]/10.0;
+                ydpos = (*y)[2]/10.0;
+                zdpos = (*y)[3]/10.0;
+
+                //std::cout << "getAnaBarPMTTime: " << icount << " " << PMT_Time[icount] << " " << PMT_Nphotons[icount] << std::endl;
+                //std::cout << "iLayer = " << getLayer(icount) << std::endl;
+                //std::cout << "iBar = " << getBar(icount) << std::endl;
+                //std::cout << "iSide = " << getSide(icount) << std::endl;
+                //std::cout << "iModule = " << getModule(icount) << std::endl;
+                //std::cout << "iPlane = " << getPlane(icount) << std::endl;
+                pmttime[icount] = PMT_Time[icount];
+
+                float xoffset = getXOffsetFromTime(icount,pmttime[icount]);
+                //std::cout << "X offset = " << xoffset << std::endl;
+                xdpos = xdpos + xoffset;
+                hitPoint.push_back(xdpos);
+                hitPoint.push_back(ydpos);
+                hitPoint.push_back(zdpos);
+                //std::cout << "detector positions: " <<  xdpos << " " << ydpos << " " << zdpos << std::endl;
+
+                int iPlane = getPlane(icount);
+                if (iPlane == 0) {
+                    spacePointsTop.push_back(hitPoint);
+                } else {
+                    spacePointsBottom.push_back(hitPoint);
+                }
+            }
+
+        }
+
+        // Fit space points
+        std::vector<double> topPosition = getPosition(spacePointsTop);
+
+        v.push_back(topPosition[2]-Prim_Z);
 
     }
     return v;
