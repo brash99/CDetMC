@@ -1093,7 +1093,7 @@ TCanvas* plotC1(){
   auto hFingerX = v[0].Histo1D("fingerXVec");
   auto hFingerY = v[0].Histo1D("fingerYVec");
   auto hFingerZ = v[0].Histo1D("fingerZVec");
-  auto hFingerT = v[0].Histo1D("fingerTVec");
+  auto hFingerT = v[0].Histo1D({"h4","fingerTVec", 100, 0, 2},"fingerTVec");
   
   TCanvas *c1 = new TCanvas("c1", "c1", 100,100,500,270);
   c1->Divide(2,2, 0.01, 0.01, 0);
@@ -1145,48 +1145,54 @@ TCanvas* plotC2(){
 void plotDetector(ROOT::RDF::RResultPtr<TH2D> hist) {
 
     double opacity=0.2;
-    double x1 = 55.0;
-    double y1 = -61.6;
-    double x2 = -45.2;
-    double y2 = -8.74;
+    double x1 = 26;
+    double y1 = -26;
+    double x2 = -26;
+    double y2 = 26;
     TBox *rect1 = new TBox(x1, y1, x2, y2);
     rect1->SetFillColorAlpha(kRed, opacity);
     hist->GetListOfFunctions()->Add(rect1);
-    x1 = 55.0;
-    y1 = -8.74;
-    x2 = -45.2;
-    y2 = 44.14;
-    TBox *rect2 = new TBox(x1, y1, x2, y2);
-    rect2->SetFillColorAlpha(kRed, opacity);
-    hist->GetListOfFunctions()->Add(rect2);
-    x1 = 62.5;
-    y1 = -114.54;
-    x2 = -37.7;
-    y2 = -61.62;
-    TBox *rect3 = new TBox(x1, y1, x2, y2);
-    rect3->SetFillColorAlpha(kRed, opacity);
-    hist->GetListOfFunctions()->Add(rect3);
-    x1 = 70.0;
-    y1 = -167.46;
-    x2 = -30.2;
-    y2 = -114.54;
-    TBox *rect4 = new TBox(x1, y1, x2, y2);
-    rect4->SetFillColorAlpha(kRed, opacity);
-    hist->GetListOfFunctions()->Add(rect4);
-    x1 = 62.5;
-    y1 = 44.14;
-    x2 = -37.7;
-    y2 = 97.50;
-    TBox *rect5 = new TBox(x1, y1, x2, y2);
-    rect5->SetFillColorAlpha(kRed, opacity);
-    hist->GetListOfFunctions()->Add(rect5);
-    x1 = 70.0;
-    y1 = 97.50;
-    x2 = -30.2;
-    y2 = 150.0;
-    TBox *rect6 = new TBox(x1, y1, x2, y2);
-    rect6->SetFillColorAlpha(kRed, opacity);
-    hist->GetListOfFunctions()->Add(rect6);
+
+    //x1 = 55.0;
+    //y1 = -8.74;
+    //x2 = -45.2;
+    //y2 = 44.14;
+    //TBox *rect2 = new TBox(x1, y1, x2, y2);
+    //rect2->SetFillColorAlpha(kRed, opacity);
+    //hist->GetListOfFunctions()->Add(rect2);
+//
+    //x1 = 62.5;
+    //y1 = -114.54;
+    //x2 = -37.7;
+    //y2 = -61.62;
+    //TBox *rect3 = new TBox(x1, y1, x2, y2);
+    //rect3->SetFillColorAlpha(kRed, opacity);
+    //hist->GetListOfFunctions()->Add(rect3);
+//
+    //x1 = 70.0;
+    //y1 = -167.46;
+    //x2 = -30.2;
+    //y2 = -114.54;
+    //TBox *rect4 = new TBox(x1, y1, x2, y2);
+    //rect4->SetFillColorAlpha(kRed, opacity);
+    //hist->GetListOfFunctions()->Add(rect4);
+//
+    //x1 = 62.5;
+    //y1 = 44.14;
+    //x2 = -37.7;
+    //y2 = 97.50;
+    //TBox *rect5 = new TBox(x1, y1, x2, y2);
+    //rect5->SetFillColorAlpha(kRed, opacity);
+    //hist->GetListOfFunctions()->Add(rect5);
+//
+    //x1 = 70.0;
+    //y1 = 97.50;
+    //x2 = -30.2;
+    //y2 = 150.0;
+    //TBox *rect6 = new TBox(x1, y1, x2, y2);
+    //rect6->SetFillColorAlpha(kRed, opacity);
+    //hist->GetListOfFunctions()->Add(rect6);
+
 
 }
 
@@ -1256,12 +1262,12 @@ TCanvas* plotC3(){
 
 	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
 
-	auto hDetectorNhits = v[0].Histo1D("Detector_Nhits");
+	auto hDetectorNhits = v[0].Histo1D({"h1", "Detector_Nhits", 100, 0, 100.0},"Detector_Nhits");
 	auto hFingerPdg = v[0].Histo1D("fingerPDG");
 	auto hFingerID = v[0].Histo1D("fingerID");
-	auto hFingerEdep = v[0].Histo1D("fingerEd");
+	auto hFingerEdep = v[0].Histo1D({"h1", "fingerEd", 100, 0, 6.0},"fingerEd");
 	auto hFingerPMTID = v[0].Histo1D("fingerPMTID");
-	auto hFingerPMTTime = v[0].Histo1D({"h1","Finger PMT Time", 100, -1.1, 4.0},"fingerPMTTime");
+	auto hFingerPMTTime = v[0].Histo1D({"h1","Finger PMT Time", 100, 0, 10.0},"fingerPMTTime");
 
 	TCanvas *c3 = new TCanvas("c3","c3",800,800);
 	c3->Divide(2,3,0.01,0.01,0);
@@ -1311,8 +1317,8 @@ TCanvas* plotC4(){
 
 	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
 
-	auto hFingerEd = v[0].Histo1D({"h1","Finger EDep",100,-1.0,10.0},"fingerEd");
-	auto hFingerPMTNphot = v[0].Histo1D({"h1","Finger Npe",100,-250.0,1000.0},"fingerPMTNPhotons");
+	auto hFingerEd = v[0].Histo1D({"h1","Finger EDep",100,-1.0,6.0},"fingerEd");
+	auto hFingerPMTNphot = v[0].Histo1D({"h1","Finger Npe",100,-10.0,200.0},"fingerPMTNPhotons");
 
 	TCanvas *c4 = new TCanvas("c4","c4",800,800);
 
@@ -1320,7 +1326,7 @@ TCanvas* plotC4(){
 	TPad *pad1 = new TPad("pad1","pad1",0.01,0.01,0.50,0.99);
 	pad1->Draw();
 	pad1->cd();
-	hFingerEd->GetXaxis()->SetRangeUser(-1.0,4.0);
+	hFingerEd->GetXaxis()->SetRangeUser(-1.0,6.0);
 	hFingerEd->Draw();
 
 	c4->cd();
@@ -1341,7 +1347,7 @@ TCanvas* plotC7(){
 
 	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
 
-	auto hFinger_Edep_vs_Nphot = v[0].Filter("trigger2").Histo2D({"h3", "Finger Edep vs Nphot", 100, 0.01, 500.0, 100, 0.01, 4.0},"fingerPMTNPhotons","fingerEd");
+	auto hFinger_Edep_vs_Nphot = v[0].Filter("trigger2").Histo2D({"h3", "Finger Edep vs Nphot", 100, 0.01, 250.0, 100, 0.01, 6.0},"fingerPMTNPhotons","fingerEd");
 
 	TCanvas *c7 = new TCanvas("c7","c7",800,800);
 	c7->Divide(2,1,0.01,0.01,0);
@@ -1363,7 +1369,7 @@ TCanvas* plotC8(){
 
 	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
 
-	auto hFinger_Edep_vs_NphotCut = v[0].Filter("trigger3").Histo2D({"h3", "Finger Edep vs Nphot", 100, 0.01, 500.0, 100, 0.01, 10.0},"fingerPMTNPhotons","fingerEd");
+	auto hFinger_Edep_vs_NphotCut = v[0].Filter("trigger3").Histo2D({"h3", "Finger Edep vs Nphot", 100, 0.01, 150.0, 100, 0.01, 7.0},"fingerPMTNPhotons","fingerEd");
 
 	TCanvas *c8 = new TCanvas("c8","c8",800,800);
 	c8->Divide(1,2,0.01,0.01,0);
@@ -1386,9 +1392,9 @@ TCanvas* plotC12(){
 
 	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
 
-	auto hPrimPx = v[0].Histo1D("fPx");
+	auto hPrimPx = v[0].Histo1D({"h1", "fPx", 100, -10000, 10000},"fPx");
 	auto hPrimPy = v[0].Histo1D("fPy");
-	auto hPrimPz = v[0].Histo1D("fPz");
+	auto hPrimPz = v[0].Histo1D({"h1", "fPx", 100, -10000, 10000},"fPz");
 
 	TCanvas *c12 = new TCanvas("c12","c12",800,800);
 	c12->Divide(2,2,0.01,0.01,0);
@@ -1412,7 +1418,7 @@ TCanvas* plotC13() {
 
 	//RNode fdft = AnalyseSignalsRDataFrameNoKE(global_run_number);
 
-	auto hPrimXZ = v[0].Histo2D({"h99", "G4SBS z vs x", 100, -80.0, 80.0, 100, -80.0, 80.0},"Prim_X","Prim_Z");
+	auto hPrimXZ = v[0].Histo2D({"h99", "G4SBS z vs x", 100, -40.0, 40.0, 100, -40.0, 40.0},"Prim_X","Prim_Z");
 
 
 
@@ -1435,7 +1441,7 @@ TCanvas* plotC14(){
 	auto hPrimX = v[0].Histo1D("Prim_X");
 	auto hPrimY = v[0].Histo1D("Prim_Y");
 	auto hPrimZ = v[0].Histo1D("Prim_Z");
-	auto hPrimXZ = v[0].Histo2D({"h99", "z vs z", 100, -80.0, 80.0, 100, -80.0, 80.0},"Prim_X","Prim_Z");
+	auto hPrimXZ = v[0].Histo2D({"h99", "z vs z", 100, -40.0, 40.0, 100, -40.0, 40.0},"Prim_X","Prim_Z");
 	
 	TCanvas *c14 = new TCanvas("c14","c14",800,800);
 	c14->Divide(2,2,0.01,0.01,0);

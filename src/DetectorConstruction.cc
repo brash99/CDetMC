@@ -837,10 +837,6 @@ LightGuideBottomRightA = new G4PVPlacement(0, LightGuide_posBottomRightA , logic
 //╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃
 //╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯
 
-  //---------------------------------------------------------------------------
-  // Create Finger PMT
-  //---------------------------------------------------------------------------
-// TODO 
   G4RotationMatrix* finger_rm  = new G4RotationMatrix();
   finger_rm->rotateX(0. *deg);
   

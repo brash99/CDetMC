@@ -38,7 +38,7 @@
 
 #/vis/open
 /vis/drawVolume
-/vis/viewer/zoom 20
+/vis/viewer/zoom 10
 /vis/viewer/set/viewpointThetaPhi 70 20
 
 /vis/scene/add/trajectories rich
