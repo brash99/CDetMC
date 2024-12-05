@@ -1,0 +1,874 @@
+.
+├── AnaBarMC
+├── AnaBarMC.cc
+├── AnaBarMC.cc.interactive
+├── AnaBarMC.cc.jlab
+├── analysis
+│   ├── absorption_wls.dat
+│   ├── AddNoise.C
+│   ├── Analyse_Generator.ipynb
+│   ├── AnalyseSignals.C
+│   ├── AnalyseSignalsRDataFrame.C
+│   ├── AnalyseSignalsRDataFrame.ipynb
+│   ├── AnalyseSignalsRDataFrameNoKE.C
+│   ├── AnalyseSignalsRDataFrameNoKECompare.C
+│   ├── AnalyseSignalsRDataFrameNoKECompareHeaders.ipynb
+│   ├── AnalyseSignalsRDataFrameNoKECompare.ipynb
+│   ├── AnalyseSignalsRDataFrameNoKECompare.py
+│   ├── AnalyseSignalsRDataFrameNoKE.h
+│   ├── AnalyseSignalsRDataFrameNoKEHeaders.ipynb
+│   ├── AnalyseSignalsRDataFrameNoKE.ipynb
+│   ├── AnalyseSignalsRDataFrameNoKE.py
+│   ├── AnalyseSignalsThreshold.C
+│   ├── AnalyseSignalsTrigger.C
+│   ├── ChiSquareTest.C
+│   ├── CompareSimData.C
+│   ├── data -> ../data/
+│   ├── emission_scint.dat
+│   ├── emission_wls.dat
+│   ├── env_test.py
+│   ├── EventDisplay2.C
+│   ├── EventDisplay2_Nandhu.C
+│   ├── EventDisplay2Noise.C
+│   ├── EventDisplay_Orig.C
+│   ├── EventDisplayWithNoise.jpg
+│   ├── FitADCSimBrash2.C
+│   ├── FitADCSimBrash3.C
+│   ├── FitADCSimBrash.C
+│   ├── FitADCSim.C
+│   ├── GenCosmics.C
+│   ├── GenCosmics_single.C
+│   ├── GenNeutrons.C
+│   ├── GenPositivePion.C
+│   ├── julia_test.ipynb
+│   ├── langaus.C
+│   ├── Luter345.C
+│   ├── Luter345.ipynb
+│   ├── Luter345.py
+│   ├── meanNumPhotonRatios
+│   ├── meanNumPhotVsDetPos
+│   ├── meanNumPhotVsDetPos_NM
+│   ├── noise_removal_test.C
+│   ├── noise_removal_test_single.C
+│   ├── PlotDoseL.C
+│   ├── PlotMeanNumPhotonRatios.C
+│   ├── PlotMeanNumPhotons.C
+│   ├── PlotMeanPE_Normalized.C
+│   ├── plots
+│   │   ├── c11RA.pdf
+│   │   ├── c12.pdf
+│   │   ├── c12RA.pdf
+│   │   ├── c13.pdf
+│   │   ├── c13RA.pdf
+│   │   ├── c14.pdf
+│   │   ├── c14RA.pdf
+│   │   ├── c15.pdf
+│   │   ├── c16.pdf
+│   │   ├── c1.pdf
+│   │   ├── c1RA.pdf
+│   │   ├── c2RA.pdf
+│   │   ├── c33.pdf
+│   │   ├── c33RA.pdf
+│   │   ├── c34.pdf
+│   │   ├── c3RA.pdf
+│   │   ├── c4RA.pdf
+│   │   ├── c5RA.pdf
+│   │   ├── c6RA.pdf
+│   │   ├── c7RA.pdf
+│   │   └── c8RA.pdf
+│   ├── timer.py
+│   ├── timing_calibration.csv
+│   ├── timing_calibration.ipynb
+│   └── timing_calibration_mintime.csv
+├── batch
+│   ├── AnaBarMCLocal.sh
+│   ├── AnaBarNeutronAngelo.sh
+│   ├── AnaBarNeutronJLab.sh
+│   ├── AnaBarNeutronMacOS.sh
+│   ├── AnaBarNeutron.sh
+│   ├── AnaBarNeutron.sh.jlabdaq
+│   ├── AnaBarNeutron.sh.PBS
+│   ├── AnaBarNeutron.sh.Ubuntu
+│   ├── AnaBarNeutronUbuntu.sh
+│   ├── data
+│   │   ├── AnaBarMC_Gen_7001.root
+│   │   ├── AnaBarMC_Gen_7002.root
+│   │   ├── AnaBarMC_Gen_7003.root
+│   │   ├── AnaBarMC_Gen_7004.root
+│   │   ├── AnaBarMC_Gen_7005.root
+│   │   ├── AnaBarMC_Gen_7006.root
+│   │   ├── AnaBarMC_Gen_7007.root
+│   │   ├── AnaBarMC_Gen_7008.root
+│   │   ├── AnaBarMC_Gen_7009.root
+│   │   ├── AnaBarMC_Gen_7010.root
+│   │   ├── AnaBarMC_Gen_7011.root
+│   │   ├── AnaBarMC_Gen_7012.root
+│   │   ├── AnaBarMC_Gen_7013.root
+│   │   ├── AnaBarMC_Gen_7014.root
+│   │   ├── AnaBarMC_Gen_7015.root
+│   │   ├── AnaBarMC_Gen_7016.root
+│   │   ├── AnaBarMC_Gen_7017.root
+│   │   ├── AnaBarMC_Gen_7018.root
+│   │   ├── AnaBarMC_Gen_7019.root
+│   │   ├── AnaBarMC_Gen_7020.root
+│   │   ├── AnaBarMC_Gen_7021.root
+│   │   ├── AnaBarMC_Gen_7022.root
+│   │   ├── AnaBarMC_Gen_7023.root
+│   │   ├── AnaBarMC_Gen_7024.root
+│   │   ├── AnaBarMC_Gen_7025.root
+│   │   ├── AnaBarMC_Gen_7026.root
+│   │   ├── AnaBarMC_Gen_7027.root
+│   │   ├── AnaBarMC_Gen_7028.root
+│   │   ├── AnaBarMC_Gen_7029.root
+│   │   ├── AnaBarMC_Gen_7030.root
+│   │   ├── AnaBarMC_Gen_7031.root
+│   │   ├── AnaBarMC_Gen_7032.root
+│   │   ├── AnaBarMC_Gen_7033.root
+│   │   ├── AnaBarMC_Gen_7034.root
+│   │   ├── AnaBarMC_Gen_7035.root
+│   │   ├── AnaBarMC_Gen_7036.root
+│   │   ├── AnaBarMC_Gen_7037.root
+│   │   ├── AnaBarMC_Gen_7038.root
+│   │   ├── AnaBarMC_Gen_7039.root
+│   │   ├── AnaBarMC_Gen_7040.root
+│   │   ├── AnaBarMC_Gen_7041.root
+│   │   ├── AnaBarMC_Gen_7042.root
+│   │   ├── AnaBarMC_Gen_7043.root
+│   │   ├── AnaBarMC_Gen_7044.root
+│   │   ├── AnaBarMC_Gen_7045.root
+│   │   ├── AnaBarMC_Gen_7046.root
+│   │   ├── AnaBarMC_Gen_7047.root
+│   │   ├── AnaBarMC_Gen_7048.root
+│   │   ├── AnaBarMC_Gen_7049.root
+│   │   ├── AnaBarMC_Gen_7050.root
+│   │   ├── AnaBarMC_Gen_7051.root
+│   │   ├── AnaBarMC_Gen_7052.root
+│   │   ├── AnaBarMC_Gen_7053.root
+│   │   ├── AnaBarMC_Gen_7054.root
+│   │   ├── AnaBarMC_Gen_7055.root
+│   │   ├── AnaBarMC_Gen_7056.root
+│   │   ├── AnaBarMC_Gen_7057.root
+│   │   ├── AnaBarMC_Gen_7058.root
+│   │   ├── AnaBarMC_Gen_7059.root
+│   │   ├── AnaBarMC_Gen_7060.root
+│   │   ├── AnaBarMC_Gen_7061.root
+│   │   ├── AnaBarMC_Gen_7062.root
+│   │   ├── AnaBarMC_Gen_7063.root
+│   │   ├── AnaBarMC_Gen_7064.root
+│   │   ├── AnaBarMC_Gen_7065.root
+│   │   ├── AnaBarMC_Gen_7066.root
+│   │   ├── AnaBarMC_Gen_7067.root
+│   │   ├── AnaBarMC_Gen_7068.root
+│   │   ├── AnaBarMC_Gen_7069.root
+│   │   ├── AnaBarMC_Gen_7070.root
+│   │   ├── AnaBarMC_Gen_7071.root
+│   │   ├── AnaBarMC_Gen_7072.root
+│   │   ├── AnaBarMC_Gen_7073.root
+│   │   ├── AnaBarMC_Gen_7074.root
+│   │   ├── AnaBarMC_Gen_7075.root
+│   │   ├── AnaBarMC_Gen_7076.root
+│   │   ├── AnaBarMC_Gen_7077.root
+│   │   ├── AnaBarMC_Gen_7078.root
+│   │   ├── AnaBarMC_Gen_7079.root
+│   │   ├── AnaBarMC_Gen_7080.root
+│   │   ├── AnaBarMC_Gen_7081.root
+│   │   ├── AnaBarMC_Gen_7082.root
+│   │   ├── AnaBarMC_Gen_7083.root
+│   │   ├── AnaBarMC_Gen_7084.root
+│   │   ├── AnaBarMC_Gen_7085.root
+│   │   ├── AnaBarMC_Gen_7086.root
+│   │   ├── AnaBarMC_Gen_7087.root
+│   │   ├── AnaBarMC_Gen_7088.root
+│   │   ├── AnaBarMC_Gen_7089.root
+│   │   ├── AnaBarMC_Gen_7090.root
+│   │   ├── AnaBarMC_Gen_7091.root
+│   │   ├── AnaBarMC_Gen_7092.root
+│   │   ├── AnaBarMC_Gen_7093.root
+│   │   ├── AnaBarMC_Gen_7094.root
+│   │   ├── AnaBarMC_Gen_7095.root
+│   │   ├── AnaBarMC_Gen_7096.root
+│   │   ├── AnaBarMC_Gen_7097.root
+│   │   ├── AnaBarMC_Gen_7098.root
+│   │   ├── AnaBarMC_Gen_7099.root
+│   │   ├── AnaBarMC_Gen_7100.root
+│   │   └── README_Data
+│   ├── GenCosmics.C
+│   ├── generate
+│   ├── generate_80.C
+│   ├── generate_neutrontest.C
+│   ├── generate_newtest.C
+│   ├── generate_smalltest.C
+│   ├── generate_test2.C
+│   ├── generate_test.C
+│   ├── GenNeutrons.C
+│   ├── GenParticlesAngelo.C
+│   ├── GenParticles.C
+│   ├── GenParticles_C.d
+│   ├── GenParticlesMacOS.C
+│   ├── jobcount
+│   ├── macros
+│   │   ├── DetectorSetup.mac
+│   │   ├── gps-op-emission-CUA-2022-2_1.mac
+│   │   ├── gps-op-emission-Cube-10-1.mac
+│   │   ├── gps-op-emission-Cube-4-1.mac
+│   │   ├── gps-op-emission-Cube-6-1.mac
+│   │   ├── gps-op-emission-Cube-9-1.mac
+│   │   ├── gps-op-emission-PWO-CRYTUR.mac
+│   │   ├── gps-op-emission-PWO-SICCAS.mac
+│   │   ├── gps-op-emission-SciGlass-4-1-L.mac
+│   │   ├── gps-op-emission-SciGlass-A.mac
+│   │   └── vis.mac
+│   ├── NPSRatesMC.sh
+│   ├── rootfiles
+│   │   └── README_rootfiles
+│   ├── runlist_test
+│   ├── sendjobsangelo.sh
+│   ├── sendjobsjlab_interactive_test.sh
+│   ├── sendjobsjlab.sh
+│   ├── sendjobsmacos.sh
+│   ├── sendjobs.sh
+│   ├── sendjobsubuntu.sh
+│   ├── slurm-2405.out
+│   ├── slurm-2406.out
+│   ├── slurm-2407.out
+│   ├── slurm-2408.out
+│   ├── slurm-2409.out
+│   ├── slurm-2410.out
+│   ├── slurm-2411.out
+│   ├── slurm-2412.out
+│   ├── slurm-2413.out
+│   ├── slurm-2414.out
+│   ├── slurm-2415.out
+│   ├── slurm-2416.out
+│   ├── slurm-2417.out
+│   ├── slurm-2418.out
+│   ├── slurm-2419.out
+│   ├── slurm-2420.out
+│   ├── slurm-2421.out
+│   ├── slurm-2422.out
+│   ├── slurm-2423.out
+│   ├── slurm-2424.out
+│   ├── slurm-2425.out
+│   ├── slurm-2426.out
+│   ├── slurm-2427.out
+│   ├── slurm-2428.out
+│   ├── slurm-2429.out
+│   ├── slurm-2430.out
+│   ├── slurm-2431.out
+│   ├── slurm-2432.out
+│   ├── slurm-2433.out
+│   ├── slurm-2434.out
+│   ├── slurm-2435.out
+│   ├── slurm-2436.out
+│   ├── slurm-2437.out
+│   ├── slurm-2438.out
+│   ├── slurm-2439.out
+│   ├── slurm-2440.out
+│   ├── slurm-2441.out
+│   ├── slurm-2442.out
+│   ├── slurm-2443.out
+│   ├── slurm-2444.out
+│   ├── slurm-2445.out
+│   ├── slurm-2446.out
+│   ├── slurm-2447.out
+│   ├── slurm-2448.out
+│   ├── slurm-2449.out
+│   ├── slurm-2450.out
+│   ├── slurm-2451.out
+│   ├── slurm-2452.out
+│   ├── slurm-2453.out
+│   ├── slurm-2454.out
+│   ├── slurm-2455.out
+│   ├── slurm-2456.out
+│   ├── slurm-2457.out
+│   ├── slurm-2458.out
+│   ├── slurm-2459.out
+│   ├── slurm-2460.out
+│   ├── slurm-2461.out
+│   ├── slurm-2462.out
+│   ├── slurm-2463.out
+│   ├── slurm-2464.out
+│   ├── slurm-2465.out
+│   ├── slurm-2466.out
+│   ├── slurm-2467.out
+│   ├── slurm-2468.out
+│   ├── slurm-2469.out
+│   ├── slurm-2470.out
+│   ├── slurm-2471.out
+│   ├── slurm-2472.out
+│   ├── slurm-2473.out
+│   ├── slurm-2474.out
+│   ├── slurm-2475.out
+│   ├── slurm-2476.out
+│   ├── slurm-2477.out
+│   ├── slurm-2478.out
+│   ├── slurm-2479.out
+│   ├── slurm-2480.out
+│   ├── slurm-2481.out
+│   ├── slurm-2482.out
+│   ├── slurm-2483.out
+│   ├── slurm-2484.out
+│   ├── slurm-2485.out
+│   ├── slurm-2486.out
+│   ├── slurm-2487.out
+│   ├── slurm-2488.out
+│   ├── slurm-2489.out
+│   ├── slurm-2490.out
+│   ├── slurm-2491.out
+│   ├── slurm-2492.out
+│   ├── slurm-2493.out
+│   ├── slurm-2494.out
+│   ├── slurm-2495.out
+│   ├── slurm-2496.out
+│   ├── slurm-2497.out
+│   ├── slurm-2498.out
+│   ├── slurm-2499.out
+│   ├── slurm-2500.out
+│   ├── slurm-2501.out
+│   ├── slurm-2502.out
+│   ├── slurm-2503.out
+│   ├── slurm-2504.out
+│   ├── slurm-2505.out
+│   ├── slurm-2506.out
+│   ├── slurm-2507.out
+│   ├── slurm-2508.out
+│   ├── slurm-2509.out
+│   ├── slurm-2510.out
+│   ├── slurm-2511.out
+│   ├── slurm-2512.out
+│   ├── slurm-2513.out
+│   ├── slurm-2514.out
+│   ├── slurm-2515.out
+│   ├── slurm-2516.out
+│   ├── slurm-2517.out
+│   ├── slurm-2518.out
+│   ├── slurm-2519.out
+│   ├── slurm-2520.out
+│   ├── slurm-2521.out
+│   ├── slurm-2522.out
+│   ├── slurm-2523.out
+│   ├── slurm-2524.out
+│   ├── slurm-2525.out
+│   ├── slurm-2526.out
+│   ├── slurm-2527.out
+│   ├── slurm-2528.out
+│   ├── slurm-2529.out
+│   ├── slurm-2530.out
+│   ├── slurm-2531.out
+│   ├── slurm-2532.out
+│   ├── slurm-2533.out
+│   ├── slurm-2534.out
+│   ├── slurm-2535.out
+│   ├── slurm-2536.out
+│   ├── slurm-2537.out
+│   ├── slurm-2538.out
+│   ├── slurm-2539.out
+│   ├── slurm-2540.out
+│   ├── slurm-2541.out
+│   ├── slurm-2542.out
+│   ├── slurm-2543.out
+│   ├── slurm-2544.out
+│   ├── slurm-2545.out
+│   ├── slurm-2546.out
+│   ├── slurm-2547.out
+│   ├── slurm-2548.out
+│   ├── slurm-2549.out
+│   ├── slurm-2550.out
+│   ├── slurm-2551.out
+│   ├── slurm-2552.out
+│   ├── slurm-2553.out
+│   ├── slurm-2554.out
+│   ├── slurm-2555.out
+│   ├── slurm-2556.out
+│   ├── slurm-2557.out
+│   ├── slurm-2558.out
+│   ├── slurm-2559.out
+│   ├── slurm-2560.out
+│   ├── slurm-2561.out
+│   ├── slurm-2562.out
+│   ├── slurm-2563.out
+│   ├── slurm-2564.out
+│   ├── slurm-2565.out
+│   ├── slurm-2566.out
+│   ├── slurm-2567.out
+│   ├── slurm-2568.out
+│   ├── slurm-2569.out
+│   ├── slurm-2570.out
+│   ├── slurm-2571.out
+│   ├── slurm-2572.out
+│   ├── slurm-2573.out
+│   ├── slurm-2574.out
+│   ├── slurm-2575.out
+│   ├── slurm-2576.out
+│   ├── slurm-2577.out
+│   ├── slurm-2578.out
+│   ├── slurm-2579.out
+│   └── slurm-2580.out
+├── CMakeCache.txt
+├── CMakeFiles
+│   ├── 3.26.5
+│   │   ├── CMakeCCompiler.cmake
+│   │   ├── CMakeCXXCompiler.cmake
+│   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   ├── CMakeSystem.cmake
+│   │   ├── CompilerIdC
+│   │   │   ├── a.out
+│   │   │   ├── CMakeCCompilerId.c
+│   │   │   └── tmp
+│   │   └── CompilerIdCXX
+│   │       ├── a.out
+│   │       ├── CMakeCXXCompilerId.cpp
+│   │       └── tmp
+│   ├── AnaBarMC.dir
+│   │   ├── AnaBarMC.cc.o
+│   │   ├── AnaBarMC.cc.o.d
+│   │   ├── build.make
+│   │   ├── cmake_clean.cmake
+│   │   ├── compiler_depend.internal
+│   │   ├── compiler_depend.make
+│   │   ├── compiler_depend.ts
+│   │   ├── DependInfo.cmake
+│   │   ├── depend.make
+│   │   ├── flags.make
+│   │   ├── link.txt
+│   │   ├── progress.make
+│   │   └── src
+│   │       ├── AnalysisManager.cc.o
+│   │       ├── AnalysisManager.cc.o.d
+│   │       ├── AnalysisMessenger.cc.o
+│   │       ├── AnalysisMessenger.cc.o.d
+│   │       ├── DetectorConstruction.cc.o
+│   │       ├── DetectorConstruction.cc.o.d
+│   │       ├── DetectorHit.cc.o
+│   │       ├── DetectorHit.cc.o.d
+│   │       ├── DetectorMessenger.cc.o
+│   │       ├── DetectorMessenger.cc.o.d
+│   │       ├── DetectorSD.cc.o
+│   │       ├── DetectorSD.cc.o.d
+│   │       ├── EventAction.cc.o
+│   │       ├── EventAction.cc.o.d
+│   │       ├── PhysicsList.cc.o
+│   │       ├── PhysicsList.cc.o.d
+│   │       ├── PhysicsListMessenger.cc.o
+│   │       ├── PhysicsListMessenger.cc.o.d
+│   │       ├── PMTHit.cc.o
+│   │       ├── PMTHit.cc.o.d
+│   │       ├── PMTSD.cc.o
+│   │       ├── PMTSD.cc.o.d
+│   │       ├── PrimaryGeneratorAction.cc.o
+│   │       ├── PrimaryGeneratorAction.cc.o.d
+│   │       ├── PrimaryGeneratorMessenger.cc.o
+│   │       ├── PrimaryGeneratorMessenger.cc.o.d
+│   │       ├── SteppingAction.cc.o
+│   │       ├── SteppingAction.cc.o.d
+│   │       ├── WLSMaterials.cc.o
+│   │       └── WLSMaterials.cc.o.d
+│   ├── cleanup.dir
+│   │   ├── build.make
+│   │   ├── cmake_clean.cmake
+│   │   ├── compiler_depend.make
+│   │   ├── compiler_depend.ts
+│   │   ├── DependInfo.cmake
+│   │   └── progress.make
+│   ├── cmake.check_cache
+│   ├── CMakeConfigureLog.yaml
+│   ├── CMakeDirectoryInformation.cmake
+│   ├── CMakeRuleHashes.txt
+│   ├── CMakeScratch
+│   ├── Makefile2
+│   ├── Makefile.cmake
+│   ├── pkgRedirects
+│   ├── progress.marks
+│   └── TargetDirectories.txt
+├── cmake_install.cmake
+├── CMakeLists.txt
+├── CMakeLists.txt.original
+├── data
+│   ├── addroot
+│   ├── add_script3
+│   ├── add_script4
+│   ├── add_script5
+│   ├── add_script_smalltest
+│   ├── add_script_smalltest2
+│   ├── add_script_tanner
+│   ├── AnaBarMC_7001.root
+│   ├── AnaBarMC_7002.root
+│   ├── AnaBarMC_7003.root
+│   ├── AnaBarMC_7004.root
+│   ├── AnaBarMC_7005.root
+│   ├── AnaBarMC_7006.root
+│   ├── AnaBarMC_7007.root
+│   ├── AnaBarMC_7008.root
+│   ├── AnaBarMC_7009.root
+│   ├── AnaBarMC_7010.root
+│   ├── AnaBarMC_7011.root
+│   ├── AnaBarMC_7012.root
+│   ├── AnaBarMC_7013.root
+│   ├── AnaBarMC_7014.root
+│   ├── AnaBarMC_7015.root
+│   ├── AnaBarMC_7016.root
+│   ├── AnaBarMC_7017.root
+│   ├── AnaBarMC_7018.root
+│   ├── AnaBarMC_7019.root
+│   ├── AnaBarMC_7020.root
+│   ├── AnaBarMC_7021.root
+│   ├── AnaBarMC_7022.root
+│   ├── AnaBarMC_7023.root
+│   ├── AnaBarMC_7024.root
+│   ├── AnaBarMC_7025.root
+│   ├── AnaBarMC_7026.root
+│   ├── AnaBarMC_7027.root
+│   ├── AnaBarMC_7028.root
+│   ├── AnaBarMC_7029.root
+│   ├── AnaBarMC_7030.root
+│   ├── AnaBarMC_7031.root
+│   ├── AnaBarMC_7032.root
+│   ├── AnaBarMC_7033.root
+│   ├── AnaBarMC_7034.root
+│   ├── AnaBarMC_7035.root
+│   ├── AnaBarMC_7036.root
+│   ├── AnaBarMC_7037.root
+│   ├── AnaBarMC_7038.root
+│   ├── AnaBarMC_7039.root
+│   ├── AnaBarMC_7040.root
+│   ├── AnaBarMC_7041.root
+│   ├── AnaBarMC_7042.root
+│   ├── AnaBarMC_7043.root
+│   ├── AnaBarMC_7044.root
+│   ├── AnaBarMC_7777.root
+│   ├── G4_vis.root
+│   ├── Gen_test1.root
+│   ├── getcnu
+│   ├── getfarm
+│   └── README_data
+├── detector_elements
+│   ├── Elements.cc
+│   ├── Elements.hh
+│   ├── Materials.cc
+│   └── Materials.hh
+├── Documents
+│   ├── 2023.02.28 CURRENTL CDET INSTALL SETUP.jpg
+│   ├── Capstone_Final_Report_Angelo_Rosso_2023.pdf
+│   ├── GEp layout CDET LOCATION.pdf
+│   ├── Pages from CD_prototype.pdf
+│   ├── Parker Summer 2016 - AJSrev.pdf
+│   ├── SBS-CDET images.pptx
+│   ├── Talk5-Monaghan-WBS2-CDET[1].pdf
+│   └── Thesis_Lydia_Lorenti.pdf
+├── g4tsg_offscreen_zb_png_1.png
+├── generate_single_visual.sh
+├── GNUmakefile
+├── GNUmakefile_original
+├── include
+│   ├── AnalysisManager.hh
+│   ├── AnalysisMessenger.hh
+│   ├── DetectorConstruction.hh
+│   ├── DetectorHit.hh
+│   ├── DetectorMessenger.hh
+│   ├── DetectorSD.hh
+│   ├── EventAction.hh
+│   ├── PhysicsList.hh
+│   ├── PhysicsListMessenger.hh
+│   ├── PMTHit.hh
+│   ├── PMTSD.hh
+│   ├── PolNucleonRotate.hh
+│   ├── PrimaryGeneratorAction.hh
+│   ├── PrimaryGeneratorMessenger.hh
+│   ├── SteppingAction.hh
+│   └── WLSMaterials.hh
+├── install_manifest.txt
+├── macros
+│   ├── batch.mac
+│   ├── DetectorSetup.mac
+│   ├── gep_12Gev1000.root
+│   ├── gep_12Gev100.root
+│   ├── gps-op-emission-CUA-2022-2_1.mac
+│   ├── gps-op-emission-Cube-10-1.mac
+│   ├── gps-op-emission-Cube-4-1.mac
+│   ├── gps-op-emission-Cube-6-1.mac
+│   ├── gps-op-emission-Cube-9-1.mac
+│   ├── gps-op-emission-PWO-CRYTUR.mac
+│   ├── gps-op-emission-PWO-SICCAS.mac
+│   ├── gps-op-emission-SciGlass-4-1-L.mac
+│   ├── gps-op-emission-SciGlass-A.mac
+│   ├── testing.py
+│   ├── test_w_mask_ejb.py
+│   ├── test_w_mask.py
+│   ├── ToyModel.ipynb
+│   ├── vis_100.mac
+│   ├── vis_50.mac
+│   ├── vis_angelo.mac
+│   ├── vis.mac
+│   └── vis_single.mac
+├── makeExecutables10
+├── makeExecutables11
+├── makeExecutablesCNU
+├── makeExecutablesJLab
+├── Makefile
+├── open_terminals
+├── open_terminals_jlab
+├── README.md
+├── rootfiles
+│   ├── 1277Threshholds_pmt_7
+│   ├── 1278_1313_thresholdcomparison
+│   ├── 1320_1322_thresholdcomparison
+│   ├── adc_fitresults.text
+│   ├── adcplot.C
+│   ├── carbon_chain.C
+│   ├── chain1.cc
+│   ├── chain_files.C
+│   ├── correction.C
+│   ├── debugplot.C
+│   ├── efficiency.txt
+│   ├── effplot_bool_pointer.C
+│   ├── effplot_bool_simple.C
+│   ├── effplot.C
+│   ├── effplot_ejb_bool.C
+│   ├── effplot_ejb.C
+│   ├── effplot_RM.C
+│   ├── hv-aver-values.dat
+│   ├── M1-L
+│   │   ├── M1L_tdcwidth_pmt10.dat
+│   │   ├── M1L_tdcwidth_pmt11.dat
+│   │   ├── M1L_tdcwidth_pmt12.dat
+│   │   ├── M1L_tdcwidth_pmt14.dat
+│   │   ├── M1L_tdcwidth_pmt1.dat
+│   │   ├── M1L_tdcwidth_pmt2.dat
+│   │   ├── M1L_tdcwidth_pmt3.dat
+│   │   ├── M1L_tdcwidth_pmt4.dat
+│   │   ├── M1L_tdcwidth_pmt5.dat
+│   │   ├── M1L_tdcwidth_pmt6.dat
+│   │   ├── M1L_tdcwidth_pmt7.dat
+│   │   ├── M1L_tdcwidth_pmt8.dat
+│   │   ├── M1L_tdcwidth_pmt9.dat
+│   │   ├── M1L_threshold_pmt10.dat
+│   │   ├── M1L_threshold_pmt11.dat
+│   │   ├── M1L_threshold_pmt12.dat
+│   │   ├── M1L_threshold_pmt14.dat
+│   │   ├── M1L_threshold_pmt1.dat
+│   │   ├── M1L_threshold_pmt2.dat
+│   │   ├── M1L_threshold_pmt3.dat
+│   │   ├── M1L_threshold_pmt4.dat
+│   │   ├── M1L_threshold_pmt5.dat
+│   │   ├── M1L_threshold_pmt6.dat
+│   │   ├── M1L_threshold_pmt7.dat
+│   │   ├── M1L_threshold_pmt8.dat
+│   │   ├── M1L_threshold_pmt9.dat
+│   │   ├── PMT10_adcmean_comparison.txt
+│   │   ├── PMT11_adcmean_comparison.txt
+│   │   ├── PMT12_adcmean_comparison.txt
+│   │   ├── PMT13_adcmean_comparison.txt
+│   │   ├── PMT14_adcmean_comparison.txt
+│   │   ├── PMT1_adcmean_comparison_set2.txt
+│   │   ├── PMT1_adcmean_comparison.txt
+│   │   ├── PMT2_adcmean_comparison.txt
+│   │   ├── PMT3_adcmean_comparison.txt
+│   │   ├── PMT4_adcmean_comparison.txt
+│   │   ├── PMT5_adcmean_comparison.txt
+│   │   ├── PMT6_adcmean_comparison.txt
+│   │   ├── PMT7_adcmean_comparison.txt
+│   │   ├── PMT8_adcmean_comparison.txt
+│   │   └── PMT9_adcmean_comparison.txt
+│   ├── M1-L_PMT12_adcmean.text
+│   ├──  M1-L_PMT3_ADCMean_comparison.txt
+│   ├── M1-R
+│   │   ├── adc_fitresults.text
+│   │   ├── M1-R_Cdet_Logbook.txt
+│   │   ├── M1R_tdcwidth_pmt10.dat
+│   │   ├── M1R_tdcwidth_pmt11.dat
+│   │   ├── M1R_tdcwidth_pmt12.dat
+│   │   ├── M1R_tdcwidth_pmt13.dat
+│   │   ├── M1R_tdcwidth_pmt14.dat
+│   │   ├── M1R_tdcwidth_pmt1.dat
+│   │   ├── M1R_tdcwidth_pmt2.dat
+│   │   ├── M1R_tdcwidth_pmt3.dat
+│   │   ├── M1R_tdcwidth_pmt4.dat
+│   │   ├── M1R_tdcwidth_pmt5.dat
+│   │   ├── M1R_tdcwidth_pmt6.dat
+│   │   ├── M1R_tdcwidth_pmt7.dat
+│   │   ├── M1R_tdcwidth_pmt8.dat
+│   │   ├── M1R_tdcwidth_pmt9.dat
+│   │   ├── M1R_threshold_pmt10.dat
+│   │   ├── M1R_threshold_pmt11.dat
+│   │   ├── M1R_threshold_pmt12.dat
+│   │   ├── M1R_threshold_pmt13.dat
+│   │   ├── M1R_threshold_pmt14.dat
+│   │   ├── M1R_threshold_pmt1.dat
+│   │   ├── M1R_threshold_pmt2.dat
+│   │   ├── M1R_threshold_pmt3.dat
+│   │   ├── M1R_threshold_pmt4.dat
+│   │   ├── M1R_threshold_pmt5.dat
+│   │   ├── M1R_threshold_pmt6.dat
+│   │   ├── M1R_threshold_pmt7.dat
+│   │   ├── M1R_threshold_pmt8.dat
+│   │   ├── M1R_threshold_pmt9.dat
+│   │   ├── PMT10_adcmean_comparison.txt
+│   │   ├── PMT11_adcmean_comparison.txt
+│   │   ├── PMT12_adcmean_comparison.txt
+│   │   ├── pmt1-2-meanadc-comparison.txt
+│   │   ├── PMT13_adcmean_comparison.txt
+│   │   ├── PMT14_adcmean_comparison.txt
+│   │   ├── PMT1_adcmean_comparison.txt
+│   │   ├── PMT1_adcmean_comparison_x2.txt
+│   │   ├── PMT2_adcmean_comparison.txt
+│   │   ├── PMT3_adcmean_comparison.txt
+│   │   ├── PMT4_adcmean_comparison.txt
+│   │   ├── PMT5_adcmean_comparison.txt
+│   │   ├── PMT6_adcmean_comparison.txt
+│   │   ├── PMT_7_Efficiency.dat
+│   │   ├── PMT8_adcmean_comparison.txt
+│   │   ├── PMT9_adcmean_comparision.txt
+│   │   └── PMT9_adcmean_comparison.txt
+│   ├── M1R_tdcwidth_pmt10.dat
+│   ├── M1R_tdcwidth_pmt11.dat
+│   ├── M1R_tdcwidth_pmt12.dat
+│   ├── M1R_tdcwidth_pmt13.dat
+│   ├── M1R_tdcwidth_pmt14.dat
+│   ├── M1R_tdcwidth_pmt1.dat
+│   ├── M1R_tdcwidth_pmt2.dat
+│   ├── M1R_tdcwidth_pmt3.dat
+│   ├── M1R_tdcwidth_pmt4.dat
+│   ├── M1R_tdcwidth_pmt5.dat
+│   ├── M1R_tdcwidth_pmt6.dat
+│   ├── M1R_tdcwidth_pmt7.dat
+│   ├── M1R_tdcwidth_pmt8.dat
+│   ├── M1R_tdcwidth_pmt9.dat
+│   ├── M1R_threshold_pmt10.dat
+│   ├── M1R_threshold_pmt11.dat
+│   ├── M1R_threshold_pmt12.dat
+│   ├── M1R_threshold_pmt13.dat
+│   ├── M1R_threshold_pmt14.dat
+│   ├── M1R_threshold_pmt1.dat
+│   ├── M1R_threshold_pmt2.dat
+│   ├── M1R_threshold_pmt3.dat
+│   ├── M1R_threshold_pmt4.dat
+│   ├── M1R_threshold_pmt5.dat
+│   ├── M1R_threshold_pmt6.dat
+│   ├── M1R_threshold_pmt7.dat
+│   ├── M1R_threshold_pmt8.dat
+│   ├── M1R_threshold_pmt9.dat
+│   ├── parkeranalyze.C
+│   ├── parkerinitialize.C
+│   ├── plot.C
+│   ├── plot.Cbackup
+│   ├── plotL.C
+│   ├── PMT10_adcmean_comparison.txt
+│   ├── PMT11_adcmean_comparison.txt
+│   ├── PMT12_adcmean_comparison.txt
+│   ├── PMT13_adcmean_comparison.txt
+│   ├── PMT14_adcmean_comparison.txt
+│   ├── pmt14-meanadc-comparison.txt
+│   ├── PMT1_adcmean_comparison.txt
+│   ├── PMT1_adcmean_comparison_x2.txt
+│   ├── PMT_1_Efficiency.dat
+│   ├── PMT2_adcmean_comparison.txt
+│   ├── PMT3_adcmean_comparison.txt
+│   ├── PMT_3_Efficiency-check.dat
+│   ├── PMT_3_Efficiency.dat
+│   ├── PMT4_adcmean_comparison.txt
+│   ├── PMT5_adcmean_comparison.txt
+│   ├── PMT_5_Efficiency.dat
+│   ├── PMT6_adcmean_comparison.txt
+│   ├── PMT_6_Efficiency.dat
+│   ├── PMT7_adcmean_comparison.txt
+│   ├── pmt7data
+│   ├── PMT_7_Efficiency.dat
+│   ├── PMT_7_Efficiency.txt
+│   ├── PMT8_adcmean_comparison.txt
+│   ├── PMT_8_Efficiency.dat
+│   ├── pmt9-adc-fitresults.txt
+│   ├── PMT9_adcmean_comparision.txt
+│   ├── PMT9_adcmean_comparison.txt
+│   ├── PMT_9_Efficiency.dat
+│   ├── README
+│   ├── run_1417_pmt_12_adc_fitresults.txt
+│   ├── run_1510_pmt_13_adc_fitresults.txt
+│   ├── run_1517_pmt_5_adc_fitresults.txt
+│   ├── run_1523_pmt_1_adc_fitresults.txt
+│   ├── run_1533_pmt_13_adc_fitresults.txt
+│   ├── run_1550_ADC_pmt_7_tdc_min_750_max_1050.png
+│   ├── run_1550_ADC_pmt_7_tdc_min_900_max_950.png
+│   ├── run_1550_pmt_7_adc_fitresults.txt
+│   ├── run_1550_TDC_pmt_7_adc_cut_15.png
+│   ├── run_1550_TDC_pmt_7_adc_cut_40.png
+│   ├── run_1550_TDC_pmt_7.png
+│   ├── scrap.C
+│   ├── scratch.C
+│   ├── tdcwidth_pmt7.dat
+│   ├── testtext.txt
+│   ├── thresh1.txt
+│   └── threshold_pmt7.dat
+├── runscripts
+│   ├── AutomateAngelo.sh
+│   ├── AutomateJLab.sh
+│   ├── Automate_local.sh
+│   ├── AutomateMacOS.sh
+│   ├── Automate.sh
+│   ├── Automate.sh.EJBSept8_Good
+│   ├── Automate.sh.jlabdaq
+│   ├── Automate.sh.Ubuntu
+│   ├── AutomateUbuntu.sh
+│   ├── batch -> ../batch/
+│   ├── checkjobs_jlab.sh
+│   ├── checkjobs.sh
+│   ├── checkprogress.sh
+│   ├── data -> ../data/
+│   ├── generate
+│   ├── generate_single
+│   ├── getGenRootFile
+│   ├── getRootFile
+│   ├── particlelist.sh
+│   ├── run_timing_calibration_batch
+│   ├── run_timing_calibration_batch_basic
+│   ├── run_timing_calibration_MacOS
+│   ├── run_timing_calibration_Ubuntu
+│   ├── sieve_points_jlab.sh
+│   ├── sieve_points.sh
+│   ├── sieve_points_ubuntu.sh
+│   ├── sieve_points_ubuntu_short_center.sh
+│   ├── sieve_points_ubuntu_short.sh
+│   ├── simulate
+│   ├── single_points_jlab.sh
+│   ├── single_points.sh
+│   ├── slurm_quick_summary.pdf
+│   └── src -> ../src/
+├── single_bar
+│   ├── AnalyseSignalsPyROOTCompare.ipynb
+│   ├── AnalyseSignalsPyROOT.ipynb
+│   ├── AnalyseSignalsPyROOT.py
+│   ├── AnalyseSignalsRDataFrameCompare.ipynb
+│   ├── AnalyseSignalsRDataFrameCompare.py
+│   └── AnalyseSignalsRDataFrame.py
+├── slurm_restart
+├── src
+│   ├── AnalysisManager.cc
+│   ├── AnalysisManager.cc.withKE
+│   ├── AnalysisMessenger.cc
+│   ├── DetectorConstruction.cc
+│   ├── DetectorConstruction.cc.10
+│   ├── DetectorConstruction.cc.11
+│   ├── DetectorHit.cc
+│   ├── DetectorMessenger.cc
+│   ├── DetectorSD.cc
+│   ├── EventAction.cc
+│   ├── PhysicsList.cc
+│   ├── PhysicsList.cc.10
+│   ├── PhysicsList.cc.11
+│   ├── PhysicsList.cc.Centos7
+│   ├── PhysicsList.cc.Centos8
+│   ├── PhysicsListMessenger.cc
+│   ├── PMTHit.cc
+│   ├── PMTSD.cc
+│   ├── PMTSD.cc.withKE
+│   ├── PrimaryGeneratorAction.cc
+│   ├── PrimaryGeneratorMessenger.cc
+│   ├── SteppingAction.cc
+│   ├── WLSMaterials.cc
+│   ├── WLSMaterials.cc.10
+│   └── WLSMaterials.cc.11
+├── steps.txt
+├── tree.txt
+└── update
+
+32 directories, 839 files
