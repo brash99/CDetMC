@@ -5,10 +5,14 @@ systemctl stop slurmctld.service
 ssh root@jlabvis1 systemctl stop slurmd.service
 ssh root@jlabvis2 systemctl stop slurmd.service
 ssh root@jlabdaq systemctl stop slurmd.service
+ssh root@jlabcoda systemctl stop slurmd.service
+ssh root@jlabcoda2 systemctl stop slurmd.service
 
 scp /usr/local/etc/slurm.conf root@jlabdaq:/usr/local/etc/.
 scp /usr/local/etc/slurm.conf root@jlabvis2:/usr/local/etc/.
 scp /usr/local/etc/slurm.conf root@jlabvis1:/usr/local/etc/.
+scp /usr/local/etc/slurm.conf root@jlabcoda:/usr/local/etc/.
+scp /usr/local/etc/slurm.conf root@jlabcoda2:/usr/local/etc/.
 
 systemctl start slurmctld.service 
 systemctl start slurmdbd.service 
@@ -16,3 +20,5 @@ systemctl start slurmd.service
 ssh root@jlabvis1 systemctl start slurmd.service
 ssh root@jlabvis2 systemctl start slurmd.service
 ssh root@jlabdaq systemctl start slurmd.service
+ssh root@jlabcoda systemctl start slurmd.service
+ssh root@jlabcoda2 systemctl start slurmd.service
