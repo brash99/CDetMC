@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export NODENAME=$1
+
+scontrol update NodeName=$NODENAME State=DOWN Reason="undraining"
+scontrol update NodeName=$NODENAME State=RESUME
+scontrol show node $NODENAME
