@@ -41,5 +41,5 @@ echo "****************** AnaBarMC Starting ..."
 echo "****************** AnaBarMC Finished!"
 
 cp    ${tempdir}/rootfiles/"AnaBarMC_$RUN_NUMBER.root"   ${OUTPUT_DIR}/
-#rm -f ${tempdir}/rootfiles/"AnaBarMC_$RUN_NUMBER.root"
-#rm -f $MCMACRO
+rm -f ${tempdir}/rootfiles/"AnaBarMC_$RUN_NUMBER.root"
+rm -f $MCMACRO
