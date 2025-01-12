@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd CDetMC
+
 rm -fr CMakeCache.txt CMakeFiles
 cmake -DCMAKE_INSTALL_PREFIX=$G4WORKDIR -DGeant4_DIR=$G4INSTALL/../../../lib/cmake/Geant4/ .
 
