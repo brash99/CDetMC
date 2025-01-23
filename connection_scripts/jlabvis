@@ -1,0 +1,10 @@
+#!/bin/sh
+s1port=5904
+
+s2port=5901
+s2user=brash
+s2machine=ifarm9.jlab.org
+
+echo 'ssh -L '${s1port}':localhost:'${s2port} ${s2user}'@'${s2machine}
+ssh -L ${s1port}:localhost:${s2port} ${s2user}@${s2machine}
+

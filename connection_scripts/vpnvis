@@ -1,0 +1,11 @@
+#!/bin/sh
+s1port=5902
+
+s2port=5901
+s2user=brash
+s2ip=10.126.1.101
+s2machine=jlabdaq
+
+echo 'ssh -L' ${s1port}':localhost:'${s2port} ${s2user}'@'${s2machine}
+ssh -L ${s1port}:localhost:${s2port} ${s2user}@${s2machine}
+

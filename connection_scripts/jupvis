@@ -1,0 +1,14 @@
+#!/bin/sh
+s1port=5900
+s1user=edward.brash
+s1ip=137.155.254.99
+s1machine=jlabaccess.cnu.edu
+
+s2port=5901
+s2user=brash
+s2ip=10.126.1.101
+s2machine=jlabdaq
+
+echo 'ssh -L '${s1port}':localhost:'${s2port}' '${s1user}'@'${s1machine}' -t ssh -L '${s2port}':locahost:8000 '${s2user}'@'${s2machine}
+ssh -L ${s1port}:localhost:${s2port} ${s1user}@${s1machine} -t ssh -L ${s2port}:localhost:8000 ${s2user}@${s2machine}
+
