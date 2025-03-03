@@ -1,7 +1,7 @@
 #!/bin/sh
-s1port=5904
+s1port=5959
 
-s2port=5901
+s2port=5902
 s2user=brash
 s2machine=ifarm9.jlab.org
 
