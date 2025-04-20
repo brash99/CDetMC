@@ -1,5 +1,5 @@
 #!/bin/sh
-s1port=5962
+s1port=5967
 
 s2port=5902
 s2user=brash
